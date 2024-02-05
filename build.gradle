@@ -73,6 +73,6 @@ project.ext {
     targetSdkVersion = 33
     minSdkVersion = 19
     versionCode = 6
-    versionName = "1.0.25"
+    versionName = "1.0.26"
     groupId = "com.payu.android.front.sdk"
 }

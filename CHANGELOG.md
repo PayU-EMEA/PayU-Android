@@ -1,3 +1,5 @@
+# 1.0.26
+
 # 1.0.25
 * Updated link to Terms
 * Updated PayU logo
