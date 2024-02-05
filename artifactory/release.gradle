@@ -65,10 +65,6 @@ publishing {
     }
 }
 
-
-
-
-
 artifactory {
     contextUrl = repositoryPath
 

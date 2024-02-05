@@ -1,0 +1,44 @@
+name: Build and release
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: "startsWith(github.event.head_commit.message, 'Release: ')"
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Java JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: 11
+      - name: Get app version
+        id: app_version
+        run: echo "APP_VERSION=$(./gradlew version --no-daemon --console=plain -q | tail -n 1)" >> $GITHUB_OUTPUT
+      - name: Check release with local version
+        if: "github.event.head_commit.message != format('Release: {0}', steps.app_version.outputs.APP_VERSION)"
+        run: |
+          echo 'Local version doesn't match commit version'
+          exit 1
+      - name: Run test
+        run: ./gradlew test
+      - name: Create release in artifactory
+        env:
+          REPOSITORY_USERNAME: ${{ secrets.REPOSITORY_USERNAME }}
+          REPOSITORY_PASSWORD: ${{ secrets.REPOSITORY_PASSWORD }}
+        run: |
+          ./gradlew clean
+          ./gradlew assembleRelease assembleReleaseUnitTest
+          ./gradlew artifactoryPublish \
+            -PrepositoryUserName=${{ env.REPOSITORY_USERNAME }} \
+            -PrepositoryPassword=${{ env.REPOSITORY_PASSWORD }}
+      - name: Create GH release
+        env:
+          APP_VERSION: ${{ steps.app_version.outputs.APP_VERSION }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create "v$APP_VERSION" \
+            -t "v$APP_VERSION" \
+            -n 'Check [CHANGELOG](./CHANGELOG.md)'
