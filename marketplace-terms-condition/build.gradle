@@ -1,0 +1,46 @@
+project.ext {
+    name = "marketplace-terms-condition"
+    fileExtension = "aar"
+}
+
+apply plugin: 'com.android.library'
+apply from: "../artifactory/release.gradle"
+apply plugin: 'kotlin-parcelize'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdk project.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion project.minSdkVersion
+        targetSdkVersion project.targetSdkVersion
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    namespace 'com.payu.android.front.sdk.marketplace_terms_condition'
+}
+
+dependencies {
+
+    implementation project(path: ':payment-library-core-android')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation "androidx.appcompat:appcompat:$project.appCompatVersion"
+    implementation "com.google.android.material:material:$project.materialVersion"
+    implementation "com.squareup.retrofit2:retrofit:$project.retrofit2Version"
+    implementation "com.squareup.retrofit2:converter-gson:$project.retrofit2Version"
+    implementation "androidx.constraintlayout:constraintlayout:$project.constraintLayoutVersion"
+
+}

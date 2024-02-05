@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application>
+        <activity
+            android:name=".payment_method.internal.ui.payment_method.view.PaymentMethodActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".payment_method.internal.ui.pay_by_link.view.PayByLinkChooserActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".payment_method.internal.ui.card.CreateAndSelectCardActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".payment_method.internal.ui.blik_ambiguity.view.BlikAmbiguityActivity"
+            android:screenOrientation="portrait" />
+    </application>
+
+</manifest>

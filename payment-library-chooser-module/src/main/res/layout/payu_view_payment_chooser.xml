@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.payu.android.front.sdk.payment_library_payment_chooser.payment_method.internal.ui.widget.SelectedPaymentMethodWidget
+            android:id="@+id/selected_payment_method_widget"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/payu_styles_widget_minimum_height"
+            android:background="?android:selectableItemBackground" />
+
+        <com.payu.android.front.sdk.payment_library_payment_chooser.payment_method.internal.ui.widget.extension.blik.BlikPaymentMethodWidgetExtension
+            android:id="@+id/blik_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+</merge>

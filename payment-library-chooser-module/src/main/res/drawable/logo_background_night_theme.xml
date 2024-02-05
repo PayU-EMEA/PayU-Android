@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <corners android:radius="5dp" />
+    <solid android:color="@color/payu_styles_color_white" />
+    <padding
+        android:bottom="@dimen/payu_styles_padding_medium"
+        android:left="@dimen/payu_styles_padding_medium"
+        android:right="@dimen/payu_styles_padding_medium"
+        android:top="@dimen/payu_styles_padding_medium" />
+</shape>

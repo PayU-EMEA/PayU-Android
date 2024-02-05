@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="payu_styles_color_basic">#F8F8F8</color>
+    <color name="payu_styles_color_white">#FFFFFF</color>
+    <color name="payu_styles_color_secondary">#6F7476</color>
+    <color name="payu_styles_color_secondary_link">#13100D</color>
+    <color name="payu_styles_color_secondary_background">#F2F2F2</color>
+    <color name="payu_styles_color_primary">@color/payu_styles_color_basic</color>
+
+    <color name="payu_styles_color_accent">#54BBAB</color>
+    <color name="payu_styles_color_disabled">#6F7476</color>
+    <color name="payu_styles_color_background">#FCFCFC</color>
+    <color name="payu_styles_color_background_disabled">#F2F2F2</color>
+    <color name="payu_styles_color_toolbar">@color/payu_styles_color_secondary_background</color>
+    <color name="payu_styles_color_highlighted_background">@color/payu_styles_color_white</color>
+    <color name="payu_styles_color_highlighted_icons">@color/payu_styles_color_accent</color>
+    <color name="payu_styles_color_basic_icons">@color/payu_styles_color_secondary</color>
+    <color name="payu_styles_color_frame_lines">#E3E4E2</color>
+    <color name="payu_styles_color_text_primary">#13100D</color>
+    <color name="payu_styles_color_text_disabled">@color/payu_styles_color_secondary_background
+    </color>
+    <color name="payu_styles_color_text_inverse">@color/payu_styles_color_white</color>
+    <color name="payu_styles_color_text_secondary">@color/payu_styles_color_secondary</color>
+    <color name="payu_styles_color_error_text_color">#FF0000</color>
+    <color name="payu_styles_color_divider">#906f7476</color>
+    <color name="payu_styles_color_shadow">#40000000</color>
+
+    <color name="payu_styles_color_control_state_normal">@color/payu_styles_color_accent</color>
+    <color name="payu_styles_color_control_state_highlighted">@color/payu_styles_color_primary
+    </color>
+    <color name="payu_styles_color_control_state_activated">@color/payu_styles_color_accent</color>
+
+    <color name="payu_styles_color_web_view_background">#FCFCFC</color>
+
+</resources>

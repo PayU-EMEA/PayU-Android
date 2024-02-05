@@ -1,0 +1,89 @@
+apply plugin: 'com.jfrog.artifactory'
+apply plugin: 'maven-publish'
+apply from: "../artifactory/config.gradle"
+
+publishing {
+    publications {
+        aar(MavenPublication) {
+            groupId project.groupId
+            version project.versionName
+            artifactId project.name
+            artifact("$buildDir/outputs/aar/${project.getName()}-release.${project.fileExtension}")
+
+            pom.withXml {
+                def node = asNode()
+                // ugly hack to set the packaging property in the POM as 'aar'
+                ((NodeList) node.get('packaging')).get(0).value = project.fileExtension
+                def dependenciesNode = node.appendNode('dependencies')
+                def cl = { Dependency dep ->
+                    if (dep.group == null || dep.name == null || dep.name == "unspecified") {
+                        return // ignore invalid dependencies
+                    }
+                    def dependencyVersion
+                    //Only a temporary hack - need more investigation
+                    def dependencyGroup
+                    if (dep.group == "android-integration-sdk-light") {
+                        dependencyGroup = groupId
+                    } else {
+                        dependencyGroup = dep.group
+                    }
+
+                    //"fix" for compile projects
+                    if (dep.version == "unspecified" || dep.version == null) {
+                        dependencyVersion = project.versionName
+                    } else {
+                        dependencyVersion = dep.version
+                    }
+
+                    def dependencyNode = dependenciesNode.appendNode('dependency')
+                    dependencyNode.appendNode('groupId', dependencyGroup)
+                    dependencyNode.appendNode('artifactId', dep.name)
+                    dependencyNode.appendNode('version', dependencyVersion)
+
+                    if (!dep.transitive) {
+                        // If this dependency is transitive, we should force exclude all its dependencies them from the POM
+                        def exclusionNode = dependencyNode.appendNode('exclusions').appendNode('exclusion')
+                        exclusionNode.appendNode('groupId', '*')
+                        exclusionNode.appendNode('artifactId', '*')
+                    } else if (!dep.properties.excludeRules.empty) {
+                        // Otherwise add specified exclude rules
+                        def exclusionsNode = dependencyNode.appendNode('exclusions')
+                        dep.properties.excludeRules.each { ExcludeRule rule ->
+                            def exclusion = exclusionsNode.appendNode('exclusion')
+                            exclusion.appendNode('groupId', rule.group ?: '*')
+                            exclusion.appendNode('artifactId', rule.module ?: '*')
+                        }
+                    }
+                }
+
+                // List all dependencies and write to POM
+                configurations.api.getAllDependencies().each cl
+                configurations.implementation.getAllDependencies().each cl
+            }
+
+        }
+    }
+}
+
+
+
+
+
+artifactory {
+    contextUrl = repositoryPath
+
+    publish {
+        repository {
+            repoKey = repositoryName
+            username = repositoryUserName
+            password = repositoryPassword
+            maven = true
+        }
+
+        defaults {
+            publications('aar')
+            publishArtifacts = true
+            // Publish generated POM files to Artifactory (true by default)
+        }
+    }
+}

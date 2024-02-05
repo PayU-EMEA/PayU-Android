@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--
+      android:ellipsize="end"
+        android:maxLines="3"
+        -->
+    <TextView
+        android:id="@+id/payu_marketplace_title_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ellipsize="end"
+        android:maxLines="3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Accept regulations" />
+
+    <com.google.android.material.checkbox.MaterialCheckBox
+        android:id="@+id/payu_marketplace_terms_checkBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:ellipsize="end"
+        android:maxLines="3"
+        app:layout_constraintEnd_toStartOf="@+id/payu_marketplace_terms_link"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/payu_marketplace_title_textView"
+        app:layout_constraintWidth_percent="0.65"
+        tools:text="Accept Terms and Conditions Accept Terms and Conditions Accept Terms and Conditions Accept Terms and Conditions Accept Terms and Conditions Accept Terms and Conditions Accept Terms and Conditions Accept Terms and Conditions Accept Terms and Conditions Accept Terms and Conditions" />
+
+    <TextView
+        android:id="@+id/payu_marketplace_terms_link"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:ellipsize="end"
+        android:maxLines="3"
+        app:layout_constraintBottom_toBottomOf="@+id/payu_marketplace_terms_checkBox"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/payu_marketplace_terms_checkBox"
+        app:layout_constraintTop_toBottomOf="@+id/payu_marketplace_title_textView"
+        app:layout_constraintWidth_percent="0.35"
+        tools:text="Accept Terms and Conditions Accept Terms and Conditions Accept Terms and Conditions Accept Terms and Conditions Accept Terms and Conditions Accept Terms and Conditions Accept Terms and Conditions Accept Terms and Conditions Accept Terms and Conditions Accept Terms and Conditions" />
+</merge>

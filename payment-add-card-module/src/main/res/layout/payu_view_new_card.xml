@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.payu.android.front.sdk.payment_add_card_module.view.CardSelectorView
+        android:id="@+id/cardSelector_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center" />
+
+    <com.payu.android.front.sdk.payment_add_card_module.view.CardNumberView
+        android:id="@+id/cardNumber_view"
+        android:layout_width="match_parent"
+        android:nextFocusDown="@+id/cardDate_view"
+        android:nextFocusRight="@+id/cardDate_view"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <com.payu.android.front.sdk.payment_add_card_module.view.CardDateView
+            android:id="@+id/cardDate_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5" />
+
+        <com.payu.android.front.sdk.payment_add_card_module.view.CardCvvView
+            android:id="@+id/cardCvv_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5" />
+
+    </LinearLayout>
+
+    <com.payu.android.front.sdk.payment_library_core_android.conditions_view.PayUTermView
+        android:id="@+id/payuTerms_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="Theme.PayU.Fronts">
+        <attr name="payu_styles_accentColor" format="color|reference" />
+        <attr name="payu_styles_backgroundColor" format="color|reference" />
+        <attr name="payu_styles_toolbarColor" format="color|reference" />
+        <attr name="payu_styles_primaryColor" format="color|reference" />
+        <attr name="payu_styles_fontColor" format="color|reference" />
+        <attr name="payu_styles_disabledColor" format="color|reference" />
+        <attr name="payu_styles_separatorColor" format="color|reference" />
+        <attr name="payu_styles_windowContentPadding" format="dimension|reference" />
+        <attr name="payu_styles_textStyleButtonBasic" format="reference" />
+        <attr name="payu_styles_textStyleButtonPrimary" format="reference" />
+        <attr name="payu_styles_textStyleTitle" format="reference" />
+        <attr name="payu_styles_textStyleHeader" format="reference" />
+        <attr name="payu_styles_textStyleHeadline" format="reference" />
+        <attr name="payu_styles_textStyleText" format="reference" />
+        <attr name="payu_styles_textStyleInput" format="reference" />
+        <attr name="payu_styles_textStyleDescription" format="reference" />
+        <attr name="payu_styles_3ds" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="Style.PayU.Fronts.Text">
+        <attr name="payu_styles_textColor" format="color|reference" />
+        <attr name="payu_styles_buttonBackgroundColor" format="color|reference" />
+        <attr name="payu_styles_buttonDisabledBackgroundColor" format="color|reference" />
+        <attr name="payu_styles_textSize" format="dimension|reference" />
+        <attr name="payu_styles_fontPath" format="string|reference" />
+        <attr name="payu_styles_font" format="reference" />
+        <attr name="payu_styles_paddingTop" format="dimension|reference" />
+        <attr name="payu_styles_paddingBottom" format="dimension|reference" />
+        <attr name="payu_styles_paddingLeft" format="dimension|reference" />
+        <attr name="payu_styles_paddingRight" format="dimension|reference" />
+    </declare-styleable>
+
+    <declare-styleable name="Style.PayU.Fronts.3DS">
+        <attr name="payu_styles_3ds_fontName" format="string|reference" />
+        <!-- Toolbar -->
+        <attr name="payu_styles_3ds_toolbarTextColor" format="color|reference" />
+        <attr name="payu_styles_3ds_toolbarTextSize" format="dimension|reference" />
+        <attr name="payu_styles_3ds_toolbarBackgroundColor" format="color|reference" />
+
+        <!-- Button -->
+        <attr name="payu_styles_3ds_buttonCornerRadius" format="integer|reference" />
+        <attr name="payu_styles_3ds_buttonTextColor" format="color|reference" />
+        <attr name="payu_styles_3ds_buttonTextSize" format="dimension|reference" />
+        <attr name="payu_styles_3ds_buttonBackgroundColor" format="color|reference" />
+
+        <attr name="payu_styles_3ds_resendButtonTextColor" format="color|reference" />
+        <attr name="payu_styles_3ds_resendButtonBackgroundColor" format="color|reference" />
+
+        <!-- Header -->
+        <attr name="payu_styles_3ds_headerTextColor" format="color|reference" />
+        <attr name="payu_styles_3ds_headerTextSize" format="dimension|reference" />
+
+        <!-- Label -->
+        <attr name="payu_styles_3ds_labelTextColor" format="color|reference" />
+        <attr name="payu_styles_3ds_labelTextSize" format="dimension|reference" />
+
+        <!-- EditText -->
+        <attr name="payu_styles_3ds_inputTextColor" format="color|reference" />
+        <attr name="payu_styles_3ds_inputTextSize" format="dimension|reference" />
+        <attr name="payu_styles_3ds_inputBorderColor" format="color|reference" />
+        <attr name="payu_styles_3ds_inputBorderWidth" format="integer|reference" />
+        <attr name="payu_styles_3ds_inputCornerRadius" format="integer|reference" />
+    </declare-styleable>
+</resources>

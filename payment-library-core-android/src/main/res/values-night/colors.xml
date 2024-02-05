@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="payu_styles_color_basic">#434343</color>
+    <color name="payu_styles_color_white">#FFFFFF</color>
+    <color name="payu_styles_color_secondary">#FFFFFF</color>
+    <color name="payu_styles_color_secondary_link">@color/payu_styles_color_accent</color>
+    <color name="payu_styles_color_secondary_background">#1b1b1b</color>
+    <color name="payu_styles_color_primary">@color/payu_styles_color_basic</color>
+
+    <color name="payu_styles_color_accent">#3f8627</color>
+    <color name="payu_styles_color_disabled">#6F7476</color>
+    <color name="payu_styles_color_background">#0b0b0b</color>
+    <color name="payu_styles_color_background_disabled">#282828</color>
+    <color name="payu_styles_color_toolbar">@color/payu_styles_color_secondary_background</color>
+    <color name="payu_styles_color_highlighted_background">@color/payu_styles_color_white</color>
+    <color name="payu_styles_color_highlighted_icons">@color/payu_styles_color_accent</color>
+    <color name="payu_styles_color_basic_icons">@color/payu_styles_color_secondary</color>
+    <color name="payu_styles_color_frame_lines">#E3E4E2</color>
+    <color name="payu_styles_color_text_primary">#FFFFFF</color>
+    <color name="payu_styles_color_text_disabled">#797979</color>
+    <color name="payu_styles_color_text_inverse">@color/payu_styles_color_white</color>
+    <color name="payu_styles_color_text_secondary">@color/payu_styles_color_secondary</color>
+    <color name="payu_styles_color_error_text_color">#FF6666</color>
+    <color name="payu_styles_color_divider">#906f7476</color>
+    <color name="payu_styles_color_shadow">#401b1b1b</color>
+
+    <color name="payu_styles_color_control_state_normal">@color/payu_styles_color_accent</color>
+    <color name="payu_styles_color_control_state_highlighted">@color/payu_styles_color_primary
+    </color>
+    <color name="payu_styles_color_control_state_activated">@color/payu_styles_color_accent</color>
+</resources>

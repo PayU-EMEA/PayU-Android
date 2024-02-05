@@ -1,0 +1,7 @@
+project.ext {
+    // default artifactory settings
+    repositoryPath = project.findProperty("repositoryPath") ?: "https://payu.jfrog.io/payu"
+    repositoryName = project.findProperty("repositoryName") ?: "mobile-sdk-gradle-local"
+    repositoryUserName = project.findProperty("repositoryUserName") ?: ""
+    repositoryPassword = project.findProperty("repositoryPassword") ?: ""
+}

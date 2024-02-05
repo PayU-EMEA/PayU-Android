@@ -1,0 +1,50 @@
+project.ext {
+    name = "payment-library-installments"
+    fileExtension = "aar"
+}
+
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-parcelize'
+apply from: "../artifactory/release.gradle"
+
+android {
+    compileSdk project.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion project.minSdkVersion
+        targetSdkVersion project.targetSdkVersion
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    namespace 'com.payu.android.front.sdk.payment_installments'
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$project.kotlin_version"
+    implementation "com.google.android.material:material:$project.materialVersion"
+    implementation "androidx.constraintlayout:constraintlayout:$project.constraintLayoutVersion"
+    implementation "androidx.appcompat:appcompat:$project.appCompatVersion"
+    implementation "androidx.activity:activity-ktx:$project.androidxActivityVersion"
+
+    implementation "androidx.recyclerview:recyclerview:$project.recyclerViewVersion"
+    implementation "com.google.guava:guava:$project.guavaVersion"
+    implementation "com.github.bumptech.glide:glide:$project.glideVersion"
+    implementation project(path: ':payment-library-core-android')
+    implementation project(path: ':payment-library-api-client')
+    implementation project(path: ':payment-library-chooser-module')
+    implementation project(path: ':payment-add-card-module')
+    annotationProcessor "com.github.bumptech.glide:compiler:$project.glideVersion"
+}

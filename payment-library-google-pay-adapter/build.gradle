@@ -1,0 +1,37 @@
+project.ext {
+    name = "payment-library-google-pay-adapter"
+    fileExtension = "aar"
+}
+
+apply plugin: 'com.android.library'
+apply from: "../artifactory/release.gradle"
+
+android {
+    compileSdk project.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion project.minSdkVersion
+        targetSdkVersion project.targetSdkVersion
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    namespace 'com.payu.android.front.sdk.payment_library_google_pay_adapter'
+}
+
+dependencies {
+    implementation "com.google.guava:guava:$project.guavaVersion"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    api project(path: ':payment-library-payment-methods')
+    api project(path: ':payment-library-chooser-module')
+    api project(path: ':payment-library-google-pay-module')
+
+    testImplementation "junit:junit:$project.junitVersion"
+}

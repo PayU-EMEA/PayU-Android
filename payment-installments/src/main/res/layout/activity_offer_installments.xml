@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".mastercard.offer.view.OfferInstallmentsActivity">
+
+    <include
+        android:id="@+id/payu_toolbar"
+        layout="@layout/payu_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:layout_alignParentTop="true" />
+
+    <View
+        android:id="@+id/shadow"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/payu_styles_shadow_height"
+        android:background="@drawable/payu_styles_shadow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/payu_toolbar" />
+
+    <ImageView
+        android:id="@+id/installment_provider_logo_image"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/mastercard"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/payu_toolbar" />
+
+    <TextView
+        android:id="@+id/installment_provider_title_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="@+id/installment_provider_subtitle_text"
+        app:layout_constraintStart_toStartOf="@+id/installment_provider_subtitle_text"
+        app:layout_constraintTop_toBottomOf="@+id/installment_provider_logo_image"
+        tools:text="Transakcja zaakceptowana" />
+
+    <TextView
+        android:id="@+id/installment_provider_subtitle_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/installment_provider_title_text"
+        tools:text="Sprzedawca otrzyma pełną kwotę zamówienia." />
+
+    <TextView
+        android:id="@+id/installment_provider_body_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:maxLines="3"
+        app:layout_constraintEnd_toEndOf="@+id/installment_provider_subtitle_text"
+        app:layout_constraintStart_toStartOf="@+id/installment_provider_subtitle_text"
+        app:layout_constraintTop_toBottomOf="@+id/installment_provider_subtitle_text"
+        tools:text="Możesz  z usługi Mastercard Płać w ratach i rozłożyć tę płatność na raty." />
+
+    <Button
+        android:id="@+id/installment_provider_positive_button"
+        style="@style/Style.PayU.Internal.Button.Main"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/installment_provider_body_text"
+        app:layout_constraintStart_toStartOf="@+id/installment_provider_body_text"
+        app:layout_constraintTop_toBottomOf="@+id/installment_provider_body_text"
+        tools:text="Rozkładamy na raty" />
+
+    <Button
+        android:id="@+id/installment_provider_negative_button"
+        style="@style/Style.PayU.Internal.Button.Secondary"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/installment_provider_positive_button"
+        app:layout_constraintStart_toStartOf="@+id/installment_provider_positive_button"
+        app:layout_constraintTop_toBottomOf="@id/installment_provider_positive_button"
+        tools:text="Nie, dziękuję" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

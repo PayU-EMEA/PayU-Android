@@ -1,0 +1,55 @@
+apply plugin: 'java-library'
+apply plugin: 'com.jfrog.artifactory'
+apply plugin: 'maven-publish'
+apply from: "../artifactory/config.gradle"
+
+project.ext {
+    name = "payment-library-core"
+    fileExtension = "jar"
+}
+
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation "com.google.guava:guava:$project.guavaVersion"
+
+    testImplementation "junit:junit:$project.junitVersion"
+    testImplementation "org.assertj:assertj-core:$project.assertJsVersion"
+}
+
+publishing {
+    publications {
+        jar(MavenPublication) {
+            setGroupId(project.groupId)
+            setArtifactId(project.name)
+            version project.versionName
+            artifact("$buildDir/libs/${project.getName()}.${project.fileExtension}")
+        }
+    }
+}
+
+//Handle different encoding LanguageMaps
+compileJava.options.encoding = 'UTF-8'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+artifactory {
+    contextUrl = repositoryPath
+
+    publish {
+        repository {
+            repoKey = repositoryName
+            username = repositoryUserName
+            password = repositoryPassword
+            maven = true
+        }
+
+        defaults {
+            publications('jar')
+            publishArtifacts = true
+            // Publish generated POM files to Artifactory (true by default)
+        }
+    }
+}

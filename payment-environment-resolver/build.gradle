@@ -1,0 +1,38 @@
+project.ext {
+    name = "payment-environment-resolver"
+    fileExtension = "aar"
+}
+
+apply plugin: 'com.android.library'
+apply from: "../artifactory/release.gradle"
+
+android {
+    compileSdk project.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion project.minSdkVersion
+        targetSdkVersion project.targetSdkVersion
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    namespace 'com.payu.android.front.sdk.payment_environment_resolver'
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation "androidx.appcompat:appcompat:$project.appCompatVersion"
+    implementation "com.google.guava:guava:$project.guavaVersion"
+    implementation project(path: ':payment-library-api-client')
+
+    androidTestImplementation "androidx.test.ext:junit:$project.junitAssertionsVersion"
+    testImplementation "org.mockito:mockito-core:$project.mockitoVersion"
+    testImplementation "junit:junit:$project.junitVersion"
+    testImplementation "org.assertj:assertj-core:$project.assertJsVersion"
+}

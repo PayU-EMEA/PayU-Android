@@ -1,0 +1,64 @@
+project.ext {
+    name = "payment-library-webview-module"
+    fileExtension = "aar"
+}
+
+apply plugin: 'com.android.library'
+apply from: "../artifactory/release.gradle"
+apply plugin: 'kotlin-parcelize'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdk project.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion project.minSdkVersion
+        targetSdkVersion project.targetSdkVersion
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    namespace 'com.payu.android.front.sdk.payment_library_webview_module'
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    implementation "androidx.fragment:fragment:$project.fragmentVersion"
+    implementation "androidx.fragment:fragment-ktx:$project.fragmentVersion"
+    implementation "androidx.appcompat:appcompat:$project.appCompatVersion"
+    implementation "com.google.android.material:material:$project.materialVersion"
+    implementation "androidx.recyclerview:recyclerview:$project.recyclerViewVersion"
+    implementation "com.google.guava:guava:$project.guavaVersion"
+    implementation "com.github.bumptech.glide:glide:$project.glideVersion"
+    annotationProcessor "com.github.bumptech.glide:compiler:$project.glideVersion"
+    implementation project(path: ':payment-library-api-client')
+    api project(path: ':payment-library-core-android')
+    implementation project(path: ':payment-library-core')
+
+    testImplementation "junit:junit:$project.junitVersion"
+    testImplementation "org.robolectric:robolectric:$project.robolectricVersion"
+
+    testImplementation "org.mockito:mockito-core:$project.mockitoVersion"
+    testImplementation "eu.codearte.catch-exception:catch-exception:$project.catchException2Version"
+    testImplementation "org.assertj:assertj-core:$project.assertJsVersion"
+
+    androidTestImplementation "androidx.test.ext:junit:$project.junitAssertionsVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$project.espressoVersion"
+
+    // RxJava
+    implementation "io.reactivex.rxjava3:rxjava:$project.rxJava3"
+
+    implementation "io.reactivex.rxjava3:rxandroid:$project.rxJava3Android"
+}

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--#Font-->
+    <dimen name="payu_styles_text_size_primary_header">18sp</dimen>
+    <dimen name="payu_styles_text_size_secondary_header">14sp</dimen>
+    <dimen name="payu_styles_text_size_content">14sp</dimen>
+    <dimen name="payu_styles_text_size_button">16sp</dimen>
+    <dimen name="payu_styles_text_size_edit">16sp</dimen>
+    <dimen name="payu_styles_text_size_error">12sp</dimen>
+
+    <!--#Padding-->
+    <dimen name="payu_styles_padding_small">3dp</dimen>
+    <dimen name="payu_styles_padding_medium">6.5dp</dimen>
+    <dimen name="payu_styles_padding_large">10dp</dimen>
+    <dimen name="payu_styles_padding_xlarge">13dp</dimen>
+
+    <!--#Size-->
+    <dimen name="payu_styles_basic_icons_size">20dp</dimen>
+    <dimen name="payu_styles_small_icons_size">16dp</dimen>
+
+    <dimen name="payu_styles_major_icons_size">35dp</dimen>
+    <dimen name="payu_styles_large_icons_size">90dp</dimen>
+
+    <dimen name="payu_styles_separator_height">1dp</dimen>
+    <dimen name="payu_styles_shadow_height">4dp</dimen>
+
+    <dimen name="payu_styles_default_separation">@dimen/payu_styles_padding_medium</dimen>
+    <dimen name="payu_styles_large_separation">@dimen/payu_styles_padding_large</dimen>
+    <dimen name="payu_styles_corners_diameter">3dp</dimen>
+
+    <dimen name="payu_styles_logo_icons_size">48dp</dimen>
+</resources>

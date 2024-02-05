@@ -1,0 +1,49 @@
+project.ext {
+    name = "payment-library-api-client"
+    fileExtension = "aar"
+}
+
+apply plugin: 'com.android.library'
+apply from: "../artifactory/release.gradle"
+
+android {
+    compileSdk project.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion project.minSdkVersion
+        targetSdkVersion project.targetSdkVersion
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField("String", "LIBRARY_VERSION_NAME", "\"${project.versionName}\"")
+        }
+
+        debug {
+            buildConfigField("String", "LIBRARY_VERSION_NAME", "\"${project.versionName}-debug\"")
+        }
+    }
+    namespace 'com.payu.android.front.sdk.payment_library_api_client'
+}
+
+dependencies {
+    implementation project(path: ':payment-library-core')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation "androidx.appcompat:appcompat:$project.appCompatVersion"
+    implementation "com.google.guava:guava:$project.guavaVersion"
+    api "com.google.code.gson:gson:$project.gsonVersion"
+
+    api "com.squareup.retrofit2:retrofit:$project.retrofit2Version"
+    implementation "com.squareup.retrofit2:converter-gson:$project.retrofit2Version"
+    api "com.squareup.okhttp3:logging-interceptor:$project.okhttpLogInterceptorVersion"
+
+    testImplementation "org.mockito:mockito-core:$project.mockitoVersion"
+    testImplementation "eu.codearte.catch-exception:catch-exception:$project.catchException2Version"
+    testImplementation "org.assertj:assertj-core:$project.assertJsVersion"
+    testImplementation "junit:junit:$project.junitVersion"
+    testImplementation "org.robolectric:robolectric:$project.robolectricVersion"
+    androidTestImplementation "androidx.test.ext:junit:$project.junitAssertionsVersion"
+}

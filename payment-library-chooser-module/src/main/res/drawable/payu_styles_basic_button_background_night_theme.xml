@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<inset xmlns:android="http://schemas.android.com/apk/res/android"
+    android:insetBottom="@dimen/payu_styles_padding_medium"
+    android:insetLeft="@dimen/payu_styles_padding_medium"
+    android:insetRight="@dimen/payu_styles_padding_medium"
+    android:insetTop="@dimen/payu_styles_padding_medium">
+    <shape android:shape="rectangle">
+        <corners android:radius="5dp" />
+        <solid android:color="@color/payu_styles_color_white" />
+        <padding
+            android:bottom="@dimen/payu_styles_padding_medium"
+            android:left="@dimen/payu_styles_padding_medium"
+            android:right="@dimen/payu_styles_padding_medium"
+            android:top="@dimen/payu_styles_padding_medium" />
+    </shape>
+</inset>

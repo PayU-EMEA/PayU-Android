@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <issue id="InvalidPackage">
+        <!-- ignore Invalid Package check for spongycastle -->
+        <ignore path="**/*jdk15on*.jar"/>
+    </issue>
+</lint>

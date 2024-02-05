@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.PayU.Fronts.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Permissions.TransparentTheme" parent="Theme.AppCompat.DayNight" />
+
+    <style name="PayU_Fronts" />
+
+    <style name="Theme.PayU.Fronts" parent="PayU_Fronts">
+        <item name="payu_styles_backgroundColor">@color/payu_styles_color_background</item>
+        <item name="payu_styles_toolbarColor">@color/payu_styles_color_toolbar</item>
+        <item name="payu_styles_separatorColor">@color/payu_styles_color_divider</item>
+        <item name="payu_styles_fontColor">@color/payu_styles_color_text_primary</item>
+        <item name="payu_styles_disabledColor">@color/payu_styles_color_disabled</item>
+        <item name="payu_styles_primaryColor">@color/payu_styles_color_primary</item>
+        <item name="payu_styles_accentColor">@color/payu_styles_color_accent</item>
+        <item name="payu_styles_windowContentPadding">@dimen/payu_styles_padding_xlarge</item>
+        <item name="payu_styles_textStyleButtonBasic">@style/TextAppearance.PayU.Button</item>
+        <item name="payu_styles_textStyleButtonPrimary">@style/TextAppearance.PayU.Button.Primary</item>
+        <item name="payu_styles_textStyleTitle">@style/TextAppearance.PayU.PrimaryHeaderText</item>
+        <item name="payu_styles_textStyleHeader">@style/TextAppearance.PayU.SecondaryHeaderText</item>
+        <item name="payu_styles_textStyleHeadline">@style/TextAppearance.PayU.HeadlineText</item>
+        <item name="payu_styles_textStyleDescription">@style/Style.PayU.Fronts.DescriptionText</item>
+        <item name="payu_styles_textStyleText">@style/TextAppearance.PayU.NormalText</item>
+        <item name="payu_styles_textStyleInput">@style/TextAppearance.PayU.EditText</item>
+        <item name="payu_styles_3ds">@style/Style.PayU.Fronts.3DS</item>
+    </style>
+
+    <style name="Style.PayU.Fronts.3DS" parent="PayU_Fronts">
+        <item name="payu_styles_3ds_fontName">@string/app_name</item>
+        <item name="payu_styles_3ds_toolbarTextColor">@color/payu_styles_color_secondary</item>
+        <item name="payu_styles_3ds_toolbarTextSize">@dimen/payu_styles_text_size_primary_header</item>
+        <item name="payu_styles_3ds_buttonCornerRadius">@integer/payu_styles_3ds_button_corner_radius</item>
+        <item name="payu_styles_3ds_inputBorderColor">@color/payu_styles_color_divider</item>
+        <item name="payu_styles_3ds_inputBorderWidth">@integer/payu_styles_color_divider</item>
+        <item name="payu_styles_3ds_inputCornerRadius">@integer/payu_styles_3ds_button_corner_radius</item>
+    </style>
+
+    <style name="Style.PayU.Fronts.Text" parent="PayU_Fronts">
+        <item name="payu_styles_textColor">@color/payu_styles_color_text_primary</item>
+        <item name="payu_styles_textSize">@dimen/payu_styles_text_size_content</item>
+        <item name="payu_styles_font">@font/open_sans_regular</item>
+        <item name="payu_styles_paddingBottom">@dimen/payu_styles_padding_small</item>
+        <item name="payu_styles_paddingTop">@dimen/payu_styles_padding_small</item>
+        <item name="payu_styles_paddingLeft">@dimen/payu_styles_padding_small</item>
+        <item name="payu_styles_paddingRight">@dimen/payu_styles_padding_small</item>
+    </style>
+
+    <style name="Style.PayU.Fronts.DescriptionText" parent="Style.PayU.Fronts.Text">
+        <item name="payu_styles_textColor">@color/payu_styles_color_text_secondary</item>
+    </style>
+
+    <style name="TextAppearance.PayU.SecondaryHeaderText" parent="Style.PayU.Fronts.Text">
+        <item name="payu_styles_textSize">@dimen/payu_styles_text_size_secondary_header</item>
+        <item name="payu_styles_font">@font/open_sans_light</item>
+        <item name="payu_styles_textColor">@color/payu_styles_color_text_secondary</item>
+        <item name="payu_styles_paddingLeft">@dimen/payu_styles_padding_xlarge</item>
+        <item name="payu_styles_paddingTop">@dimen/payu_styles_padding_medium</item>
+        <item name="payu_styles_paddingBottom">@dimen/payu_styles_padding_large</item>
+        <item name="payu_styles_paddingRight">@dimen/payu_styles_padding_xlarge</item>
+    </style>
+
+    <style name="TextAppearance.PayU.HeadlineText" parent="Style.PayU.Fronts.Text">
+        <item name="payu_styles_textSize">@dimen/payu_styles_text_size_secondary_header</item>
+        <item name="payu_styles_font">@font/open_sans_semi_bold</item>
+    </style>
+
+    <style name="TextAppearance.PayU.Button" parent="Style.PayU.Fronts.Text">
+        <item name="payu_styles_buttonBackgroundColor">@color/payu_styles_color_basic</item>
+        <item name="payu_styles_buttonDisabledBackgroundColor">@color/payu_styles_color_background_disabled</item>
+        <item name="payu_styles_textSize">@dimen/payu_styles_text_size_button</item>
+        <item name="payu_styles_font">@font/open_sans_semi_bold</item>
+        <item name="payu_styles_paddingTop">@dimen/payu_styles_padding_xlarge</item>
+        <item name="payu_styles_paddingBottom">@dimen/payu_styles_padding_xlarge</item>
+    </style>
+
+    <style name="TextAppearance.PayU.Button.Primary" parent="TextAppearance.PayU.Button">
+        <item name="payu_styles_buttonBackgroundColor">@color/payu_styles_color_accent</item>
+        <item name="payu_styles_textColor">@color/payu_styles_color_text_inverse</item>
+    </style>
+
+    <style name="TextAppearance.PayU.PrimaryHeaderText" parent="Style.PayU.Fronts.Text">
+        <item name="payu_styles_textSize">@dimen/payu_styles_text_size_primary_header</item>
+        <item name="payu_styles_font">@font/open_sans_semi_bold</item>
+        <item name="payu_styles_paddingLeft">@dimen/payu_styles_padding_xlarge</item>
+        <item name="payu_styles_paddingTop">@dimen/payu_styles_padding_xlarge</item>
+        <item name="payu_styles_paddingBottom">@dimen/payu_styles_padding_xlarge</item>
+        <item name="payu_styles_paddingRight">@dimen/payu_styles_padding_xlarge</item>
+    </style>
+
+    <style name="Style.PayU.Internal.Button.Main" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">@font/open_sans_bold</item>
+        <item name="android:background">@drawable/payu_styles_button_selector</item>
+        <item name="android:foreground">?attr/selectableItemBackgroundBorderless</item>
+    </style>
+
+    <style name="Style.PayU.Internal.Button.Secondary" parent="Widget.AppCompat.Button">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">@font/open_sans_regular</item>
+        <item name="android:background">@drawable/payu_styles_button_selector</item>
+        <item name="android:foreground">?attr/selectableItemBackgroundBorderless</item>
+    </style>
+
+    <style name="TextAppearance.PayU.NormalText" parent="Style.PayU.Fronts.Text">
+        <item name="payu_styles_textSize">@dimen/payu_styles_text_size_content</item>
+        <item name="payu_styles_font">@font/open_sans_regular</item>
+    </style>
+
+    <style name="Style.PayU.Internal.EditText" parent="Widget.AppCompat.EditText">
+
+    </style>
+
+    <style name="TextAppearance.PayU.EditText" parent="Style.PayU.Fronts.Text">
+        <item name="payu_styles_textSize">@dimen/payu_styles_text_size_edit</item>
+        <item name="payu_styles_font">@font/open_sans_semi_bold</item>
+    </style>
+
+    <style name="separator">
+        <item name="android:layout_height">@dimen/payu_styles_separator_height</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+</resources>

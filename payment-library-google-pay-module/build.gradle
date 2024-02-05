@@ -1,0 +1,42 @@
+project.ext {
+    name = "payment-library-google-pay-module"
+    fileExtension = "aar"
+}
+
+apply plugin: 'com.android.library'
+apply from: "../artifactory/release.gradle"
+
+android {
+    compileSdk project.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion project.minSdkVersion
+        targetSdkVersion project.targetSdkVersion
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    namespace 'com.payu.android.front.sdk.payment_library_google_pay_module'
+}
+
+dependencies {
+    implementation "androidx.appcompat:appcompat:$project.appCompatVersion"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    implementation "com.google.android.gms:play-services-wallet:$project.playServicesVersion"
+    implementation "com.google.guava:guava:$project.guavaVersion"
+    implementation project(path: ':payment-library-api-client')
+    api "androidx.lifecycle:lifecycle-livedata:$project.lifecycleComponentVersion"
+    api project(path: ':payment-library-core-android')
+
+    testImplementation "junit:junit:$project.junitVersion"
+    testImplementation "com.tngtech.junit.dataprovider:junit4-dataprovider:$project.junitDataproviderVersion"
+    testImplementation "org.mockito:mockito-core:$project.mockitoVersion"
+    testImplementation "org.assertj:assertj-core:$project.assertJsVersion"
+}

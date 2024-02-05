@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/payu_styles_color_secondary_background"
+    android:orientation="horizontal">
+    <TextView
+        android:id="@+id/payment_information_textView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:fontFamily="@font/open_sans_regular"
+        android:textColor="@color/payu_styles_color_text_secondary"
+        tools:text="Placac akceptujesz Zasady płatności PayU" />
+</merge>

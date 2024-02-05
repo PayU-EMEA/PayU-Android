@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <FrameLayout
+        android:id="@+id/logo_container_frameLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="@dimen/payu_styles_padding_xlarge">
+
+        <ImageView
+            android:id="@+id/logo_imageView"
+            android:layout_width="@dimen/payu_styles_payment_method_icon_width"
+            android:layout_height="@dimen/payu_styles_basic_icons_size"
+            android:layout_gravity="center"
+            android:scaleType="centerInside"
+            android:src="@drawable/payu_logo_white" />
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/payment_method_imageView"
+        android:layout_width="@dimen/payu_styles_payment_method_icon_width"
+        android:layout_height="@dimen/payu_styles_payment_method_icon_height"
+        android:layout_gravity="center_vertical"
+        android:layout_marginBottom="@dimen/payu_styles_padding_xlarge"
+        android:layout_marginEnd="@dimen/payu_styles_padding_xlarge"
+        android:layout_marginTop="@dimen/payu_styles_padding_xlarge"
+        android:scaleType="centerInside"
+        tools:src="@android:drawable/ic_delete" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginBottom="@dimen/payu_styles_padding_medium"
+        android:layout_marginTop="@dimen/payu_styles_padding_medium"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/selected_payment_header_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            tools:text="Karta kredytowa" />
+
+        <TextView
+            android:id="@+id/selected_payment_content_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            tools:text="5454****5443" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/right_icon_imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/payu_styles_small_icons_size"
+        android:layout_gravity="center_vertical"
+        android:layout_marginBottom="@dimen/payu_styles_padding_medium"
+        android:layout_marginEnd="@dimen/payu_styles_padding_medium"
+        android:layout_marginTop="@dimen/payu_styles_padding_medium"
+        android:src="@drawable/ic_right_arrow" />
+</merge>
