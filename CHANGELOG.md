@@ -1,3 +1,6 @@
+# 1.0.27
+* fix artifact dependencies
+
 # 1.0.26
 
 # 1.0.25
