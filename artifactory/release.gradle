@@ -22,7 +22,7 @@ publishing {
                     def dependencyVersion
                     //Only a temporary hack - need more investigation
                     def dependencyGroup
-                    if (dep.group == "android-integration-sdk-light") {
+                    if (dep.group == "PayU-Android") {
                         dependencyGroup = groupId
                     } else {
                         dependencyGroup = dep.group
