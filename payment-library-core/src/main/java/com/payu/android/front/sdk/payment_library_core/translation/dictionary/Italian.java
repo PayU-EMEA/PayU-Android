@@ -4,9 +4,9 @@ package com.payu.android.front.sdk.payment_library_core.translation.dictionary;
 import com.payu.android.front.sdk.payment_library_core.payment.configuration.Locale;
 import com.payu.android.front.sdk.payment_library_core.translation.TranslationKey;
 
-public class English extends StringMapTranslation {
+public class Italian extends StringMapTranslation {
 
-    public English() {
+    public Italian() {
         super();
         add(TranslationKey.OK, "OK");
         add(TranslationKey.CARD_VALIDATION_EMPTY, "Card number should not be empty");
@@ -74,6 +74,6 @@ public class English extends StringMapTranslation {
 
     @Override
     public Locale getLanguage() {
-        return Locale.ENGLISH;
+        return Locale.ITALIAN;
     }
 }

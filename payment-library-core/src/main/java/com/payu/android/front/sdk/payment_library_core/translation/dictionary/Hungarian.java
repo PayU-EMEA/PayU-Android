@@ -40,7 +40,6 @@ public class Hungarian extends StringMapTranslation {
         add(TranslationKey.SELECT_PAYMENT_METHOD, "Válassz fizetési módot!");
         add(TranslationKey.SUPPORT_PAYMENT_INFORMATION, "Elfogadom a következőt: <a href=\"#\">PayU Payment Terms</a>");
         add(TranslationKey.COMPLIANCE_URL, "https://docs.google.com/viewer?url=https://static.payu.com/sites/terms/files/payu_terms_of_service_single_transaction_pl_en.pdf");
-        add(TranslationKey.WEB_PAYMENT, " ");
         add(TranslationKey.PBL_TITLE, "Banki átutalás");
         add(TranslationKey.CANNOT_SHOW_COMPLIANCE_TEXT, "A készülékeden nincs olyan app, ami meg tudná ezt jeleníteni.");
         add(TranslationKey.PAYMENT_METHOD_CARD_DESCRIPTION, "Bankkártya vagy hitelkártya");

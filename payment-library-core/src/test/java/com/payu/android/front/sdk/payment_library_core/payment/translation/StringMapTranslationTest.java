@@ -4,14 +4,19 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import com.payu.android.front.sdk.payment_library_core.translation.Translation;
 import com.payu.android.front.sdk.payment_library_core.translation.TranslationKey;
+import com.payu.android.front.sdk.payment_library_core.translation.dictionary.Bulgarian;
+import com.payu.android.front.sdk.payment_library_core.translation.dictionary.Croatian;
 import com.payu.android.front.sdk.payment_library_core.translation.dictionary.Czech;
 import com.payu.android.front.sdk.payment_library_core.translation.dictionary.English;
 import com.payu.android.front.sdk.payment_library_core.translation.dictionary.French;
 import com.payu.android.front.sdk.payment_library_core.translation.dictionary.German;
+import com.payu.android.front.sdk.payment_library_core.translation.dictionary.Greek;
 import com.payu.android.front.sdk.payment_library_core.translation.dictionary.Hungarian;
+import com.payu.android.front.sdk.payment_library_core.translation.dictionary.Italian;
 import com.payu.android.front.sdk.payment_library_core.translation.dictionary.Lithuanian;
 import com.payu.android.front.sdk.payment_library_core.translation.dictionary.Polish;
 import com.payu.android.front.sdk.payment_library_core.translation.dictionary.Romanian;
+import com.payu.android.front.sdk.payment_library_core.translation.dictionary.Russian;
 import com.payu.android.front.sdk.payment_library_core.translation.dictionary.Slovak;
 import com.payu.android.front.sdk.payment_library_core.translation.dictionary.Slovenian;
 import com.payu.android.front.sdk.payment_library_core.translation.dictionary.Spanish;
@@ -41,6 +46,11 @@ public class StringMapTranslationTest {
         availableTranslations.add(new Lithuanian());
         availableTranslations.add(new Romanian());
         availableTranslations.add(new Slovenian());
+        availableTranslations.add(new Bulgarian());
+        availableTranslations.add(new Croatian());
+        availableTranslations.add(new Greek());
+        availableTranslations.add(new Italian());
+        availableTranslations.add(new Russian());
 
         // expect
         for (Translation translation : availableTranslations) {

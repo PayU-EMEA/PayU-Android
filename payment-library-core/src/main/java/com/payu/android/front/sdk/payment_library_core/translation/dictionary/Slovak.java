@@ -41,7 +41,6 @@ public class Slovak extends StringMapTranslation {
         add(TranslationKey.SUPPORT_PAYMENT_INFORMATION, "Súhlasím s <a href=\"#\">Platobnými obchodnými podmienkami PayU</a>");
         add(TranslationKey.COMPLIANCE_URL, "https://docs.google.com/viewer?url=https://static.payu.com/sites/terms/files/payu_terms_of_service_single_transaction_pl_en.pdf");
 
-        add(TranslationKey.WEB_PAYMENT, " ");
         add(TranslationKey.PBL_TITLE, "Bankový prevod");
         add(TranslationKey.CANNOT_SHOW_COMPLIANCE_TEXT, "Chýba mobilná aplikácia");
         add(TranslationKey.PAYMENT_METHOD_CARD_DESCRIPTION, "Debetná alebo kreditná");

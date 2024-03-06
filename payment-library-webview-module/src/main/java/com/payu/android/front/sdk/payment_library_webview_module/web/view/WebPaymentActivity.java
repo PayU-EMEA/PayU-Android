@@ -142,7 +142,7 @@ public class WebPaymentActivity extends BaseMenuActivity {
         webPaymentPresenter = new WebPaymentPresenter(addressBarPresenter, cookieManager, postDataEncoder, paymentUrlMatcher, authorizationDetails.getFallbackLink().orNull(), getCurrentRestEnvironment(this));
         webPaymentPresenter.setOnAuthorizationFinishedListener(authorizationFinishedListener);
         webPaymentPresenter.takeView(webPaymentView);
-        textTitle.setText(translation.translate(TranslationKey.WEB_PAYMENT));
+        textTitle.setText("");
 
     }
 

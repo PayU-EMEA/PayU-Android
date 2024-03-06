@@ -11,7 +11,8 @@ public enum Locale {
     CZECH("cs"), GERMAN("de"), HUNGARIAN("hu"),
     UKRAINIAN("ua") , SLOVAK("sk"), SPANISH ("es"),
     FRENCH("fr"), LITHUANIAN("lt"), ROMANIAN("ro"),
-    SLOVENIAN("sl");
+    SLOVENIAN("sl"), BULGARIAN("bg"), GREEK("el"),
+    CROATIAN("hr"), ITALIAN("it"), RUSSIAN("ru");
     private final String mLanguageCode;
 
     Locale(String languageCode) {
