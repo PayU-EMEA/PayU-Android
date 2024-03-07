@@ -8,6 +8,7 @@
 Android releases are available on jfrog. To preview it go to PayU's [jfrog artifactory](https://payu.jfrog.io/ui/native/mobile-sdk-gradle-local/). 
 
 If you want to use it in your app add this line to gradle repositories:
+
 ```
 maven { url "https://payu.jfrog.io/payu/mobile-sdk-gradle-local" }
 ```
