@@ -1,8 +1,19 @@
 # PayU-Android
 
-## Start
+## Documentations
 * https://developers.payu.com/pl/restapi.html
 * https://developers.payu.com/en/mobile_sdk.html# (prepare your backend and mobile app for rest communication)
+
+## Start
+Android releases are available on jfrog. To preview it go to PayU's [jfrog artifactory](https://payu.jfrog.io/ui/native/mobile-sdk-gradle-local/). 
+
+If you want to use it in your app add this line to gradle repositories:
+```
+maven { url "https://payu.jfrog.io/payu/mobile-sdk-gradle-local" }
+```
+
+## Languages available in the SDK
+bulgarian, croatian, czech, english, french, german, greek, hungarian, lithuanian, polish, romanian, russian, slovak, slovenian, spanish, ukrainian
 
 ## Run test app
 * Configure correctly this app please select in `app/src/main/res/values/payu.xml` file:
