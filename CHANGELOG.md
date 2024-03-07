@@ -1,5 +1,9 @@
+# 1.0.28
+* Added new languages - Bulgarian, Croatian, Greek, Italian, Russian
+* Removed multiDex in demo app, updated minSdkVersion to 21, updated libraries versions
+
 # 1.0.27
-* fix artifact dependencies
+* Fixed artifact dependencies
 
 # 1.0.26
 
