@@ -1,8 +1,8 @@
 # PayU-Android
 
 ## Documentations
-* https://developers.payu.com/pl/restapi.html
-* https://developers.payu.com/en/mobile_sdk.html# (prepare your backend and mobile app for rest communication)
+* https://developers.payu.com/europe/docs/payment-flows/
+* https://developers.payu.com/europe/docs/mobile-sdk/ (prepare your backend and mobile app for rest communication)
 
 ## Start
 Android releases are available on jfrog. To preview it go to PayU's [jfrog artifactory](https://payu.jfrog.io/ui/native/mobile-sdk-gradle-local/). 
