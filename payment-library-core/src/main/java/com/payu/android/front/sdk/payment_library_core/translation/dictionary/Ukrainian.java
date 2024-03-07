@@ -40,7 +40,6 @@ public class Ukrainian extends StringMapTranslation {
         add(TranslationKey.APPLICATION_VERSION, "Версія застосунку");
         add(TranslationKey.SUPPORT_PAYMENT_INFORMATION, "Я приймаю <a href=\"#\">умови оплати</a>");
         add(TranslationKey.COMPLIANCE_URL, "https://docs.google.com/viewer?url=https://static.payu.com/sites/terms/files/payu_terms_of_service_single_transaction_pl_en.pdf");
-        add(TranslationKey.WEB_PAYMENT, " ");
         add(TranslationKey.PBL_TITLE, "Банківський переказ");
         add(TranslationKey.CANNOT_SHOW_COMPLIANCE_TEXT, "На пристрої немає програми для підтримки");
         add(TranslationKey.PAYMENT_METHOD_CARD_DESCRIPTION, "Дебетова або кредитна картка");

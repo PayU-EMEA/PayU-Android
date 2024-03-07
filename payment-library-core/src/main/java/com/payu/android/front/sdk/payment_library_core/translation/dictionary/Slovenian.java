@@ -40,7 +40,6 @@ public class Slovenian extends StringMapTranslation {
         add(TranslationKey.SELECT_PAYMENT_METHOD, "Izberite način plačila");
         add(TranslationKey.SUPPORT_PAYMENT_INFORMATION, "Sprejmem plačilne pogoje <a href=\"#\">PayU</a>");
         add(TranslationKey.COMPLIANCE_URL, "https://docs.google.com/viewer?url=https://static.payu.com/sites/terms/files/payu_terms_of_service_single_transaction_pl_en.pdf");
-        add(TranslationKey.WEB_PAYMENT, " ");
         add(TranslationKey.PBL_TITLE, "Bančno nakazilo");
         add(TranslationKey.CANNOT_SHOW_COMPLIANCE_TEXT, "Na napravi ni aplik., ki to podpira");
         add(TranslationKey.PAYMENT_METHOD_CARD_DESCRIPTION, "debit ali kredit");

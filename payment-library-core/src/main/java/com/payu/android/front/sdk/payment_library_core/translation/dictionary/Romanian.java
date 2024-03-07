@@ -40,7 +40,6 @@ public class Romanian extends StringMapTranslation {
         add(TranslationKey.SELECT_PAYMENT_METHOD, "Selectaţi metoda de plată");
         add(TranslationKey.SUPPORT_PAYMENT_INFORMATION, "Sunt de acord cu <a href=\"#\">Termenii de plată PayU</a>");
         add(TranslationKey.COMPLIANCE_URL, "https://docs.google.com/viewer?url=https://static.payu.com/sites/terms/files/payu_terms_of_service_single_transaction_pl_en.pdf");
-        add(TranslationKey.WEB_PAYMENT, " ");
         add(TranslationKey.PBL_TITLE, "Transfer bancar");
         add(TranslationKey.CANNOT_SHOW_COMPLIANCE_TEXT, "Pe dispozitiv nu există nicio aplicţie care să accepte aceasta");
         add(TranslationKey.PAYMENT_METHOD_CARD_DESCRIPTION, "debit sau credit");

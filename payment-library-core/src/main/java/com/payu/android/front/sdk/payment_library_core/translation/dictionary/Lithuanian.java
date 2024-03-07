@@ -40,7 +40,6 @@ public class Lithuanian extends StringMapTranslation {
         add(TranslationKey.SELECT_PAYMENT_METHOD, "Izvēlieties maksājuma metodi");
         add(TranslationKey.SUPPORT_PAYMENT_INFORMATION, "Es piekrītu <a href=\"#\">PayU maksājumu noteikumiem</a>");
         add(TranslationKey.COMPLIANCE_URL, "https://docs.google.com/viewer?url=https://static.payu.com/sites/terms/files/payu_terms_of_service_single_transaction_pl_en.pdf");
-        add(TranslationKey.WEB_PAYMENT, " ");
         add(TranslationKey.PBL_TITLE, "Bankas pārskaitījums");
         add(TranslationKey.CANNOT_SHOW_COMPLIANCE_TEXT, "Ierīcē nav lietotnes, kas atbalsta šo formātu");
         add(TranslationKey.PAYMENT_METHOD_CARD_DESCRIPTION, "kredīts vai debets");

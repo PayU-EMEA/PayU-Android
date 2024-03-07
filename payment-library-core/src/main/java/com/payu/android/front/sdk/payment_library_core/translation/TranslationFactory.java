@@ -4,14 +4,19 @@ package com.payu.android.front.sdk.payment_library_core.translation;
 import static com.google.common.base.Optional.fromNullable;
 
 import com.payu.android.front.sdk.payment_library_core.payment.configuration.Locale;
+import com.payu.android.front.sdk.payment_library_core.translation.dictionary.Bulgarian;
+import com.payu.android.front.sdk.payment_library_core.translation.dictionary.Croatian;
 import com.payu.android.front.sdk.payment_library_core.translation.dictionary.Czech;
 import com.payu.android.front.sdk.payment_library_core.translation.dictionary.English;
 import com.payu.android.front.sdk.payment_library_core.translation.dictionary.French;
 import com.payu.android.front.sdk.payment_library_core.translation.dictionary.German;
+import com.payu.android.front.sdk.payment_library_core.translation.dictionary.Greek;
 import com.payu.android.front.sdk.payment_library_core.translation.dictionary.Hungarian;
+import com.payu.android.front.sdk.payment_library_core.translation.dictionary.Italian;
 import com.payu.android.front.sdk.payment_library_core.translation.dictionary.Lithuanian;
 import com.payu.android.front.sdk.payment_library_core.translation.dictionary.Polish;
 import com.payu.android.front.sdk.payment_library_core.translation.dictionary.Romanian;
+import com.payu.android.front.sdk.payment_library_core.translation.dictionary.Russian;
 import com.payu.android.front.sdk.payment_library_core.translation.dictionary.Slovak;
 import com.payu.android.front.sdk.payment_library_core.translation.dictionary.Slovenian;
 import com.payu.android.front.sdk.payment_library_core.translation.dictionary.Spanish;
@@ -69,8 +74,13 @@ public final class TranslationFactory {
         Translation lithuanianTranslation = new Lithuanian();
         Translation romanianTranslation = new Romanian();
         Translation slovenianTranslation = new Slovenian();
+        Translation bulgarianTranslation = new Bulgarian();
+        Translation greekTranslation = new Greek();
+        Translation croatianTranslation = new Croatian();
+        Translation italianTranslation = new Italian();
+        Translation russianTranslation = new Russian();
 
-        Map<Locale, Translation> translations = new HashMap();
+        Map<Locale, Translation> translations = new HashMap<>();
         translations.put(polishTranslation.getLanguage(), polishTranslation);
         translations.put(englishTranslation.getLanguage(), englishTranslation);
         translations.put(czechTranslation.getLanguage(), czechTranslation);
@@ -83,6 +93,11 @@ public final class TranslationFactory {
         translations.put(lithuanianTranslation.getLanguage(), lithuanianTranslation);
         translations.put(romanianTranslation.getLanguage(), romanianTranslation);
         translations.put(slovenianTranslation.getLanguage(), slovenianTranslation);
+        translations.put(bulgarianTranslation.getLanguage(), bulgarianTranslation);
+        translations.put(greekTranslation.getLanguage(), greekTranslation);
+        translations.put(croatianTranslation.getLanguage(), croatianTranslation);
+        translations.put(italianTranslation.getLanguage(), italianTranslation);
+        translations.put(russianTranslation.getLanguage(), russianTranslation);
 
         return fromNullable(translations.get(locale)).or(englishTranslation);
     }

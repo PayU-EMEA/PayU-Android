@@ -40,7 +40,6 @@ public class Polish extends StringMapTranslation {
         add(TranslationKey.APPLICATION_VERSION, "Wersja aplikacji");
         add(TranslationKey.SUPPORT_PAYMENT_INFORMATION, "Akceptuję <a href=\"#\">Zasady płatności PayU</a>");
         add(TranslationKey.COMPLIANCE_URL, "https://docs.google.com/viewer?url=https://static.payu.com/sites/terms/files/payu_terms_of_service_single_transaction_pl_pl.pdf");
-        add(TranslationKey.WEB_PAYMENT, " ");
         add(TranslationKey.PBL_TITLE, "Płatność przelewem");
         add(TranslationKey.CANNOT_SHOW_COMPLIANCE_TEXT, "Przykro nam, ale na urządzeniu nie znajduje się aplikacja obsługującą tą akcję.");
         add(TranslationKey.PAYMENT_METHOD_CARD_DESCRIPTION, "debetowa lub kredytowa");
