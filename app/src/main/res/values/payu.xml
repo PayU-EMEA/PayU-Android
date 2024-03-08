@@ -7,7 +7,7 @@
             auto, bulgarian, croatian, czech, english, french, german, greek, hungarian, lithuanian,
             polish, romanian, russian, slovak, slovenian, spanish, ukrainian
     -->
-    <string name="payu_language">ukrainian</string>
+    <string name="payu_language">auto</string>
     <bool name="payu_save_and_use_card">true</bool>
     <bool name="payu_add_card_option">true</bool>
     <bool name="payu_pbl_option">true</bool>
