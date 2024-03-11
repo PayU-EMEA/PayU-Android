@@ -1,3 +1,6 @@
+# 1.0.29
+* Fixed Italian translations
+
 # 1.0.28
 * Added new languages - Bulgarian, Croatian, Greek, Italian, Russian
 * Removed multiDex in demo app, updated minSdkVersion to 21, updated libraries versions
