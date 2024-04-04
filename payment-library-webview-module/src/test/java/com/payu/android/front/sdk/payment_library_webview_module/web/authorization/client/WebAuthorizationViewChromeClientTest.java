@@ -1,8 +1,6 @@
 package com.payu.android.front.sdk.payment_library_webview_module.web.authorization.client;
 
-import static com.googlecode.catchexception.CatchException.catchException;
-import static com.googlecode.catchexception.CatchException.caughtException;
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatNoException;
 import static org.mockito.Mockito.verify;
 
 import android.view.View;
@@ -45,11 +43,8 @@ public class WebAuthorizationViewChromeClientTest {
         // given
         objectUnderTest = new WebAuthorizationViewChromeClient(null);
 
-        // when
-        catchException(objectUnderTest).onProgressChanged(null, 64);
-
-        // then
-        assertThat((Throwable) caughtException()).isNull();
+        // when + then
+        assertThatNoException().isThrownBy(() -> objectUnderTest.onProgressChanged(null, 64));
     }
 
     @Test

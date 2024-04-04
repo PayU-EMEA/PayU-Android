@@ -40,7 +40,6 @@ dependencies {
     api project(path:':payment-library-api-client')
 
     testImplementation "org.assertj:assertj-core:$project.assertJsVersion"
-    testImplementation "eu.codearte.catch-exception:catch-exception:$project.catchException2Version"
     testImplementation "org.mockito:mockito-core:$project.mockitoVersion"
     testImplementation "org.robolectric:robolectric:$project.robolectricVersion"
     testImplementation "junit:junit:$project.junitVersion"
