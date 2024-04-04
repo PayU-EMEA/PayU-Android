@@ -51,7 +51,6 @@ dependencies {
     testImplementation "org.robolectric:robolectric:$project.robolectricVersion"
 
     testImplementation "org.mockito:mockito-core:$project.mockitoVersion"
-    testImplementation "eu.codearte.catch-exception:catch-exception:$project.catchException2Version"
     testImplementation "org.assertj:assertj-core:$project.assertJsVersion"
 
     androidTestImplementation "androidx.test.ext:junit:$project.junitAssertionsVersion"

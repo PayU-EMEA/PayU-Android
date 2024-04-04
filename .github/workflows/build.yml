@@ -13,7 +13,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: 'zulu'
-          java-version: 11
+          java-version: 17
       - name: Get app version
         id: app_version
         run: echo "APP_VERSION=$(./gradlew version --no-daemon --console=plain -q | tail -n 1)" >> $GITHUB_OUTPUT

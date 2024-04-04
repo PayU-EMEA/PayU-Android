@@ -1,10 +1,8 @@
 package com.payu.android.front.sdk.payment_library_api_client.internal.rest.client.ssl;
 
 import static com.google.common.collect.Lists.newArrayList;
-import static com.googlecode.catchexception.CatchException.catchException;
-import static com.googlecode.catchexception.CatchException.caughtException;
-import static com.googlecode.catchexception.CatchException.resetCaughtException;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatNoException;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.openMocks;
 import static java.util.Arrays.asList;
@@ -59,15 +57,12 @@ public class AndroidAndProvidedCertificateListVerifierTest {
         fakeCertificates.add(new SslCertificate(knownPublicKeyHash, serialNumber));
         objectUnderTest = new AndroidAndProvidedCertificateListVerifier(trustManagerMock, fakeCertificates);
 
-        // when
-        objectUnderTest.checkServerTrusted(asList(certificateMock, caCertificateMock).toArray(new X509Certificate[2]), null);
-
-        // then
-        assertThat((Throwable) caughtException()).isNull();
+        // when + then
+        assertThatNoException().isThrownBy(() -> objectUnderTest.checkServerTrusted(asList(certificateMock, caCertificateMock).toArray(new X509Certificate[2]), null));
     }
 
     @Test
-    public void shouldAcceptTrustedCertificateThatMatchesSecondCertificateInChain() throws CertificateException {
+    public void shouldAcceptTrustedCertificateThatMatchesSecondCertificateInChain() {
         // given
         String knownPublicKeyHash = "knownPublicKeyHash";
         String serialNumber = "36122296c5e338a520a1d25f4cd70954";
@@ -76,21 +71,15 @@ public class AndroidAndProvidedCertificateListVerifierTest {
         fakeCertificates.add(new SslCertificate(knownPublicKeyHash, serialNumber));
         objectUnderTest = new AndroidAndProvidedCertificateListVerifier(trustManagerMock, fakeCertificates);
 
-        // when
-        objectUnderTest.checkServerTrusted(asList(certificateMock, caCertificateMock).toArray(new X509Certificate[2]), null);
-
-        // then
-        assertThat((Throwable) caughtException()).isNull();
+        // when + then
+        assertThatNoException().isThrownBy(() -> objectUnderTest.checkServerTrusted(asList(certificateMock, caCertificateMock).toArray(new X509Certificate[2]), null));
     }
 
 
     @Test
-    public void shouldCheckClientPositivelyWithAndroidVerifier() throws CertificateException {
-        // when
-        catchException(objectUnderTest).checkClientTrusted(null, null);
-
-        // then
-        assertThat((Throwable) caughtException()).isNull();
+    public void shouldCheckClientPositivelyWithAndroidVerifier() {
+        // when + then
+        assertThatNoException().isThrownBy(() -> objectUnderTest.checkClientTrusted(null, null));
     }
 
     @Test
@@ -106,43 +95,29 @@ public class AndroidAndProvidedCertificateListVerifierTest {
     }
 
     @Test
-    public void shouldNotThrowCertificateExceptionIfAndroidVerifierIsNotAvailable() throws CertificateException {
+    public void shouldNotThrowCertificateExceptionIfAndroidVerifierIsNotAvailable() {
         // given
         objectUnderTest = new AndroidAndProvidedCertificateListVerifier(null, fakeCertificates);
 
-        // when
-        catchException(objectUnderTest).checkClientTrusted(null, null);
-
-        // then
-        assertThat((Throwable) caughtException()).isNull();
+        // when + then
+        assertThatNoException().isThrownBy(() -> objectUnderTest.checkClientTrusted(null, null));
     }
 
-    @Test
+    @Test(expected = CertificateException.class)
     public void shouldRejectUntrustedCertificatesIfNoCertificatesConfigured() throws CertificateException {
         // when
-        catchException(objectUnderTest).checkServerTrusted(asList(certificateMock, caCertificateMock).toArray(new
+        objectUnderTest.checkServerTrusted(asList(certificateMock, caCertificateMock).toArray(new
                 X509Certificate[2]), null);
-
-        // then
-        assertThat((Throwable) caughtException()).isInstanceOf(CertificateException.class);
     }
 
-    @Test
+    @Test(expected = CertificateException.class)
     public void shouldRejectUntrustedCertificatesIfUnknownCertificatesConfigured() throws CertificateException {
         // given
         fakeCertificates.add(new SslCertificate("anypublickeyhash", "serialnumber"));
 
         // when
-        catchException(objectUnderTest).checkServerTrusted(asList(certificateMock, caCertificateMock).toArray(new
+        objectUnderTest.checkServerTrusted(asList(certificateMock, caCertificateMock).toArray(new
                 X509Certificate[2]), null);
-
-        // then
-        assertThat((Throwable) caughtException()).isInstanceOf(CertificateException.class);
-    }
-
-    @After
-    public void tearDown() {
-        resetCaughtException();
     }
 
     private void configureCertificateAndPublicKeyMocks(String firstCertificateSerialNumber, String knownPublicKeyHash,

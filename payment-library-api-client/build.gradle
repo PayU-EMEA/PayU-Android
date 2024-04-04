@@ -41,7 +41,6 @@ dependencies {
     api "com.squareup.okhttp3:logging-interceptor:$project.okhttpLogInterceptorVersion"
 
     testImplementation "org.mockito:mockito-core:$project.mockitoVersion"
-    testImplementation "eu.codearte.catch-exception:catch-exception:$project.catchException2Version"
     testImplementation "org.assertj:assertj-core:$project.assertJsVersion"
     testImplementation "junit:junit:$project.junitVersion"
     testImplementation "org.robolectric:robolectric:$project.robolectricVersion"
