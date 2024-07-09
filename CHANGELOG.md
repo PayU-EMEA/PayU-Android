@@ -1,3 +1,6 @@
+# 1.0.30
+* Updates Cards Pay library (change font)
+
 # 1.0.29
 * Fixed Italian translations
 

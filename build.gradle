@@ -50,7 +50,7 @@ project.ext {
     retrofit2Version = "2.9.0"
     okhttpLogInterceptorVersion = "4.8.0"
     playServicesVersion = "18.0.0"
-    cardsPayVersion = "1.0.1"
+    cardsPayVersion = "1.0.2"
     fragmentVersion = '1.5.2'
     androidxActivityVersion = '1.5.1'
     rxJava3 = '3.0.13'
@@ -71,6 +71,6 @@ project.ext {
     targetSdkVersion = 33
     minSdkVersion = 21
     versionCode = 6
-    versionName = "1.0.29"
+    versionName = "1.0.30"
     groupId = "com.payu.android.front.sdk"
 }
