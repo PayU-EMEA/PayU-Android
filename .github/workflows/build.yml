@@ -24,6 +24,8 @@ jobs:
           exit 1
       - name: Run test
         run: ./gradlew test
+      - name: Run lint
+        run: ./gradlew lint
       - name: Create release in artifactory
         env:
           REPOSITORY_USERNAME: ${{ secrets.REPOSITORY_USERNAME }}

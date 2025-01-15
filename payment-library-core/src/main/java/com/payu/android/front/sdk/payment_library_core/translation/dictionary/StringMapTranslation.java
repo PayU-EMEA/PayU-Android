@@ -17,7 +17,7 @@ abstract class StringMapTranslation implements Translation {
     }
 
     @Override
-    public String translate(TranslationKey key, String... parameters) {
+    public String translate(TranslationKey key, Object... parameters) {
         return String.format(translate(key), parameters);
     }
 

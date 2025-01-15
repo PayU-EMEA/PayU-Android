@@ -12,5 +12,7 @@ jobs:
           java-version: 17
       - name: Run test
         run: ./gradlew test
+      - name: Run lint
+        run: ./gradlew lint
       - name: Run build
         run: ./gradlew assembleDebug

@@ -26,6 +26,11 @@ android {
     namespace 'com.payu.android.front.sdk.frontsdk'
 
 }
+
+kotlin {
+    jvmToolchain(project.javaVersion)
+}
+
 dependencies {
     implementation "androidx.fragment:fragment:$fragmentVersion"
 
@@ -43,10 +48,10 @@ dependencies {
     kapt "com.github.bumptech.glide:compiler:$project.glideVersion"
 
     // Dagger
-    kapt "com.google.dagger:dagger-compiler:2.50"
-    kapt "com.google.dagger:dagger-android-processor:2.50"
-    implementation "com.google.dagger:dagger:2.50"
-    implementation "com.google.dagger:dagger-android-support:2.50"
+    kapt "com.google.dagger:dagger-compiler:$project.daggerVersion"
+    kapt "com.google.dagger:dagger-android-processor:$project.daggerVersion"
+    implementation "com.google.dagger:dagger:$project.daggerVersion"
+    implementation "com.google.dagger:dagger-android-support:$project.daggerVersion"
 
     // RxJava
     implementation 'io.reactivex.rxjava2:rxjava:2.2.8'
@@ -66,7 +71,6 @@ dependencies {
     implementation project(path: ':payment-library-webview-module')
     implementation project(path: ':payment-library-google-pay-module')
     implementation project(path: ':payment-library-google-pay-adapter')
-    implementation project(path: ':payment-installments')
     implementation project(path: ':marketplace-terms-condition')
 
     testImplementation "junit:junit:$project.junitVersion"

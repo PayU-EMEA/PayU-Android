@@ -1,5 +1,12 @@
 package com.payu.android.front.sdk.payment_library_webview_module.web.view.presenter;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import android.os.Bundle;
 import android.view.View;
@@ -13,7 +20,6 @@ import com.payu.android.front.sdk.payment_library_api_client.internal.rest.envir
 import com.payu.android.front.sdk.payment_library_core_android.configuration.IllegalConfigurationException;
 import com.payu.android.front.sdk.payment_library_webview_module.web.authorization.OnAuthorizationFinishedListener;
 import com.payu.android.front.sdk.payment_library_webview_module.web.authorization.PostDataEncoder;
-import com.payu.android.front.sdk.payment_library_webview_module.web.authorization.WebPaymentStatus;
 import com.payu.android.front.sdk.payment_library_webview_module.web.authorization.WebPaymentWrapper;
 import com.payu.android.front.sdk.payment_library_webview_module.web.authorization.matcher.PaymentUrlMatcher;
 import com.payu.android.front.sdk.payment_library_webview_module.web.view.AddressBarView;
@@ -27,13 +33,6 @@ import org.mockito.MockitoAnnotations;
 import org.robolectric.RobolectricTestRunner;
 
 import java.util.Map;
-
-import static org.junit.Assert.assertTrue;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
 @RunWith(RobolectricTestRunner.class)
 public class WebPaymentPresenterTest {
@@ -85,7 +84,7 @@ public class WebPaymentPresenterTest {
     @Before
     public void setUp() {
         MockitoAnnotations.openMocks(this);
-        objectUnderTest = new WebPaymentPresenter(addressBarPresenter, cookieManager, postDataEncoder, paymentUrlMatcher,"", restEnvironment);
+        objectUnderTest = new WebPaymentPresenter(addressBarPresenter, cookieManager, postDataEncoder, paymentUrlMatcher, "", restEnvironment);
 
     }
 
@@ -228,7 +227,7 @@ public class WebPaymentPresenterTest {
 
         //then
         verify(webView, times(1)).goBack();
-        assertTrue(!statement);
+        assertFalse(statement);
 
     }
 

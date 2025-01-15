@@ -4,8 +4,6 @@ import android.content.Context;
 
 import androidx.annotation.NonNull;
 
-import com.payu.android.front.sdk.payment_library_core.external.listener.InstallmentCallback;
-import com.payu.android.front.sdk.payment_library_core.external.model.Installment;
 import com.payu.android.front.sdk.payment_library_payment_chooser.payment_method.external.NotImplementedException;
 import com.payu.android.front.sdk.payment_library_payment_chooser.payment_method.external.listener.PaymentMethodsCallback;
 import com.payu.android.front.sdk.payment_library_payment_chooser.payment_method.external.listener.PosIdListener;
@@ -75,19 +73,5 @@ public abstract class PaymentMethodActions {
      */
     public void provideBlikPaymentMethods(@NonNull PaymentMethodsCallback callback) {
         throw new NotImplementedException("This method has to be overridden if you want to use new Blik payments");
-    }
-
-    /**
-     * This method will be called by the PayU SDK every time, when Installments will be needed. After checking transaction
-     * backend, callback's {@linkplain InstallmentCallback:onFetched()} method has to be called. To ensure proper PayU SDK behaviour, the
-     * response from backend has to be parsed using builder pattern {@link com.payu.android.front.sdk.payment_library_core.external.model.Installment.Builder} &&
-     * {@link com.payu.android.front.sdk.payment_library_core.external.model.InstallmentOption.Builder}
-     * <p>
-     *
-     *
-     * @param callback - interface, which need to be notified with fetched payment methods
-     */
-    public void provideInstallments(@NonNull InstallmentCallback callback) {
-        throw new NotImplementedException("This method hast to be overridden if you want to use Installment Options");
     }
 }

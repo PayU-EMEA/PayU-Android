@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.webkit.CookieManager;
 import android.widget.TextView;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
@@ -109,12 +110,13 @@ public class WebPaymentActivity extends BaseMenuActivity {
     }
 
     @Override
-    public void onPostCreate(@Nullable Bundle savedInstanceState) {
-        super.onPostCreate(savedInstanceState);
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         setupData();
         applyStyles();
         bindDialog();
         bindWebViewUrlPayment(savedInstanceState);
+        bindBackButton();
     }
 
     @Override
@@ -196,11 +198,17 @@ public class WebPaymentActivity extends BaseMenuActivity {
         }
     };
 
-    @Override
-    public void onBackPressed() {
-        if (webPaymentPresenter != null && webPaymentPresenter.isWebBackStackEmpty()) {
-            dialog.show();
-        }
+    private void bindBackButton() {
+        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                if (webPaymentPresenter != null && webPaymentPresenter.isWebBackStackEmpty()) {
+                    dialog.show();
+                }
+            }
+        };
+
+        getOnBackPressedDispatcher().addCallback(this, callback);
     }
 
     @Override

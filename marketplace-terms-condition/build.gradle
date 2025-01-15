@@ -33,6 +33,10 @@ android {
     namespace 'com.payu.android.front.sdk.marketplace_terms_condition'
 }
 
+kotlin {
+    jvmToolchain(project.javaVersion)
+}
+
 dependencies {
 
     implementation project(path: ':payment-library-core-android')

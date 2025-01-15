@@ -32,6 +32,10 @@ android {
     namespace 'com.payu.android.front.sdk.payment_library_webview_module'
 }
 
+kotlin {
+    jvmToolchain(project.javaVersion)
+}
+
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 

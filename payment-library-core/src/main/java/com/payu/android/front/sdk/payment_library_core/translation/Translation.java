@@ -8,5 +8,5 @@ public interface Translation {
 
     String translate(TranslationKey key);
 
-    String translate(TranslationKey key, String... parameters);
+    String translate(TranslationKey key, Object... parameters);
 }

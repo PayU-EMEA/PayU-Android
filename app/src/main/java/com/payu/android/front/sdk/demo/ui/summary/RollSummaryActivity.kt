@@ -2,6 +2,7 @@ package com.payu.android.front.sdk.demo.ui.summary
 
 import android.app.Activity
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -9,7 +10,6 @@ import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
-import com.payu.android.front.sdk.demo.api.model.installments.InstallmentSelected
 import com.payu.android.front.sdk.demo.model.RollModel
 import com.payu.android.front.sdk.demo.ui.base.ActivityWithMenu
 import com.payu.android.front.sdk.demo.ui.login.LoginActivity
@@ -17,12 +17,8 @@ import com.payu.android.front.sdk.demo.ui.main.BUNDLE_DATA
 import com.payu.android.front.sdk.frontsdk.R
 import com.payu.android.front.sdk.frontsdk.databinding.ActivityRollSummaryBinding
 import com.payu.android.front.sdk.payment_add_card_module.service.CvvValidationService
-import com.payu.android.front.sdk.payment_installments.mastercard.offer.model.SelectedInstallment
-import com.payu.android.front.sdk.payment_installments.mastercard.offer.view.OfferInstallmentsActivity
 import com.payu.android.front.sdk.payment_library_card_scanner.scanner.pay.card.PayCardScanner
-import com.payu.android.front.sdk.payment_library_core.external.model.InstallmentType
 import com.payu.android.front.sdk.payment_library_core_android.events.AuthorizationDetails
-import com.payu.android.front.sdk.payment_library_core_android.events.PaymentAuthorization
 import com.payu.android.front.sdk.payment_library_google_pay_adapter.GooglePayAdapter
 import com.payu.android.front.sdk.payment_library_google_pay_module.builder.Cart
 import com.payu.android.front.sdk.payment_library_google_pay_module.model.Currency
@@ -52,7 +48,13 @@ class RollSummaryActivity : ActivityWithMenu() {
     }
 
     private fun populateData() {
-        val rollModel = intent.getParcelableExtra<RollModel>(BUNDLE_DATA)
+        val rollModel: RollModel? = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            intent.getParcelableExtra(BUNDLE_DATA, RollModel::class.java)
+        } else {
+            @Suppress("DEPRECATION")
+            intent.getParcelableExtra(BUNDLE_DATA)
+        }
+
         viewModel.rollModel = rollModel
         viewModel.paymentChooserController = getPaymentChooserController()
 
@@ -96,12 +98,6 @@ class RollSummaryActivity : ActivityWithMenu() {
         })
     }
 
-    private fun observeInstallmentAlreadyTaken() {
-        viewModel.installmentAlreadyTaken.observe(this, {
-            Toast.makeText(this, getString(R.string.installment_taken), Toast.LENGTH_SHORT).show()
-        })
-    }
-
     private fun observeMessageSuccessEvent() {
         viewModel.paymentSuccessEvent.observe(this, Observer { messageStringRes ->
             messageStringRes?.let { showSuccess(it) }
@@ -129,12 +125,6 @@ class RollSummaryActivity : ActivityWithMenu() {
     private fun observeBlikAmbiguityEvent() {
         viewModel.blikAmbiguityEvent.observe(this, Observer {
             BlikAmbiguityService.selectAmbiguityBlik(this)
-        })
-    }
-
-    private fun observeInstallmentEvent() {
-        viewModel.installmentProposalEvent.observe(this, {
-            OfferInstallmentsActivity.startForResult(this)
         })
     }
 
@@ -166,17 +156,18 @@ class RollSummaryActivity : ActivityWithMenu() {
 
     private fun showSuccess(message: String) {
         showToast(message)
-        binding.success.postDelayed({
-            binding.success.visibility = View.VISIBLE
-        }, 1
+        binding.success.postDelayed(
+            {
+                binding.success.visibility = View.VISIBLE
+            }, 1
 
         )
         binding.success.postDelayed(
-                {
-                    binding.success.visibility = View.GONE
-                    viewModel.showProgress.set(false)
-                },
-                2000
+            {
+                binding.success.visibility = View.GONE
+                viewModel.showProgress.set(false)
+            },
+            2000
         )
     }
 
@@ -188,19 +179,19 @@ class RollSummaryActivity : ActivityWithMenu() {
         showToast(message)
         binding.error.visibility = View.VISIBLE
         binding.error.postDelayed(
-                {
-                    binding.error.visibility = View.GONE
-                    viewModel.showProgress.set(false)
-                },
-                2000
+            {
+                binding.error.visibility = View.GONE
+                viewModel.showProgress.set(false)
+            },
+            2000
         )
     }
 
     private fun createCart() = viewModel.rollModel?.rollPrice?.let { price ->
         Cart.Builder()
-                .withTotalPrice(price)
-                .withCurrency(Currency.PLN)
-                .build()
+            .withTotalPrice(price)
+            .withCurrency(Currency.PLN)
+            .build()
     } ?: Cart.Builder().build()
 
     private fun handlePaymentResult(requestCode: Int, data: Intent, resultCode: Int) {
@@ -213,17 +204,11 @@ class RollSummaryActivity : ActivityWithMenu() {
                     showToast(getString(R.string.payment_blik_ambiguity, it.toString()))
                 }
             }
-            GooglePayService.REQUEST_CODE_GOOGLE_PAY_PAYMENT -> handleGooglePayResult(resultCode, data)
-            //TODO: create a service for it
-            OfferInstallmentsActivity.INSTALLMENT_REQUEST_CODE -> {
-                val selectedInstallment: SelectedInstallment = data.getParcelableExtra(OfferInstallmentsActivity.INSTALLMENT_KEY)!!
-                val installmentSelected: InstallmentSelected =
-                        if (selectedInstallment.installmentType == InstallmentType.OPTIONS.toString())
-                            InstallmentSelected(selectedInstallment.id)
-                        else InstallmentSelected(numberOfInstallments = selectedInstallment.id.toInt())
-                viewModel.requestInstallment(installmentSelected, selectedInstallment.proposalId!!)
-                Toast.makeText(this, "Installment finished", Toast.LENGTH_SHORT).show()
-            }
+
+            GooglePayService.REQUEST_CODE_GOOGLE_PAY_PAYMENT -> handleGooglePayResult(
+                resultCode,
+                data
+            )
         }
     }
 
@@ -236,19 +221,21 @@ class RollSummaryActivity : ActivityWithMenu() {
                 showToast(R.string.payment_status_warning_continue_cvv)
                 handleCvvValidation(paymentDetails.continuePaymentUrl.get())
             }
+
             WebPaymentStatus.CANCEL_PAYMENT -> showError(R.string.payment_cancel)
             WebPaymentStatus.PAYMENT_ERROR,
             WebPaymentStatus.SSL_VALIDATION_ERROR -> showError(R.string.payment_status_error)
+
             else -> showError(R.string.payment_status_error)
         }
     }
 
     private fun handleCvvValidation(cvvPaymentUrl: String) {
         CvvValidationService.validateCvv(
-                supportFragmentManager,
-                AuthorizationDetails.Builder()
-                        .withLink(cvvPaymentUrl)
-                        .build()
+            supportFragmentManager,
+            AuthorizationDetails.Builder()
+                .withLink(cvvPaymentUrl)
+                .build()
         ) { showSuccess("Cvv validation completed!") }
     }
 
@@ -260,14 +247,17 @@ class RollSummaryActivity : ActivityWithMenu() {
                     viewModel.createOrder(it, googlePayTokenResponse?.googlePayToken)
                 }
             }
+
             Activity.RESULT_CANCELED -> {
                 //User has canceled payment
                 showError("Payment canceled")
             }
+
             GooglePayService.RESULT_ERROR -> {
                 val status = googlePayService.handleGooglePayErrorStatus(data)
                 showError(status.errorMessage ?: "GooglePay Error")
             }
+
             else -> showError("Payment process has failed for the user")
         }
     }
@@ -289,9 +279,7 @@ class RollSummaryActivity : ActivityWithMenu() {
         observeGooglePayEvent()
         observeBlikAmbiguityEvent()
         observePaymentEvent()
-        observeInstallmentEvent()
         observePaymentMethodChange()
-        observeInstallmentAlreadyTaken()
 
         //for 3DS SoftAccept Test
         retrieveStatusFromSoftAccept()
@@ -312,10 +300,21 @@ class RollSummaryActivity : ActivityWithMenu() {
     }
 
     fun retrieveStatusFromSoftAccept() {
-        supportFragmentManager.setFragmentResultListener(SoftAcceptService.KEY_REQUEST_BUNDLE, this, { _, bundle ->
-            val result = bundle.getParcelable<SoftAcceptTransactionDetail>(SoftAcceptService.KEY_SOFT_ACCEPT_RESPONSE_DETAIL)
-            Log.v("SoftAcceptTest", "Response with: " + result?.softAcceptTransactionStatus.toString())
+        supportFragmentManager.setFragmentResultListener(
+            SoftAcceptService.KEY_REQUEST_BUNDLE,
+            this,
+            { _, bundle ->
+                val result: SoftAcceptTransactionDetail? = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                    bundle.getParcelable(SoftAcceptService.KEY_SOFT_ACCEPT_RESPONSE_DETAIL, SoftAcceptTransactionDetail::class.java)
+                } else {
+                    @Suppress("DEPRECATION")
+                    bundle.getParcelable(SoftAcceptService.KEY_SOFT_ACCEPT_RESPONSE_DETAIL)
+                }
+                Log.v(
+                    "SoftAcceptTest",
+                    "Response with: " + result?.softAcceptTransactionStatus.toString()
+                )
 
-        });
+            });
     }
 }

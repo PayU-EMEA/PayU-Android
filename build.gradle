@@ -1,7 +1,7 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    ext.kotlin_version = '1.7.22'
+    ext.kotlin_version = '2.0.21'
 
     repositories {
         mavenCentral()
@@ -9,10 +9,10 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.0.2'
+        classpath 'com.android.tools.build:gradle:8.8.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 
-        classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4.33.12"
+        classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4.33.23"
     }
 }
 
@@ -26,7 +26,7 @@ allprojects {
 }
 
 tasks.register('clean', Delete) {
-    delete rootProject.buildDir
+    delete rootProject.layout.buildDirectory
 }
 
 tasks.register("version") {
@@ -35,40 +35,40 @@ tasks.register("version") {
 
 project.ext {
     //libraries
-    guavaVersion = "33.0.0-android"
+    guavaVersion = "33.4.0-android"
     appCompatVersion = "1.5.1"
-    recyclerViewVersion = "1.2.1"
-    annotationVersion = "1.1.0"
+    recyclerViewVersion = "1.3.2"
+    annotationVersion = "1.9.1"
     materialVersion = "1.1.0"
-    espressoVersion = "3.1.0"
-    constraintLayoutVersion = "2.1.4"
-    robolectricVersion = "4.9"
+    espressoVersion = "3.6.1"
+    constraintLayoutVersion = "2.2.0"
+    robolectricVersion = "4.14.1"
     glideVersion = "4.16.0"
     architectureComponentsCoreVersion = "2.0.0"
     lifecycleComponentVersion = "2.4.1"
-    gsonVersion = "2.8.6"
-    retrofit2Version = "2.9.0"
-    okhttpLogInterceptorVersion = "4.8.0"
-    playServicesVersion = "18.0.0"
+    gsonVersion = "2.11.0"
+    retrofit2Version = "2.11.0"
+    okhttpLogInterceptorVersion = "4.12.0"
+    playServicesVersion = "19.4.0"
     cardsPayVersion = "1.0.2"
-    fragmentVersion = '1.5.2'
-    androidxActivityVersion = '1.5.1'
-    rxJava3 = '3.0.13'
-    rxJava3Android = '3.0.0'
+    fragmentVersion = '1.8.5'
+    rxJava3 = '3.1.10'
+    rxJava3Android = '3.0.2'
+    daggerVersion = '2.55'
 
     // testing
     junitVersion = "4.13.2"
     junitDataproviderVersion = "2.10"
-    junitAssertionsVersion = "1.1.5"
-    assertJsVersion = "3.24.2"
-    assertJGuavaVersion = "3.24.2"
-    mockitoVersion = "5.8.0"
+    junitAssertionsVersion = "1.2.1"
+    assertJsVersion = "3.27.2"
+    mockitoVersion = "5.15.2"
 }
 
 project.ext {
     //android configuration
-    compileSdkVersion = 33
-    targetSdkVersion = 33
+    javaVersion = 17
+    compileSdkVersion = 35
+    targetSdkVersion = 35
     minSdkVersion = 21
     versionCode = 6
     versionName = "1.0.30"

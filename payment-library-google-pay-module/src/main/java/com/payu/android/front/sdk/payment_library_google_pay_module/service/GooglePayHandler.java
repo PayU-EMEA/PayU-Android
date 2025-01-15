@@ -49,11 +49,6 @@ class GooglePayHandler {
     }
 
     public void isReadyToPay(@NonNull final GooglePayVerificationListener isGooglePayPossibleListener, boolean existingPaymentMethodRequired) {
-        if (!isGooglePaySupportedApiVersion()) {
-            isGooglePayPossibleListener.onVerificationCompleted(GooglePayVerificationStatus.ERROR_API_VERSION);
-            return;
-        }
-
         int googlePlayServicesStatus = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(activity);
         if (googlePlayServicesStatus != ConnectionResult.SUCCESS) {
             isGooglePayPossibleListener.onVerificationCompleted(parseGooglePlayServicesStatus(googlePlayServicesStatus));
@@ -118,10 +113,6 @@ class GooglePayHandler {
         }
     }
 
-    private boolean isGooglePaySupportedApiVersion() {
-        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT;
-    }
-
     private GooglePayVerificationStatus parseGooglePlayServicesStatus(int googlePlayServicesStatus) {
         switch (googlePlayServicesStatus) {
             case ConnectionResult.SERVICE_VERSION_UPDATE_REQUIRED:
@@ -134,10 +125,7 @@ class GooglePayHandler {
     }
 
     private String base64(String token) {
-        if (isGooglePaySupportedApiVersion()) {
-            byte[] data = token.getBytes(java.nio.charset.StandardCharsets.UTF_8);
-            return Base64.encodeToString(data, Base64.NO_WRAP);
-        }
-        throw new IllegalStateException("GooglePay token result parsing cannot be done on pre-kitkat android versions.");
+        byte[] data = token.getBytes(java.nio.charset.StandardCharsets.UTF_8);
+        return Base64.encodeToString(data, Base64.NO_WRAP);
     }
 }
