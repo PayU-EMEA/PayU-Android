@@ -76,6 +76,8 @@ public class PermissionCheckActivity extends AppCompatActivity {
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
         if (requestCode != PERMISSION_REQUEST_CODE) {
             return;
         }
@@ -92,7 +94,7 @@ public class PermissionCheckActivity extends AppCompatActivity {
             }
         }
 
-        if (deniedPermissions.size() == 0) {
+        if (deniedPermissions.isEmpty()) {
             permissionGranted();
         } else {
             permissionDenied();

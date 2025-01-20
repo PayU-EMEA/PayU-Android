@@ -31,17 +31,7 @@ class OkHttpClientFactory extends AbstractRetrofitClientFactory {
         return builder
                 .connectTimeout(connectionTimeout, TimeUnit.MILLISECONDS)
                 .readTimeout(readTimeout, TimeUnit.MILLISECONDS)
-                .sslSocketFactory(selectSocketFactory(sslConfiguration), sslConfiguration.getTrustManager())
+                .sslSocketFactory(sslConfiguration.getSslSocketFactory(), sslConfiguration.getTrustManager())
                 .build();
-    }
-
-    @NonNull
-    private SSLSocketFactory selectSocketFactory(@NonNull SslConfiguration configuration) {
-        //TLSv1.2 is enabled by default on android 20+
-        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.KITKAT) {
-            return new TlsSocketFactory(configuration.getSslSocketFactory());
-        } else {
-            return configuration.getSslSocketFactory();
-        }
     }
 }

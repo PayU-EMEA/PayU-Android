@@ -27,6 +27,9 @@ android {
         }
     }
     namespace 'com.payu.android.front.sdk.payment_library_api_client'
+    buildFeatures {
+        buildConfig true
+    }
 }
 
 dependencies {

@@ -1,5 +1,6 @@
 package com.payu.android.front.sdk.payment_library_core_android.styles.providers;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
@@ -77,6 +78,7 @@ public class LibraryStyleProvider {
                 R.attr.payu_styles_textStyleText, R.attr.payu_styles_textStyleInput,
                 R.attr.payu_styles_textStyleDescription, R.attr.payu_styles_3ds};
         Arrays.sort(attrs);
+        @SuppressLint("ResourceType")
         TypedArray resources = context.obtainStyledAttributes(style, attrs);
         int accentColor = getColor(resources, R.styleable.Theme_PayU_Fronts_payu_styles_accentColor, ACCENT_COLOR);
         int backgroundColor = getColor(resources, R.styleable.Theme_PayU_Fronts_payu_styles_backgroundColor, BACKGROUND_COLOR);
@@ -123,6 +125,7 @@ public class LibraryStyleProvider {
                 R.attr.payu_styles_font, R.attr.payu_styles_fontPath, R.attr.payu_styles_paddingBottom, R.attr.payu_styles_paddingTop, R.attr.payu_styles_paddingRight,
                 R.attr.payu_styles_paddingLeft};
         Arrays.sort(attrs);
+        @SuppressLint("ResourceType")
         TypedArray typedArray = context.obtainStyledAttributes(style, attrs);
         TextStyleInfo styleInfo = getTextStyleInfo(defaultColor, disabledColor, typedArray);
         typedArray.recycle();
@@ -135,6 +138,7 @@ public class LibraryStyleProvider {
                 R.attr.payu_styles_font, R.attr.payu_styles_fontPath, R.attr.payu_styles_paddingBottom, R.attr.payu_styles_paddingTop, R.attr.payu_styles_paddingRight,
                 R.attr.payu_styles_paddingLeft};
         Arrays.sort(attrs);
+        @SuppressLint("ResourceType")
         TypedArray typedArray = context.obtainStyledAttributes(style, attrs);
         int backgroundColor = typedArray.getColor(R.styleable.Style_PayU_Fronts_Text_payu_styles_buttonBackgroundColor, defaultColor);
         int disabledBackgroundColor = typedArray.getColor(R.styleable.Style_PayU_Fronts_Text_payu_styles_buttonDisabledBackgroundColor, defaultColor);
@@ -149,6 +153,7 @@ public class LibraryStyleProvider {
                 R.attr.payu_styles_font, R.attr.payu_styles_fontPath, R.attr.payu_styles_paddingBottom, R.attr.payu_styles_paddingTop, R.attr.payu_styles_paddingRight,
                 R.attr.payu_styles_paddingLeft};
         Arrays.sort(attrs);
+        @SuppressLint("ResourceType")
         TypedArray typedArray = context.obtainStyledAttributes(style, attrs);
         TextStyleInfo styleInfo = getEditTextStyleInfo(defaultColor, disabledColor, typedArray);
         typedArray.recycle();

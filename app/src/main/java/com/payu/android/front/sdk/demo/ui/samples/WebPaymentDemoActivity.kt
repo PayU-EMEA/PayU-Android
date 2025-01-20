@@ -2,6 +2,7 @@ package com.payu.android.front.sdk.demo.ui.samples
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import com.payu.android.front.sdk.payment_library_core_android.events.AuthorizationDetails
 import com.payu.android.front.sdk.payment_library_webview_module.web.event.PaymentDetails
@@ -21,8 +22,12 @@ class WebPaymentDemoActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == WebPaymentService.REQUEST_CODE) {
-            val paymentDetails: PaymentDetails? = data?.getParcelableExtra(WebPaymentService.INTENT_WEB_PAYMENT_EXTRA)
-
+            val paymentDetails: PaymentDetails? = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                data?.getParcelableExtra(WebPaymentService.INTENT_WEB_PAYMENT_EXTRA, PaymentDetails::class.java)
+            } else {
+                @Suppress("DEPRECATION")
+                data?.getParcelableExtra(WebPaymentService.INTENT_WEB_PAYMENT_EXTRA)
+            }
             println(paymentDetails.toString())
             finish()
         } else {

@@ -28,6 +28,9 @@ android {
         }
     }
     namespace 'com.payu.android.front.sdk.payment_library_core_android'
+    buildFeatures {
+        buildConfig true
+    }
 }
 
 dependencies {
@@ -48,5 +51,4 @@ dependencies {
     androidTestImplementation "androidx.test.ext:junit:$project.junitAssertionsVersion"
     testImplementation "org.mockito:mockito-core:$project.mockitoVersion"
     testImplementation "org.assertj:assertj-core:$project.assertJsVersion"
-    testImplementation "org.assertj:assertj-guava:$project.assertJGuavaVersion"
 }
