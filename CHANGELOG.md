@@ -1,3 +1,8 @@
+# 1.0.31
+* Removed Mastercard Installments module
+* Updated to SDK 35
+* Updated libraries
+
 # 1.0.30
 * Updates Cards Pay library (change font)
 
