@@ -19,11 +19,11 @@ import static com.google.common.collect.Lists.newArrayList;
 
 //For the list of values please see http://developers.payu.com/en/overview.html#Polish_PBLs
 public class RetrievePblPaymentMethods {
-    private static final List<String> filteredMethods = Arrays.asList(
+    private static final List<String> ALLOWED_METHODS = Arrays.asList(
             "blik", "m", "w", "wc", "nstb", "sgb", "plsb", "o", "i", "p", "g", "gbx", "l", "as", "u", "ab", "ps",
             "wm", "wd", "bo", "bnx", "orx", "bs", "t", "cs", "mp", "kb", "rf", "pg", "pf", "era", "cb", "uc", "bt", "pt", "ma", "vc",
             "uni", "sporo", "tatra", "vub", "posta", "viamo", "sb", "it", "gp", "sdd", "pid", "pbc", "pmb", "paypal",
-            "pmbc", "ptrl", "ucro", "dpts", "dpcz", "dpt", "dpkl", "dpp",
+            "pmbc", "ptrl", "ucro", "dpts", "dpcz", "dpt", "dpkl", "dpp", "dppron", "dpklczk", "dpkleur", "dpklhuf", "dpklron", "ppf",
             // PSD2PL
             "ms", "gs", "pks", "is", "os", "wms", "ws", "abs",
             // PSD2CZ
@@ -51,7 +51,7 @@ public class RetrievePblPaymentMethods {
     }
 
     private Predicate<PaymentMethod> createPredicate() {
-        return and(new WhiteListPredicate(filteredMethods), new PblPredicate());
+        return and(new WhiteListPredicate(ALLOWED_METHODS), new PblPredicate());
     }
 
     public void updateSelectedMethod(@NonNull String id) {
