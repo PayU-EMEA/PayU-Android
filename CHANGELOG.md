@@ -1,3 +1,12 @@
+# 1.0.32
+* Added support for new payment methods:
+  * Klarna CZK
+  * Klarna EUR
+  * Klarna HUF
+  * Klarna RON
+  * PayPo RON
+  * PragmaPay
+
 # 1.0.31
 * Removed Mastercard Installments module
 * Updated to SDK 35
