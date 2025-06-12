@@ -35,4 +35,6 @@ public interface RestEnvironment {
 
     String silentAcceptEnvironment();
 
+    String getOrigin();
+
 }

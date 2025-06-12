@@ -58,4 +58,9 @@ public class ProductionRestEnvironment extends NetworkEnvironment implements Res
     public String silentAcceptEnvironment() {
         return "'https://secure.payu.com'";
     }
+
+    @Override
+    public String getOrigin() {
+        return "secure.payu.com";
+    }
 }

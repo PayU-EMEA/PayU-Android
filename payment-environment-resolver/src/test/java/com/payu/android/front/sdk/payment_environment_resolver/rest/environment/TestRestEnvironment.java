@@ -70,5 +70,8 @@ public class TestRestEnvironment implements RestEnvironment {
         return null;
     }
 
-
+    @Override
+    public String getOrigin() {
+        return "test.payu.com";
+    }
 }

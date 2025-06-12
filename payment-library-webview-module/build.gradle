@@ -56,6 +56,7 @@ dependencies {
 
     testImplementation "org.mockito:mockito-core:$project.mockitoVersion"
     testImplementation "org.assertj:assertj-core:$project.assertJsVersion"
+    testImplementation project(path: ':payment-environment-resolver')
 
     androidTestImplementation "androidx.test.ext:junit:$project.junitAssertionsVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$project.espressoVersion"

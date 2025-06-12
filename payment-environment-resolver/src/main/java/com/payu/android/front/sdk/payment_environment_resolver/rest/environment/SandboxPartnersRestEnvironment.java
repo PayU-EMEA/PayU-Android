@@ -41,4 +41,10 @@ public class SandboxPartnersRestEnvironment extends NetworkEnvironment implement
     public String silentAcceptEnvironment() {
         return null;
     }
+
+    @Override
+    public String getOrigin() {
+        return null;
+    }
+
 }
