@@ -57,19 +57,6 @@ public class Polish extends StringMapTranslation {
         add(TranslationKey.SCAN_CANCELED, "Skanowanie karty zostało anulowane");
         add(TranslationKey.SECURE_CHECKOUT, "SECURE CHECKOUT");
         add(TranslationKey.SOFT_ACCEPT_DIALOG_TITLE, "Weryfikuję płatność...");
-        add(TranslationKey.OFFER_INSTALLMENTS_TITLE, "Transakcja zaakceptowana");
-        add(TranslationKey.OFFER_INSTALLMENTS_HEADER, "Spłata na raty");
-        add(TranslationKey.OFFER_INSTALLMENTS_SUBTITLE, "Sprzedawca otrzyma pełną kwotę zamówienia.");
-        add(TranslationKey.OFFER_INSTALLMENTS_BODY, "Możesz skorzystać z usługi Mastercard Płać w ratach i rozłożyć tę płatność na raty.");
-        add(TranslationKey.OFFER_INSTALLMENTS_BUTTON_ACCEPT, "Rozkładam na raty");
-        add(TranslationKey.OFFER_INSTALLMENTS_BUTTON_NEGATIVE, "Nie, dziękuję");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_SUBTITLE, "Swoją płatność kartą Mastercard możesz rozłożyć na raty. Potwierdź wybór rozłożenia zakupu na raty.");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_BUTTON_NEGATIVE, "Nie, dziękuję");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_SUBTITLE_PLURAL, "raty");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_SUBTITLE_SINGULAR, "rata");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_SUBTITLE_MANY, "rat");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_TOTAL_INSTALLMENTS, "łącznie");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_1ST_INSTALLMENT, "1. rata");
     }
 
     @Override

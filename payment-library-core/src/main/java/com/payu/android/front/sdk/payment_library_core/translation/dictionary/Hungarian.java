@@ -57,19 +57,6 @@ public class Hungarian extends StringMapTranslation {
         add(TranslationKey.SCAN_CANCELED, "Kártya-beolvasás megszakítva");
         add(TranslationKey.SECURE_CHECKOUT, "SECURE CHECKOUT");
         add(TranslationKey.SOFT_ACCEPT_DIALOG_TITLE, "Fizetés ellenőrzése ...");
-        add(TranslationKey.OFFER_INSTALLMENTS_TITLE, "Transaction approved");
-        add(TranslationKey.OFFER_INSTALLMENTS_HEADER, "Installment payment");
-        add(TranslationKey.OFFER_INSTALLMENTS_SUBTITLE, "The recipient will get the total order amount.");
-        add(TranslationKey.OFFER_INSTALLMENTS_BODY, "You can split this payment into installments with Mastercard.");
-        add(TranslationKey.OFFER_INSTALLMENTS_BUTTON_ACCEPT, "Split into installments");
-        add(TranslationKey.OFFER_INSTALLMENTS_BUTTON_NEGATIVE, "No, thanks");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_SUBTITLE, "You can pay in installments with Mastercard. Select the number of installments to confirm.");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_BUTTON_NEGATIVE, "No, thanks");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_SUBTITLE_PLURAL, "installments");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_SUBTITLE_SINGULAR, "installment");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_SUBTITLE_MANY, "installments");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_TOTAL_INSTALLMENTS, "total");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_1ST_INSTALLMENT, "1st installment");
     }
 
     @Override

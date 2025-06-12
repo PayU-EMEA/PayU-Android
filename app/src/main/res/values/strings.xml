@@ -9,7 +9,6 @@
     <!-- Payment Results -->
     <string name="payment_status_success">Transakcja została zakończona, nie trzeba dokonyważ żadnej dodatkowej autoryzacji</string>
     <string name="payment_status_error">Podczas transakcji wystąpił bład</string>
-    <string name="payment_status_installment_success">Transakcja została rozłożona na raty</string>
     <string name="payment_status_warning_continue_cvv">Należy dokonać dodatkowej autoryzacji wpisując kod CVV</string>
     <string name="payment_cancel">Płatność została anulowana</string>
     <string name="payment_blik_ambiguity">Wybrano BLIKa: %1$s</string>
@@ -35,6 +34,4 @@
     <string name="theme_light">Jasny</string>
     <string name="theme_dark">Ciemny</string>
     <string name="theme_default">Domyślny systemu</string>
-
-    <string name="installment_taken">Raty na tą płatność zostały już wzięte</string>
 </resources>

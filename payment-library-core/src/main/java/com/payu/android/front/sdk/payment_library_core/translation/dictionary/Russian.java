@@ -57,19 +57,6 @@ public class Russian extends StringMapTranslation {
         add(TranslationKey.SCAN_CANCELED, "Сканирование карты отменено");
         add(TranslationKey.SECURE_CHECKOUT, "БЕЗОПАСНАЯ ОПЛАТА");
         add(TranslationKey.SOFT_ACCEPT_DIALOG_TITLE, "Проверка платежа...");
-        add(TranslationKey.OFFER_INSTALLMENTS_TITLE, "Транзакция утверждена");
-        add(TranslationKey.OFFER_INSTALLMENTS_HEADER, "Оплата в рассрочку");
-        add(TranslationKey.OFFER_INSTALLMENTS_SUBTITLE, "Получатель получит всю сумму заказа.");
-        add(TranslationKey.OFFER_INSTALLMENTS_BODY, "Можно разделить этот платеж на части, используя карту Mastercard.");
-        add(TranslationKey.OFFER_INSTALLMENTS_BUTTON_ACCEPT, "Разделить на платежи");
-        add(TranslationKey.OFFER_INSTALLMENTS_BUTTON_NEGATIVE, "Нет, спасибо");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_SUBTITLE, "Можно оплатить частями, используя карту Mastercard. Для подтверждения выберите количество платежей.");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_BUTTON_NEGATIVE, "Нет, спасибо");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_SUBTITLE_PLURAL, "Количество платежей:");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_SUBTITLE_SINGULAR, "Количество платежей:");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_SUBTITLE_MANY, "Количество платежей:");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_TOTAL_INSTALLMENTS, "всего");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_1ST_INSTALLMENT, "1-й платеж");
     }
 
     @Override

@@ -57,19 +57,6 @@ public class French extends StringMapTranslation {
         add(TranslationKey.SCAN_CANCELED, "La numérisation de la carte a été annulée");
         add(TranslationKey.SECURE_CHECKOUT, "PAIEMENT SÉCURISÉ");
         add(TranslationKey.SOFT_ACCEPT_DIALOG_TITLE, "Je vérifie le paiement...");
-        add(TranslationKey.OFFER_INSTALLMENTS_TITLE, "Transaction acceptée");
-        add(TranslationKey.OFFER_INSTALLMENTS_HEADER, "Paiement en plusieurs fois");
-        add(TranslationKey.OFFER_INSTALLMENTS_SUBTITLE, "Le vendeur recevra le montant total de la commande.");
-        add(TranslationKey.OFFER_INSTALLMENTS_BODY, "Vous pouvez utiliser le service Mastercard Pay en plusieurs fois et échelonner ce paiement en plusieurs versements.");
-        add(TranslationKey.OFFER_INSTALLMENTS_BUTTON_ACCEPT, "Je paie en plusieurs fois");
-        add(TranslationKey.OFFER_INSTALLMENTS_BUTTON_NEGATIVE, "Non, merci");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_SUBTITLE, "Vous pouvez échelonner votre paiement Mastercard en plusieurs versements. Confirmez votre choix de payer en plusieurs fois.");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_BUTTON_NEGATIVE, "Non, merci");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_SUBTITLE_PLURAL, "versements échelonnés");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_SUBTITLE_SINGULAR, "versement échelonné");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_SUBTITLE_MANY, "versements échelonnés");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_TOTAL_INSTALLMENTS, "total");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_1ST_INSTALLMENT, "1er versement");
     }
 
     @Override

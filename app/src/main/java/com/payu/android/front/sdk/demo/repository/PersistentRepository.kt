@@ -16,7 +16,6 @@ private const val POS_ID_DEFAULT_VALUE = "385627"
 private const val CLIENT_SECRET_DEFAULT_VALUE = "8fe2195693e8e2d108aa2d92132a7283"
 private const val CLIENT_EMAIL_DEFAULT_VALUE = "test@test.test"
 
-private const val INSTALLMENTS_PROPOSAL_ID = "proposal_id"
 private const val ORDER_ID = "order_id"
 
 private const val SETTINGS_CLIENT_EMAIL_KEY = "email"
@@ -53,15 +52,6 @@ class PersistentRepository(private val context: Context) {
         set(value) {
             getSettings().edit().putString(SETTINGS_CLIENT_EMAIL_KEY, value).apply()
         }
-    //For test purpose we will store locally installment proposalId
-    var proposalId
-        get() = getSettings().getString(INSTALLMENTS_PROPOSAL_ID, "")
-                ?.ifEmpty { "" }
-                ?: ""
-        set(value) {
-            getSettings().edit().putString(INSTALLMENTS_PROPOSAL_ID, value).apply()
-        }
-
     var orderId
         get() = getSettings().getString(ORDER_ID, "")?.ifEmpty { "" } ?: ""
         set(value) {

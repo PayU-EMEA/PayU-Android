@@ -58,19 +58,6 @@ public class Slovak extends StringMapTranslation {
         add(TranslationKey.SCAN_CANCELED, "Skenovanie karty bolo zrušené");
         add(TranslationKey.SECURE_CHECKOUT, "SECURE CHECKOUT");
         add(TranslationKey.SOFT_ACCEPT_DIALOG_TITLE, "Overenie platby ...");
-        add(TranslationKey.OFFER_INSTALLMENTS_TITLE, "Transakcia schválená");
-        add(TranslationKey.OFFER_INSTALLMENTS_HEADER, "Platba na splátky");
-        add(TranslationKey.OFFER_INSTALLMENTS_SUBTITLE, "Príjemca dostane celkovú čiastku objednávky.");
-        add(TranslationKey.OFFER_INSTALLMENTS_BODY, "Túto platbu môžete s Mastercard rozdeliť na splátky.");
-        add(TranslationKey.OFFER_INSTALLMENTS_BUTTON_ACCEPT, "Rozdeliť na splátky");
-        add(TranslationKey.OFFER_INSTALLMENTS_BUTTON_NEGATIVE, "Nie, ďakujem");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_SUBTITLE, "S kartou Mastercard môžete platiť na splátky. Vyberte počet splátok pre potvrdenie.");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_BUTTON_NEGATIVE, "Nie, ďakujem");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_SUBTITLE_PLURAL, "splátky");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_SUBTITLE_SINGULAR, "splátka");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_SUBTITLE_MANY, "splátky");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_TOTAL_INSTALLMENTS, "celkom");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_1ST_INSTALLMENT, "Prvá splátka");
     }
 
     @Override

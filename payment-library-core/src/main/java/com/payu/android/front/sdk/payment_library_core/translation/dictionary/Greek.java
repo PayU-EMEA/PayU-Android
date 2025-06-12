@@ -57,19 +57,6 @@ public class Greek extends StringMapTranslation {
         add(TranslationKey.SCAN_CANCELED, "Η σάρωση της κάρτας ακυρώθηκε");
         add(TranslationKey.SECURE_CHECKOUT, "ΑΣΦΑΛΗΣ ΟΛΟΚΛΗΡΩΣΗ");
         add(TranslationKey.SOFT_ACCEPT_DIALOG_TITLE, "Επαλήθευση πληρωμής…");
-        add(TranslationKey.OFFER_INSTALLMENTS_TITLE, "Η συναλλαγή εγκρίθηκε");
-        add(TranslationKey.OFFER_INSTALLMENTS_HEADER, "Τμηματική εξόφληση");
-        add(TranslationKey.OFFER_INSTALLMENTS_SUBTITLE, "Ο παραλήπτης θα λάβει ολόκληρο το ποσό παραγγελίας.");
-        add(TranslationKey.OFFER_INSTALLMENTS_BODY, "Μπορείτε να πραγματοποιήσετε την πληρωμή σε δόσεις με κάρτα Mastercard.");
-        add(TranslationKey.OFFER_INSTALLMENTS_BUTTON_ACCEPT, "Πληρωμή με δόσεις");
-        add(TranslationKey.OFFER_INSTALLMENTS_BUTTON_NEGATIVE, "Όχι, ευχαριστώ");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_SUBTITLE, "Μπορείτε να πραγματοποιήσετε την πληρωμή σε δόσεις με κάρτα Mastercard. Επιλέξτε τον αριθμό δόσεων για να επιβεβαιώσετε.");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_BUTTON_NEGATIVE, "Όχι, ευχαριστώ");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_SUBTITLE_PLURAL, "δόσεις");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_SUBTITLE_SINGULAR, "δόση");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_SUBTITLE_MANY, "δόσεις");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_TOTAL_INSTALLMENTS, "σύνολο");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_1ST_INSTALLMENT, "1η δόση");
     }
 
     @Override

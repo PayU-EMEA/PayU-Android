@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import com.payu.android.front.sdk.demo.DemoApplication
 import com.payu.android.front.sdk.demo.repository.AuthenticationRepository
-import com.payu.android.front.sdk.demo.repository.InstallmentRepository
 import com.payu.android.front.sdk.demo.repository.PaymentMethodsRepository
 import com.payu.android.front.sdk.demo.repository.PersistentRepository
 import com.payu.android.front.sdk.demo.ui.login.LoginActivity
@@ -26,8 +25,6 @@ class PaymentMethodsProvider(context: Context) : PaymentMethodActions(context) {
     @Inject
     lateinit var authenticationRepository: AuthenticationRepository
 
-    @Inject
-    lateinit var installmentRepository: InstallmentRepository
 
     @Inject
     lateinit var persistenceRepository: PersistentRepository

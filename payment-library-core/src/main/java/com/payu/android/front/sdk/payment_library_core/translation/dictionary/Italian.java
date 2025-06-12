@@ -57,19 +57,6 @@ public class Italian extends StringMapTranslation {
         add(TranslationKey.SCAN_CANCELED, "Scansione carta cancellata");
         add(TranslationKey.SECURE_CHECKOUT, "CHECKOUT SICURO");
         add(TranslationKey.SOFT_ACCEPT_DIALOG_TITLE, "Verifica pagamento…");
-        add(TranslationKey.OFFER_INSTALLMENTS_TITLE, "Transazione approvata");
-        add(TranslationKey.OFFER_INSTALLMENTS_HEADER, "Pagamento rata");
-        add(TranslationKey.OFFER_INSTALLMENTS_SUBTITLE, "Il destinatario riceverà il totale dell’ordine.");
-        add(TranslationKey.OFFER_INSTALLMENTS_BODY, "Puoi rateizzare questo pagamento con Mastercard.");
-        add(TranslationKey.OFFER_INSTALLMENTS_BUTTON_ACCEPT, "Rateizza");
-        add(TranslationKey.OFFER_INSTALLMENTS_BUTTON_NEGATIVE, "No, grazie");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_SUBTITLE, "Puoi rateizzare questo pagamento con Mastercard. Seleziona il numero di rate da confermare.");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_BUTTON_NEGATIVE, "No, grazie");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_SUBTITLE_PLURAL, "rate");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_SUBTITLE_SINGULAR, "rata");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_SUBTITLE_MANY, "rate");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_TOTAL_INSTALLMENTS, "totale");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_1ST_INSTALLMENT, "1a rata");
     }
 
     @Override

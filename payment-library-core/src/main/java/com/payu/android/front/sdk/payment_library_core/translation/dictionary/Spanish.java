@@ -57,19 +57,6 @@ public class Spanish extends StringMapTranslation {
         add(TranslationKey.SCAN_CANCELED, "Escaneo de tarjeta cancelada");
         add(TranslationKey.SECURE_CHECKOUT, "PAGO SEGURO");
         add(TranslationKey.SOFT_ACCEPT_DIALOG_TITLE, "Verificando el pago...");
-        add(TranslationKey.OFFER_INSTALLMENTS_TITLE, "Transacción aprobada");
-        add(TranslationKey.OFFER_INSTALLMENTS_HEADER, "Pago de instalación");
-        add(TranslationKey.OFFER_INSTALLMENTS_SUBTITLE, "El destinatario recibirá el importe total del pedido..");
-        add(TranslationKey.OFFER_INSTALLMENTS_BODY, "Puedes fraccionar este pago en cuotas con Mastercard.");
-        add(TranslationKey.OFFER_INSTALLMENTS_BUTTON_ACCEPT, "Split into installments");
-        add(TranslationKey.OFFER_INSTALLMENTS_BUTTON_NEGATIVE, "No, gracias");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_SUBTITLE, "Puedes pagar a plazos con Mastercard. Seleccione el número de cuotas para confirmar.");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_BUTTON_NEGATIVE, "No, gracias");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_SUBTITLE_PLURAL, "cuotas");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_SUBTITLE_SINGULAR, "entrega");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_SUBTITLE_MANY, "cuotas");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_TOTAL_INSTALLMENTS, "total");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_1ST_INSTALLMENT, "1ra cuota");
     }
 
     @Override

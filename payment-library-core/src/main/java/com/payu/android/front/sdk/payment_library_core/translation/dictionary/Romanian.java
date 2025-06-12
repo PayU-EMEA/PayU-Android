@@ -57,19 +57,6 @@ public class Romanian extends StringMapTranslation {
         add(TranslationKey.SCAN_CANCELED, "Scanare card anulată");
         add(TranslationKey.SECURE_CHECKOUT, "VERIFICARE ÎN SIGURANŢĂ");
         add(TranslationKey.SOFT_ACCEPT_DIALOG_TITLE, "Se verifică plata ...");
-        add(TranslationKey.OFFER_INSTALLMENTS_TITLE, "Tranzacţie aprobată");
-        add(TranslationKey.OFFER_INSTALLMENTS_HEADER, "Plată rată");
-        add(TranslationKey.OFFER_INSTALLMENTS_SUBTITLE, "Destinatarul va primi suma totală din comandă.");
-        add(TranslationKey.OFFER_INSTALLMENTS_BODY, "Puteţi scinda această plată în rate cu Mastercard.");
-        add(TranslationKey.OFFER_INSTALLMENTS_BUTTON_ACCEPT, "Scindare în rate");
-        add(TranslationKey.OFFER_INSTALLMENTS_BUTTON_NEGATIVE, "Nu, mulţumesc");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_SUBTITLE, "Puteţi plăti în rate cu Mastercard. Selectaţi numărul de rate pentru confirmare.");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_BUTTON_NEGATIVE, "Nu, mulţumesc");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_SUBTITLE_PLURAL, "rate");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_SUBTITLE_SINGULAR, "rată");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_SUBTITLE_MANY, "rate");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_TOTAL_INSTALLMENTS, "total");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_1ST_INSTALLMENT, "Prima rată");
     }
 
     @Override

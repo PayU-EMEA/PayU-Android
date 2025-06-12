@@ -57,19 +57,6 @@ public class Croatian extends StringMapTranslation {
         add(TranslationKey.SCAN_CANCELED, "Skeniranje kartice otkazano");
         add(TranslationKey.SECURE_CHECKOUT, "SIGURNA NAPLATA");
         add(TranslationKey.SOFT_ACCEPT_DIALOG_TITLE, "Provjera plaćanja...");
-        add(TranslationKey.OFFER_INSTALLMENTS_TITLE, "Transakcija odobrena");
-        add(TranslationKey.OFFER_INSTALLMENTS_HEADER, "Plaćanje na rate");
-        add(TranslationKey.OFFER_INSTALLMENTS_SUBTITLE, "Primatelj će dobiti ukupni iznos narudžbe.");
-        add(TranslationKey.OFFER_INSTALLMENTS_BODY, "Ovu uplatu možete podijeliti u rate s Mastercard karticom.");
-        add(TranslationKey.OFFER_INSTALLMENTS_BUTTON_ACCEPT, "Podijeljeno na rate");
-        add(TranslationKey.OFFER_INSTALLMENTS_BUTTON_NEGATIVE, "Ne hvala");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_SUBTITLE, "Mastercardom možete platiti na rate. Odaberite broj rata za potvrdu.");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_BUTTON_NEGATIVE, "Ne hvala");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_SUBTITLE_PLURAL, "rate");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_SUBTITLE_SINGULAR, "rata");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_SUBTITLE_MANY, "rate");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_TOTAL_INSTALLMENTS, "ukupno");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_1ST_INSTALLMENT, "1. rata");
     }
 
     @Override

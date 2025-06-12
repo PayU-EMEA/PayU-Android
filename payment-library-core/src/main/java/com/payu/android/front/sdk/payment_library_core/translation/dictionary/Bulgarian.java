@@ -57,19 +57,6 @@ public class Bulgarian extends StringMapTranslation {
         add(TranslationKey.SCAN_CANCELED, "Сканирането на картата е отменено");
         add(TranslationKey.SECURE_CHECKOUT, "СИГУРНО ПЛАЩАНЕ");
         add(TranslationKey.SOFT_ACCEPT_DIALOG_TITLE, "Проверка на плащането...");
-        add(TranslationKey.OFFER_INSTALLMENTS_TITLE, "Транзакцията е одобрена");
-        add(TranslationKey.OFFER_INSTALLMENTS_HEADER, "Разсрочено плащане");
-        add(TranslationKey.OFFER_INSTALLMENTS_SUBTITLE, "Получателят ще получи цялата сума на поръчката.");
-        add(TranslationKey.OFFER_INSTALLMENTS_BODY, "Можете да разсрочите това плащане на вноски с Mastercard.");
-        add(TranslationKey.OFFER_INSTALLMENTS_BUTTON_ACCEPT, "Разсрочено на вноски");
-        add(TranslationKey.OFFER_INSTALLMENTS_BUTTON_NEGATIVE, "Не, благодаря");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_SUBTITLE, "Можете да плащате на вноски с Mastercard. Изберете броя на вноските, за да потвърдите.");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_BUTTON_NEGATIVE, "Не, благодаря");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_SUBTITLE_PLURAL, "вноски");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_SUBTITLE_SINGULAR, "вноска");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_SUBTITLE_MANY, "вноски");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_TOTAL_INSTALLMENTS, "общо");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_1ST_INSTALLMENT, "Първа вноска");
     }
 
     @Override

@@ -57,19 +57,6 @@ public class Ukrainian extends StringMapTranslation {
         add(TranslationKey.SCAN_CANCELED, "Сканування картки скасовано");
         add(TranslationKey.SECURE_CHECKOUT, "Безпечна оплата");
         add(TranslationKey.SOFT_ACCEPT_DIALOG_TITLE, "Перевіряю оплату...");
-        add(TranslationKey.OFFER_INSTALLMENTS_TITLE, "Транзакція завершена");
-        add(TranslationKey.OFFER_INSTALLMENTS_HEADER, "Розстрочка");
-        add(TranslationKey.OFFER_INSTALLMENTS_SUBTITLE, "Продавець отримає повну суму замовлення.");
-        add(TranslationKey.OFFER_INSTALLMENTS_BODY, "Ви можете оплатити замовлення частинами за допомогою Mastercard.");
-        add(TranslationKey.OFFER_INSTALLMENTS_BUTTON_ACCEPT, "Оплата частинами");
-        add(TranslationKey.OFFER_INSTALLMENTS_BUTTON_NEGATIVE, "Ні, дякую");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_SUBTITLE, "Ви можете оплатити замовлення частинами за допомогою Mastercard. Будь ласка, підтвердьте оплату частинами.");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_BUTTON_NEGATIVE, "Ні, дякую");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_SUBTITLE_PLURAL, "Pозстрочка");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_SUBTITLE_SINGULAR, "Частина");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_SUBTITLE_MANY, "Розстрочка");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_TOTAL_INSTALLMENTS, "Pазом");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_1ST_INSTALLMENT, "Перший платіж");
     }
 
     @Override

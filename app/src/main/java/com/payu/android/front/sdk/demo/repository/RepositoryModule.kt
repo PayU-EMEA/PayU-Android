@@ -24,9 +24,4 @@ class RepositoryModule {
     @Provides
     @Singleton
     fun providePaymentMethodsRepository(authRepository: AuthenticationRepository, payUApi: PayUApi): PaymentMethodsRepository = PaymentMethodsRepository(authRepository, payUApi)
-
-    @Provides
-    @Singleton
-    fun provideInstallmentRepository(payUApi: PayUApi, authRepository: AuthenticationRepository): InstallmentRepository = InstallmentRepository(payUApi, authRepository)
-
 }

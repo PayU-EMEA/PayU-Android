@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModelProvider
 import com.google.gson.Gson
 import com.payu.android.front.sdk.demo.api.PayUApi
 import com.payu.android.front.sdk.demo.repository.AuthenticationRepository
-import com.payu.android.front.sdk.demo.repository.InstallmentRepository
 import com.payu.android.front.sdk.demo.repository.PaymentMethodsRepository
 import com.payu.android.front.sdk.demo.repository.PersistentRepository
 import com.payu.android.front.sdk.demo.ui.di.ViewModelKey
@@ -28,14 +27,12 @@ abstract class SummaryModule {
             authRepository: AuthenticationRepository,
             paymentMethodsRepository: PaymentMethodsRepository,
             persistentRepository: PersistentRepository,
-            installmentRepository: InstallmentRepository,
             api: PayUApi,
             gson: Gson
         ): ViewModel = SummaryViewModel(
             authRepository,
             paymentMethodsRepository,
             persistentRepository,
-            installmentRepository,
             api,
             gson
         )

@@ -57,19 +57,6 @@ public class Slovenian extends StringMapTranslation {
         add(TranslationKey.SCAN_CANCELED, "Skeniranje kartice preklicano");
         add(TranslationKey.SECURE_CHECKOUT, "VARNO NA BLAGAJNO");
         add(TranslationKey.SOFT_ACCEPT_DIALOG_TITLE, "Preverjanje plačila ...");
-        add(TranslationKey.OFFER_INSTALLMENTS_TITLE, "Transakcija odobrena");
-        add(TranslationKey.OFFER_INSTALLMENTS_HEADER, "Obročno plačilo");
-        add(TranslationKey.OFFER_INSTALLMENTS_SUBTITLE, "Prejemnik bo prejel znesek naročila v celoti.");
-        add(TranslationKey.OFFER_INSTALLMENTS_BODY, "Plačilo lahko razdelite na obroke, s kartico Mastercard.");
-        add(TranslationKey.OFFER_INSTALLMENTS_BUTTON_ACCEPT, "Razdeli na obroke");
-        add(TranslationKey.OFFER_INSTALLMENTS_BUTTON_NEGATIVE, "Ne, hvala");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_SUBTITLE, "Plačate lahko v obrokih, s kartico Mastercard. Izberite število obrokov, da potrdite.");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_BUTTON_NEGATIVE, "Ne, hvala");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_SUBTITLE_PLURAL, "obrok");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_SUBTITLE_SINGULAR, "obrok");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_SUBTITLE_MANY, "obroka/-i/-ov");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_TOTAL_INSTALLMENTS, "skupaj");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_1ST_INSTALLMENT, "1. obrok");
     }
 
     @Override

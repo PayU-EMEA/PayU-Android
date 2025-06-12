@@ -57,19 +57,6 @@ public class Lithuanian extends StringMapTranslation {
         add(TranslationKey.SCAN_CANCELED, "aršu nolasīšana atcelta");
         add(TranslationKey.SECURE_CHECKOUT, "DROŠI NORĒĶINI");
         add(TranslationKey.SOFT_ACCEPT_DIALOG_TITLE, "Verificē maksājumu ...");
-        add(TranslationKey.OFFER_INSTALLMENTS_TITLE, "Darījums apstiprināts");
-        add(TranslationKey.OFFER_INSTALLMENTS_HEADER, "Daļas maksājums");
-        add(TranslationKey.OFFER_INSTALLMENTS_SUBTITLE, "Saņēmējs saņems kopējo pasūtījuma summu.");
-        add(TranslationKey.OFFER_INSTALLMENTS_BODY, "Ar Mastercard karti šo maksājumu varat sadalīt pa daļām.");
-        add(TranslationKey.OFFER_INSTALLMENTS_BUTTON_ACCEPT, "Sadalīt vairākos maksājumos");
-        add(TranslationKey.OFFER_INSTALLMENTS_BUTTON_NEGATIVE, "Nē, paldies");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_SUBTITLE, "Ar Mastercard karti varat veikt samaksu pa daļām. Izvēlieties maksājumu skaitu, lai apstiprinātu.");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_BUTTON_NEGATIVE, "Nē, paldies");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_SUBTITLE_PLURAL, "daļu maksājumi");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_SUBTITLE_SINGULAR, "daļas maksājums");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_SUBTITLE_MANY, "daļu maksājumi");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_TOTAL_INSTALLMENTS, "kopā");
-        add(TranslationKey.CHOOSE_INSTALLMENTS_LIST_1ST_INSTALLMENT, "1. daļas maksājums");
     }
 
     @Override
