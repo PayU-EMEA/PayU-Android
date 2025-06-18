@@ -49,6 +49,7 @@ public class WebPaymentView extends RelativeLayout implements WebPayment {
         this.webView = findViewById(R.id.payment_webView);
         this.progressBar = findViewById(R.id.payment_progressBar);
         configureWebViewSettings(webView.getSettings());
+        webView.addJavascriptInterface(new QrCode(getContext(), webView), "QrCode");
         applyStyles();
     }
 

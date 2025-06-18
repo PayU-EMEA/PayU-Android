@@ -62,4 +62,8 @@ public class SandboxRestEnvironment extends NetworkEnvironment implements RestEn
         return "'https://merch-prod.snd.payu.com'";
     }
 
+    @Override
+    public String getOrigin() {
+        return "merch-test.snd.payu.com";
+    }
 }

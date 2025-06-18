@@ -20,14 +20,21 @@ import static com.google.common.collect.Lists.newArrayList;
 //For the list of values please see http://developers.payu.com/en/overview.html#Polish_PBLs
 public class RetrievePblPaymentMethods {
     private static final List<String> ALLOWED_METHODS = Arrays.asList(
-            "blik", "m", "w", "wc", "nstb", "sgb", "plsb", "o", "i", "p", "g", "gbx", "l", "as", "u", "ab", "ps",
-            "wm", "wd", "bo", "bnx", "orx", "bs", "t", "cs", "mp", "kb", "rf", "pg", "pf", "era", "cb", "uc", "bt", "pt", "ma", "vc",
-            "uni", "sporo", "tatra", "vub", "posta", "viamo", "sb", "it", "gp", "sdd", "pid", "pbc", "pmb", "paypal",
-            "pmbc", "ptrl", "ucro", "dpts", "dpcz", "dpt", "dpkl", "dpp", "dppron", "dpklczk", "dpkleur", "dpklhuf", "dpklron", "ppf",
-            // PSD2PL
-            "ms", "gs", "pks", "is", "os", "wms", "ws", "abs",
-            // PSD2CZ
-            "css", "pfs", "kbs", "airs", "cbs"
+            "blik", "m", "w", "o", "i", "p", "g", "gbx", "l", "ab", "bn", "wm", "wc", "bo", "bnx",
+            "bs", "nstb", "plsb", "b", "t", "sgb",
+            // Pay Letter
+            "dpts", "dpcz", "dpt", "dpkl", "dpp", "ppf", "dppron", "dpklczk", "dpkleur", "dpklhuf",
+            "dpklron",
+            // Czech
+            "cs", "mp", "kb", "rf", "pg", "pf", "cb", "uc", "bt", "pt", "qrcz",
+            // Slovak
+            "bliksk", "posta", "sporo", "tatra", "vub",  "viamo",
+            // International
+            "pbc", "pmb", "paypal", "pmbc", "ptrl", "pscd", "sdd", "sb", "uni",
+            // PL
+            "ms", "gs", "pks", "is", "os", "wms", "ws", "abs", "wys",
+            // CZ
+            "css", "pfs", "kbs", "airs", "cbs", "creds", "jtbs", "mons", "rbczs", "ucczs", "mps"
     );
 
     @NonNull
