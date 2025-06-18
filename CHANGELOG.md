@@ -1,3 +1,7 @@
+# 1.0.33
+* Share QrCode from frontend
+* Update allowed methods
+
 # 1.0.32
 * Added support for new payment methods:
   * Klarna CZK
