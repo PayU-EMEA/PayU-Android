@@ -23,7 +23,7 @@ public class WebAuthorizationViewChromeClientTest {
     @Before
     public void setUp() {
         MockitoAnnotations.openMocks(this);
-        objectUnderTest = new WebAuthorizationViewChromeClient(progressBar);
+        objectUnderTest = new WebAuthorizationViewChromeClient(progressBar, null);
     }
 
     @Test
@@ -41,7 +41,7 @@ public class WebAuthorizationViewChromeClientTest {
     @Test
     public void shouldReactForLostViewReference() {
         // given
-        objectUnderTest = new WebAuthorizationViewChromeClient(null);
+        objectUnderTest = new WebAuthorizationViewChromeClient(null, null);
 
         // when + then
         assertThatNoException().isThrownBy(() -> objectUnderTest.onProgressChanged(null, 64));
