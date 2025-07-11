@@ -14,9 +14,7 @@ import androidx.core.app.ActivityCompat;
 import com.payu.android.front.sdk.payment_library_webview_module.web.view.WebPaymentActivity;
 
 import java.lang.ref.WeakReference;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class WebAuthorizationViewChromeClient extends WebChromeClient {
 
@@ -47,23 +45,12 @@ public class WebAuthorizationViewChromeClient extends WebChromeClient {
 
     @Override
     public void onPermissionRequest(PermissionRequest request) {
-        String[] requestedResources = request.getResources();
-        List<String> requiredPermissions = new ArrayList<>();
-
-        boolean cameraNeeded = Arrays.asList(requestedResources)
-                .contains(PermissionRequest.RESOURCE_VIDEO_CAPTURE);
-
-        if (cameraNeeded) {
-            requiredPermissions.add(Manifest.permission.CAMERA);
-        }
-
-        if (!requiredPermissions.isEmpty()) {
+        if (Arrays.asList(request.getResources()).contains(PermissionRequest.RESOURCE_VIDEO_CAPTURE)) {
             pendingRequest = request;
             ActivityCompat.requestPermissions(
                     webPaymentActivity,
-                    requiredPermissions.toArray(new String[0]),
-                    CAMERA_PERMISSION_REQUEST_CODE
-            );
+                    new String[]{Manifest.permission.CAMERA},
+                    CAMERA_PERMISSION_REQUEST_CODE);
         } else {
             request.grant(request.getResources());
         }
