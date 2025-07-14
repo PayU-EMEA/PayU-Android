@@ -148,9 +148,11 @@ public class WebPaymentActivity extends BaseMenuActivity {
         PostDataEncoder postDataEncoder = new UrlEscaperPostDataEncoder();
         PaymentUrlMatcherFactory paymentUrlMatcherFactory = new PaymentUrlMatcherFactory();
         PaymentUrlMatcher paymentUrlMatcher = paymentUrlMatcherFactory.getUrlMatcher(authorizationDetails);
-        webPaymentPresenter = new WebPaymentPresenter(addressBarPresenter, cookieManager, postDataEncoder, paymentUrlMatcher, authorizationDetails.getFallbackLink().orNull(), getCurrentRestEnvironment(this));
+        webPaymentPresenter = new WebPaymentPresenter(addressBarPresenter, cookieManager,
+                postDataEncoder, paymentUrlMatcher, authorizationDetails.getFallbackLink().orNull(),
+                getCurrentRestEnvironment(this), this);
         webPaymentPresenter.setOnAuthorizationFinishedListener(authorizationFinishedListener);
-        webPaymentPresenter.takeView(webPaymentView, this);
+        webPaymentPresenter.takeView(webPaymentView);
         textTitle.setText("");
 
     }

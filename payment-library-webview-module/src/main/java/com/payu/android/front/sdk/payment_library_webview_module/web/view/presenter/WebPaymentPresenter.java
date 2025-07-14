@@ -39,13 +39,19 @@ public class WebPaymentPresenter extends WebPaymentAction {
 
     private WebAuthorizationViewChromeClient chromeClient;
 
-    public WebPaymentPresenter(AddressBarPresenter addressBarPresenter, CookieManager cookieManager, PostDataEncoder dataEncoder, PaymentUrlMatcher paymentUrlMatcher, String fallbackUrl, RestEnvironment restEnvironment) {
+    private final WebPaymentActivity webPaymentActivity;
+
+    public WebPaymentPresenter(
+            AddressBarPresenter addressBarPresenter, CookieManager cookieManager,
+            PostDataEncoder dataEncoder, PaymentUrlMatcher paymentUrlMatcher,
+            String fallbackUrl, RestEnvironment restEnvironment, WebPaymentActivity webPaymentActivity) {
         this.cookieManager = cookieManager;
         this.dataEncoder = dataEncoder;
         this.addressBarPresenter = addressBarPresenter;
         this.client = new PaymentWebViewClient(paymentUrlMatcher, fallbackUrl, onAutomaticAuthorizationListener, restEnvironment);
         this.client.setPageLoadingCallback(pageLoadingCallback);
         this.onAuthorizationFinishedListenerOptional = Optional.absent();
+        this.webPaymentActivity = webPaymentActivity;
     }
 
     @Override
@@ -107,7 +113,7 @@ public class WebPaymentPresenter extends WebPaymentAction {
         return webPayment.getWebView().saveState(outState);
     }
 
-    public void takeView(@NonNull Object view, WebPaymentActivity webPaymentActivity) {
+    public void takeView(@NonNull Object view) {
         super.takeView(view);
         if (!(view instanceof WebPayment)) {
             throw new IllegalConfigurationException(String.format("Wrong view type, it should extend WebPayment interface"));
@@ -115,7 +121,7 @@ public class WebPaymentPresenter extends WebPaymentAction {
         this.webPayment = (WebPayment) view;
         this.webPayment.getAddressBarView().setPresenter(addressBarPresenter);
         this.webPayment.getWebView().setWebViewClient(client);
-        this.chromeClient = new WebAuthorizationViewChromeClient(this.webPayment.getProgressBar(), webPaymentActivity);
+        this.chromeClient = new WebAuthorizationViewChromeClient(this.webPayment.getProgressBar(), this.webPaymentActivity);
         this.webPayment.getWebView().setWebChromeClient(chromeClient);
 
     }

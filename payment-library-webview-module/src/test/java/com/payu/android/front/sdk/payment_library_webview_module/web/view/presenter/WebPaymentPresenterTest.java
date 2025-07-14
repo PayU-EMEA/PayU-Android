@@ -23,6 +23,7 @@ import com.payu.android.front.sdk.payment_library_webview_module.web.authorizati
 import com.payu.android.front.sdk.payment_library_webview_module.web.authorization.WebPaymentWrapper;
 import com.payu.android.front.sdk.payment_library_webview_module.web.authorization.matcher.PaymentUrlMatcher;
 import com.payu.android.front.sdk.payment_library_webview_module.web.view.AddressBarView;
+import com.payu.android.front.sdk.payment_library_webview_module.web.view.WebPaymentActivity;
 import com.payu.android.front.sdk.payment_library_webview_module.web.view.WebPaymentView;
 
 import org.junit.Before;
@@ -81,10 +82,14 @@ public class WebPaymentPresenterTest {
     @Mock
     WebPaymentWrapper webPaymentWrapper;
 
+    @Mock
+    WebPaymentActivity webPaymentActivity;
+
     @Before
     public void setUp() {
         MockitoAnnotations.openMocks(this);
-        objectUnderTest = new WebPaymentPresenter(addressBarPresenter, cookieManager, postDataEncoder, paymentUrlMatcher, "", restEnvironment);
+        objectUnderTest = new WebPaymentPresenter(addressBarPresenter, cookieManager, postDataEncoder,
+                paymentUrlMatcher, "", restEnvironment, webPaymentActivity);
 
     }
 
