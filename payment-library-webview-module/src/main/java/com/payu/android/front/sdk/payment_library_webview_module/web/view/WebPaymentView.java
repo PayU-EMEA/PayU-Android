@@ -36,6 +36,7 @@ public class WebPaymentView extends RelativeLayout implements WebPayment {
         webSettings.setSupportZoom(true);
         webSettings.setBuiltInZoomControls(true);
         webSettings.setSaveFormData(false);
+        webSettings.setMediaPlaybackRequiresUserGesture(false);
     }
 
     private void init() {

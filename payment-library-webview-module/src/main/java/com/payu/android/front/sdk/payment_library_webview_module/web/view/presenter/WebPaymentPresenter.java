@@ -19,8 +19,8 @@ import com.payu.android.front.sdk.payment_library_webview_module.web.authorizati
 import com.payu.android.front.sdk.payment_library_webview_module.web.authorization.client.WebAuthorizationViewChromeClient;
 import com.payu.android.front.sdk.payment_library_webview_module.web.authorization.matcher.PaymentUrlMatcher;
 import com.payu.android.front.sdk.payment_library_webview_module.web.view.WebPayment;
+import com.payu.android.front.sdk.payment_library_webview_module.web.view.WebPaymentActivity;
 
-import java.util.List;
 import java.util.Map;
 
 import static com.google.common.base.Preconditions.checkArgument;
@@ -37,13 +37,21 @@ public class WebPaymentPresenter extends WebPaymentAction {
     private PaymentWebViewClient client;
     private Optional<OnAuthorizationFinishedListener> onAuthorizationFinishedListenerOptional;
 
-    public WebPaymentPresenter(AddressBarPresenter addressBarPresenter, CookieManager cookieManager, PostDataEncoder dataEncoder, PaymentUrlMatcher paymentUrlMatcher, String fallbackUrl, RestEnvironment restEnvironment) {
+    private WebAuthorizationViewChromeClient chromeClient;
+
+    private final WebPaymentActivity webPaymentActivity;
+
+    public WebPaymentPresenter(
+            AddressBarPresenter addressBarPresenter, CookieManager cookieManager,
+            PostDataEncoder dataEncoder, PaymentUrlMatcher paymentUrlMatcher,
+            String fallbackUrl, RestEnvironment restEnvironment, WebPaymentActivity webPaymentActivity) {
         this.cookieManager = cookieManager;
         this.dataEncoder = dataEncoder;
         this.addressBarPresenter = addressBarPresenter;
         this.client = new PaymentWebViewClient(paymentUrlMatcher, fallbackUrl, onAutomaticAuthorizationListener, restEnvironment);
         this.client.setPageLoadingCallback(pageLoadingCallback);
         this.onAuthorizationFinishedListenerOptional = Optional.absent();
+        this.webPaymentActivity = webPaymentActivity;
     }
 
     @Override
@@ -105,7 +113,6 @@ public class WebPaymentPresenter extends WebPaymentAction {
         return webPayment.getWebView().saveState(outState);
     }
 
-    @Override
     public void takeView(@NonNull Object view) {
         super.takeView(view);
         if (!(view instanceof WebPayment)) {
@@ -114,12 +121,17 @@ public class WebPaymentPresenter extends WebPaymentAction {
         this.webPayment = (WebPayment) view;
         this.webPayment.getAddressBarView().setPresenter(addressBarPresenter);
         this.webPayment.getWebView().setWebViewClient(client);
-        this.webPayment.getWebView().setWebChromeClient(new WebAuthorizationViewChromeClient(this.webPayment.getProgressBar()));
+        this.chromeClient = new WebAuthorizationViewChromeClient(this.webPayment.getProgressBar(), this.webPaymentActivity);
+        this.webPayment.getWebView().setWebChromeClient(chromeClient);
 
     }
 
     public void setOnAuthorizationFinishedListener(@Nullable OnAuthorizationFinishedListener onAuthorizationFinishedListener) {
         this.onAuthorizationFinishedListenerOptional = Optional.fromNullable(onAuthorizationFinishedListener);
+    }
+
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        chromeClient.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
     @NonNull

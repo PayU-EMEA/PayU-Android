@@ -120,6 +120,13 @@ public class WebPaymentActivity extends BaseMenuActivity {
     }
 
     @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        webPaymentPresenter.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    }
+
+    @Override
     protected int getLayoutResource() {
         return R.layout.payu_activity_web_payment;
     }
@@ -141,7 +148,9 @@ public class WebPaymentActivity extends BaseMenuActivity {
         PostDataEncoder postDataEncoder = new UrlEscaperPostDataEncoder();
         PaymentUrlMatcherFactory paymentUrlMatcherFactory = new PaymentUrlMatcherFactory();
         PaymentUrlMatcher paymentUrlMatcher = paymentUrlMatcherFactory.getUrlMatcher(authorizationDetails);
-        webPaymentPresenter = new WebPaymentPresenter(addressBarPresenter, cookieManager, postDataEncoder, paymentUrlMatcher, authorizationDetails.getFallbackLink().orNull(), getCurrentRestEnvironment(this));
+        webPaymentPresenter = new WebPaymentPresenter(addressBarPresenter, cookieManager,
+                postDataEncoder, paymentUrlMatcher, authorizationDetails.getFallbackLink().orNull(),
+                getCurrentRestEnvironment(this), this);
         webPaymentPresenter.setOnAuthorizationFinishedListener(authorizationFinishedListener);
         webPaymentPresenter.takeView(webPaymentView);
         textTitle.setText("");
