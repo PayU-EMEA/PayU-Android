@@ -1,3 +1,6 @@
+# 1.0.34
+* Add permission request handler for camera permission
+
 # 1.0.33
 * Share QrCode from frontend
 * Update allowed methods
