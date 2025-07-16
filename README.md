@@ -30,5 +30,5 @@ bulgarian, croatian, czech, english, french, german, greek, hungarian, lithuania
 # Release version
 * Update `project.ext.versionName` in [build.gradle](build.gradle)
 * Update [CHANGELOG.md](CHANGELOG.md)
-* Create PR with a name matching the following pattern `Release: ${project.ext.versionName}` - 
-  SDK release is triggered by a commit to `main` with a message `Release: ***`
+* Create PR with a name matching the following pattern `Release: ${project.ext.versionName}`
+* Squash and merge - SDK release is triggered by a commit to `main` with a message `Release: ***`
