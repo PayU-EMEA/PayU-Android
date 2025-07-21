@@ -19,7 +19,7 @@ public abstract class NetworkEnvironment implements RestEnvironment {
      * certificates
      */
     protected List<String> commonCertificates = newArrayList(
-            "certs/SentigoR46.cer",
+            "certs/SectigoR46.cer",
             "certs/entrustG2Ca.cer",
             "certs/PayURoot.crt"
     );
