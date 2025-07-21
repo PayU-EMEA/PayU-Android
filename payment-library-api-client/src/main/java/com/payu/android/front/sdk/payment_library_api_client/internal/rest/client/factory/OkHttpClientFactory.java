@@ -1,21 +1,12 @@
 package com.payu.android.front.sdk.payment_library_api_client.internal.rest.client.factory;
 
-import android.os.Build;
-
-import androidx.annotation.NonNull;
-
 import com.payu.android.front.sdk.payment_library_api_client.internal.rest.client.ssl.SslConfiguration;
-
 import java.util.concurrent.TimeUnit;
-
-import javax.net.ssl.SSLSocketFactory;
-
 import okhttp3.OkHttpClient;
 
-
 class OkHttpClientFactory extends AbstractRetrofitClientFactory {
-    private long connectionTimeout;
-    private long readTimeout;
+    private final long connectionTimeout;
+    private final long readTimeout;
 
     public OkHttpClientFactory(long connectionTimeout, long readTimeout) {
         this.connectionTimeout = connectionTimeout;

@@ -18,27 +18,21 @@ class SSLSocketFactoryProvider {
     private static final String TAG = SSLSocketFactoryProvider.class.getSimpleName();
     private static final String TLS_VERSION = "TLSv1.2";
     private final ArrayUtils mUtils = new ArrayUtils();
-    private X509TrustManager mTrustManager;
-    private KeyManagerFactory mKeyManagerFactory;
+    private final X509TrustManager mTrustManager;
 
-    public SSLSocketFactoryProvider(X509TrustManager trustManager, KeyManagerFactory keyManagerFactory) {
+    public SSLSocketFactoryProvider(X509TrustManager trustManager) {
         mTrustManager = trustManager;
-        mKeyManagerFactory = keyManagerFactory;
     }
 
     public SSLSocketFactory getSSLFactory() {
 
         try {
             SSLContext sslContext = SSLContext.getInstance(TLS_VERSION);
-            sslContext.init(getKeyManagers(), mUtils.asArray(mTrustManager), new SecureRandom());
+            sslContext.init(null, mUtils.asArray(mTrustManager), new SecureRandom());
             return sslContext.getSocketFactory();
         } catch (GeneralSecurityException e) {
             Log.e(TAG, "An exception occurred during Red environment configuration", e);
             return null;
         }
-    }
-
-    private KeyManager[] getKeyManagers() {
-        return mKeyManagerFactory == null ? null : mKeyManagerFactory.getKeyManagers();
     }
 }

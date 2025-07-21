@@ -7,13 +7,12 @@ import androidx.annotation.NonNull;
 import com.payu.android.front.sdk.payment_library_api_client.internal.rest.client.factory.AbstractRetrofitClientFactory;
 import com.payu.android.front.sdk.payment_library_api_client.internal.rest.client.factory.RetrofitClientFactoryProducer;
 import com.payu.android.front.sdk.payment_library_api_client.internal.rest.client.ssl.AndroidTrustManagerProvider;
-import com.payu.android.front.sdk.payment_library_api_client.internal.rest.client.ssl.SslCertificate;
 import com.payu.android.front.sdk.payment_library_api_client.internal.rest.client.ssl.SslConfiguration;
 import com.payu.android.front.sdk.payment_library_api_client.internal.rest.environment.RestEnvironment;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Collections;
+import java.security.KeyStore;
 
 import javax.net.ssl.X509TrustManager;
 
@@ -23,9 +22,8 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RestAdapterConfigurator {
-    private static final String TAG = RestAdapterConfigurator.class.getSimpleName();
-    private Context context;
-    private AbstractRetrofitClientFactory retrofitClientFactory;
+    private final Context context;
+    private final AbstractRetrofitClientFactory retrofitClientFactory;
 
     public RestAdapterConfigurator(@NonNull Context context) {
         this.context = context;
@@ -61,15 +59,13 @@ public class RestAdapterConfigurator {
     }
 
     private SslConfiguration getSslConfig(@NonNull RestEnvironment environment) {
-        return new SslConfiguration.Builder(createTrustManager())
+        return new SslConfiguration.Builder(createTrustManager(environment.getAllowedCertificatesKeyStore(context)))
                 .addAcceptedHost(environment.getCardEndpointUrl())
-                .withClientCertificate(environment.getClientKeyStore(context), environment.getClientKeyStorePassword())
-                .withAllowedCertificates(environment.getAllowedCertificates().or(Collections.<SslCertificate>emptyList()))
                 .build();
     }
 
-    private X509TrustManager createTrustManager() {
-        return new AndroidTrustManagerProvider().create().orNull();
+    private X509TrustManager createTrustManager(@NonNull KeyStore keyStore) {
+        return new AndroidTrustManagerProvider().create(keyStore).orNull();
     }
 
     @NotNull

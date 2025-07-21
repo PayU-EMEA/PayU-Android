@@ -9,6 +9,7 @@ import org.junit.Test;
 import okhttp3.logging.HttpLoggingInterceptor;
 
 import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
@@ -21,17 +22,16 @@ public class ProductionRestEnvironmentTest {
     }
 
     @Test
-    public void shouldProductionEnvReturnProperEndpoints() throws Exception {
-        assertThat(productionRestEnv.getCardEndpointUrl(), is("https://mobilesdk.secure.payu.com"));
-        assertThat(productionRestEnv.getStaticContentUrl(), is("https://static.payu.com"));
-
+    public void shouldProductionEnvReturnProperEndpoints() {
+        assertEquals("https://mobilesdk.secure.payu.com", productionRestEnv.getCardEndpointUrl());
+        assertEquals("https://static.payu.com", productionRestEnv.getStaticContentUrl());
     }
 
     @Test
-    public void shouldProductionEnvBeProperConfigured() throws Exception {
-        assertThat(productionRestEnv.getLogLevel(), is(HttpLoggingInterceptor.Level.NONE));
+    public void shouldProductionEnvBeProperConfigured() {
+        assertEquals(HttpLoggingInterceptor.Level.NONE, productionRestEnv.getLogLevel());
         assertTrue(productionRestEnv.isPinningEnabled());
-        assertThat(productionRestEnv.getStringRepresentation(), is("production"));
-        assertThat(productionRestEnv.getGooglePayEnvironment(), is(Environment.PROD));
+        assertEquals("production", productionRestEnv.getStringRepresentation());
+        assertEquals(Environment.PROD, productionRestEnv.getGooglePayEnvironment());
     }
 }

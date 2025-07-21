@@ -9,6 +9,7 @@ import org.robolectric.RobolectricTestRunner;
 
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
+import java.util.Collections;
 
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
@@ -32,10 +33,10 @@ public class AndroidTrustManagerProviderTest {
     @Test
     public void shouldReturnAbsentInCaseOfSecurityError() throws KeyStoreException, NoSuchAlgorithmException {
         // given
-        when(objectUnderTest.getAndroidTrustManagers()).thenThrow(new NoSuchAlgorithmException());
+        when(objectUnderTest.getAndroidTrustManagers(null)).thenThrow(new NoSuchAlgorithmException());
 
         // when
-        Optional<X509TrustManager> androidTrustManager = objectUnderTest.create();
+        Optional<X509TrustManager> androidTrustManager = objectUnderTest.create(null);
 
         // then
         assertThat(androidTrustManager.isPresent()).isFalse();
@@ -44,10 +45,11 @@ public class AndroidTrustManagerProviderTest {
     @Test
     public void shouldReturnAbsentInCaseOfX509TrustManagerIsNotAvailable() throws KeyStoreException, NoSuchAlgorithmException {
         // given
-        when(objectUnderTest.getAndroidTrustManagers()).thenReturn(asList(mock(TrustManager.class)).toArray(new TrustManager[1]));
+        when(objectUnderTest.getAndroidTrustManagers(null))
+                .thenReturn(Collections.singletonList(mock(TrustManager.class)).toArray(new TrustManager[1]));
 
         // when
-        Optional<X509TrustManager> androidTrustManager = objectUnderTest.create();
+        Optional<X509TrustManager> androidTrustManager = objectUnderTest.create(null);
 
         // then
         assertThat(androidTrustManager.isPresent()).isFalse();
@@ -56,7 +58,7 @@ public class AndroidTrustManagerProviderTest {
     @Test
     public void shouldReturnAndroidsTrustManagerX509TrustManager() {
         // when
-        Optional<X509TrustManager> androidTrustManager = objectUnderTest.create();
+        Optional<X509TrustManager> androidTrustManager = objectUnderTest.create(null);
 
         // then
         assertThat(androidTrustManager.get()).isInstanceOf(X509TrustManager.class);

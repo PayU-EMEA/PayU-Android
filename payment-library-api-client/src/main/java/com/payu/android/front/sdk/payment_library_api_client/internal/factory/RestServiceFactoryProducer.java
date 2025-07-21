@@ -14,8 +14,8 @@ import retrofit2.Retrofit;
 
 public class RestServiceFactoryProducer {
 
-    private RestAdapterConfigurator restAdapterConfigurator;
-    private Provider<ExternalEndpointRestAdapterBuilder> externalLinkRestAdapterProvider;
+    private final RestAdapterConfigurator restAdapterConfigurator;
+    private final Provider<ExternalEndpointRestAdapterBuilder> externalLinkRestAdapterProvider;
 
     public RestServiceFactoryProducer(@NonNull RestAdapterConfigurator restAdapterConfigurator, @NonNull Provider<ExternalEndpointRestAdapterBuilder> externalLinkRestAdapterProvider) {
         this.restAdapterConfigurator = restAdapterConfigurator;
