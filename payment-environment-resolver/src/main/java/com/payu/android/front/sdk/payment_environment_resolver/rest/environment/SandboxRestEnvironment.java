@@ -23,7 +23,7 @@ public class SandboxRestEnvironment extends NetworkEnvironment implements RestEn
 
     @Override
     public String getCardEndpointUrl() {
-        return "https://secure.snd.payu.com";
+        return "https://mobilesdk.snd.payu.com";
     }
 
     @Override
