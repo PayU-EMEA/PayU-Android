@@ -9,7 +9,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.10.0'
+        classpath 'com.android.tools.build:gradle:8.11.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 
         classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4.33.23"
@@ -42,7 +42,6 @@ project.ext {
     materialVersion = "1.1.0"
     espressoVersion = "3.6.1"
     constraintLayoutVersion = "2.2.0"
-    robolectricVersion = "4.14.1"
     glideVersion = "4.16.0"
     architectureComponentsCoreVersion = "2.0.0"
     lifecycleComponentVersion = "2.4.1"
@@ -60,8 +59,9 @@ project.ext {
     junitVersion = "4.13.2"
     junitDataproviderVersion = "2.10"
     junitAssertionsVersion = "1.2.1"
-    assertJsVersion = "3.27.2"
-    mockitoVersion = "5.15.2"
+    assertJsVersion = "3.27.3"
+    mockitoVersion = "5.18.0"
+    robolectricVersion = "4.15.1"
 }
 
 project.ext {

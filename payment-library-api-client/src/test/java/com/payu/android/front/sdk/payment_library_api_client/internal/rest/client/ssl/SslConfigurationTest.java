@@ -1,5 +1,10 @@
 package com.payu.android.front.sdk.payment_library_api_client.internal.rest.client.ssl;
 
+import static com.google.common.collect.Lists.newArrayList;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.when;
+import static org.mockito.MockitoAnnotations.openMocks;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,15 +15,10 @@ import java.util.List;
 
 import javax.net.ssl.X509TrustManager;
 
-import static com.google.common.collect.Lists.newArrayList;
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.mock;
-import static org.mockito.MockitoAnnotations.openMocks;
-
 @RunWith(RobolectricTestRunner.class)
 public class SslConfigurationTest {
-    List<String> acceptedHosts;
-    List<SslCertificate> allowedCertificates;
+    List<String> acceptedHosts = newArrayList();
+
     @Mock
     X509TrustManager trustManagerMock;
     SslConfiguration objectUnderTest;
@@ -26,16 +26,13 @@ public class SslConfigurationTest {
     @Before
     public void setUp() {
         openMocks(this);
-        acceptedHosts = newArrayList();
-        allowedCertificates = newArrayList();
-        objectUnderTest = new SslConfiguration(trustManagerMock, allowedCertificates, //
-                acceptedHosts, null, null);
+        objectUnderTest = new SslConfiguration(trustManagerMock, acceptedHosts);
     }
 
     @Test
     public void shouldPassFalsePinningStateFromEnvironment() {
         // given
-        allowedCertificates.clear();
+        when(trustManagerMock.getAcceptedIssuers()).thenReturn(new java.security.cert.X509Certificate[0]);
 
         // when
         boolean pinningEnabled = objectUnderTest.isPinningEnabled();
@@ -47,7 +44,7 @@ public class SslConfigurationTest {
     @Test
     public void shouldPassTruePinningEnabledIfHasAllowedCertificated() {
         // given
-        allowedCertificates.add(mock(SslCertificate.class));
+        when(trustManagerMock.getAcceptedIssuers()).thenReturn(new java.security.cert.X509Certificate[1]);
 
         // when
         boolean pinningEnabled = objectUnderTest.isPinningEnabled();

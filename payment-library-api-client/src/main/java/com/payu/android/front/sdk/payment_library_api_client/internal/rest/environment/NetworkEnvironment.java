@@ -1,45 +1,56 @@
 package com.payu.android.front.sdk.payment_library_api_client.internal.rest.environment;
 
+import static com.google.common.collect.Lists.newArrayList;
+
 import android.content.Context;
+import android.content.res.AssetManager;
 
 import com.google.common.base.Optional;
-import com.payu.android.front.sdk.payment_library_api_client.internal.rest.client.ssl.SslCertificate;
 
+import java.io.InputStream;
 import java.security.KeyStore;
+import java.security.cert.CertificateFactory;
+import java.security.cert.X509Certificate;
 import java.util.List;
-
-import static com.google.common.collect.Lists.newArrayList;
 
 public abstract class NetworkEnvironment implements RestEnvironment {
     /**
      * Those certificates are added for production & sandbox environment. For network/security purpose we are prepared to change between mentioned
      * certificates
      */
-    protected List<SslCertificate> commonCertificates =
-            newArrayList(new SslCertificate(1907389399, "10944719598952040374951832963794454346",
-                            SslCertificate.DECIMAL_BASE, "certs/DigiCertGlobalRootCA.crt"),
-                    new SslCertificate(1954573457, "4293743540046975378534879503202253541",
-                            SslCertificate.DECIMAL_BASE, "certs/DigiCertGlobalRootG2.crt"),
-                    new SslCertificate(-490239304, "3553400076410547919724730734378100087",
-                            SslCertificate.DECIMAL_BASE, "certs/DigiCertHighAssuranceEVRootCA.crt"),
-                    new SslCertificate(1927689311, "1246989352",
-                            SslCertificate.DECIMAL_BASE, "certs/entrustG2Ca.cer"),
-                    new SslCertificate(-24664157, "38055854624439058553644166412003131803",
-                            SslCertificate.DECIMAL_BASE, "certs/PayURoot.crt"));
+    protected List<String> commonCertificates = newArrayList(
+            "certs/SentigoR46.cer",
+            "certs/entrustG2Ca.cer",
+            "certs/PayURoot.crt"
+    );
 
-    @Override
-    public Optional<List<SslCertificate>> getAllowedCertificates() {
+    protected Optional<List<String>> getAllowedCertificates() {
         return Optional.absent();
     }
 
     @Override
-    public KeyStore getClientKeyStore(Context context) {
-        return null;
-    }
+    public KeyStore getAllowedCertificatesKeyStore(Context context) {
+        Optional<List<String>> allowedCertificates = getAllowedCertificates();
 
-    @Override
-    public String getClientKeyStorePassword() {
-        return null;
+        if (!allowedCertificates.isPresent() || allowedCertificates.get().isEmpty()) {
+            return null;
+        }
+        AssetManager assetManager = context.getAssets();
+        try {
+            CertificateFactory certificateFactory = CertificateFactory.getInstance("X.509");
+            KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
+            keyStore.load(null, null);
+            for (String certificatePath : allowedCertificates.get()) {
+                InputStream is = assetManager.open(certificatePath);
+                X509Certificate cert = (X509Certificate) certificateFactory.generateCertificate(is);
+                keyStore.setCertificateEntry(cert.getSerialNumber().toString(), cert);
+                is.close();
+            }
+            return keyStore;
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to load allowed certificates", e);
+        }
+
     }
 
     @Override
