@@ -2,7 +2,6 @@
 * New certificate for ssl pinning
 * New sandbox url
 
-
 # 1.0.34
 * Add permission request handler for camera permission
 
