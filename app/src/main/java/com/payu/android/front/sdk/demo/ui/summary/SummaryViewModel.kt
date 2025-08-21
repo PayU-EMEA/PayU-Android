@@ -3,6 +3,7 @@ package com.payu.android.front.sdk.demo.ui.summary
 import androidx.databinding.ObservableBoolean
 import com.google.gson.Gson
 import com.payu.android.front.sdk.demo.api.PayUApi
+import com.payu.android.front.sdk.demo.api.model.Constants
 import com.payu.android.front.sdk.demo.api.model.ocr.*
 import com.payu.android.front.sdk.demo.model.RollModel
 import com.payu.android.front.sdk.demo.model.toProduct
@@ -61,12 +62,33 @@ class SummaryViewModel(
         paymentMethod: PaymentMethod, authorizationCode: String?
     ): Single<CreateOrderRequest> {
         val createOrderRequest = CreateOrderRequest(
-            buyer = Buyer(persistentRepository.email),
-            currencyCode = "PLN",
-            description = "Demo App",
+            buyer = Buyer(
+                Constants.Buyer.email,
+                Constants.Buyer.firstName,
+                Constants.Buyer.lastName,
+                Constants.Buyer.language,
+                Constants.Buyer.phone,
+                delivery = Delivery(
+                    Constants.Delivery.recipientName,
+                    Constants.Delivery.recipientEmail,
+                    Constants.Delivery.recipientPhone,
+                    Constants.Delivery.addressId,
+                    Constants.Delivery.street,
+                    Constants.Delivery.postalBox,
+                    Constants.Delivery.postalCode,
+                    Constants.Delivery.city,
+                    Constants.Delivery.state,
+                    Constants.Delivery.countryCode,
+                    Constants.Delivery.name
+                )),
+            currencyCode = Constants.Locale.defaultCurrencyCode,
+            customerIp = Constants.Order.customerIP,
+            description = Constants.Order.description,
             merchantPosId = authRepository.posId,
             products = rollModel?.let { listOf(it.toProduct()) } ?: emptyList(),
             totalAmount = rollModel?.rollPrice.toString(),
+            continueUrl = Constants.Order.continueUrl,
+            notifyUrl = Constants.Order.continueUrl,
             payMethods = getPayMethods(paymentMethod, authorizationCode))
         return Single.just(createOrderRequest)
     }
@@ -90,7 +112,7 @@ class SummaryViewModel(
     ) = orderCreateResponse.redirectUri?.let {
         AuthorizationDetails.Builder()
             .withLink(it)
-            .withContinueUrl(CONTINUE_URL)
+            .withContinueUrl(Constants.Order.continueUrl)
             .withAuthorizationType(authType)
             .build()
     }

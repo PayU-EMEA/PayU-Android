@@ -6,11 +6,13 @@ data class Buyer(
     @SerializedName("email")
     val email: String,
     @SerializedName("firstName")
-    val firstName: String? = null,
-    @SerializedName("language")
-    val language: String? = null,
+    val firstName: String,
     @SerializedName("lastName")
-    val lastName: String? = null,
+    val lastName: String,
+    @SerializedName("language")
+    val language: String,
     @SerializedName("phone")
-    val phone: String? = null
+    val phone: String,
+    @SerializedName("delivery")
+    val delivery: Delivery
 )
