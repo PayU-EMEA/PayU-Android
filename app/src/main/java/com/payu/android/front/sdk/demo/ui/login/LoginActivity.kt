@@ -2,10 +2,10 @@ package com.payu.android.front.sdk.demo.ui.login
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import com.google.android.material.snackbar.Snackbar
+import com.payu.android.front.sdk.demo.ui.base.MainActivity
 import com.payu.android.front.sdk.demo.ui.main.RollMainActivity
 import com.payu.android.front.sdk.demo.ui.terms.TermsAndConditionActivity
 import com.payu.android.front.sdk.frontsdk.R
@@ -13,7 +13,7 @@ import com.payu.android.front.sdk.frontsdk.databinding.ActivityLoginBinding
 import dagger.android.AndroidInjection
 import javax.inject.Inject
 
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : MainActivity() {
     @Inject
     lateinit var viewModel: LoginViewModel
 

@@ -1,7 +1,9 @@
 package com.payu.android.front.sdk.payment_library_core_android.base;
 
 import android.content.Context;
+import android.content.res.Configuration;
 import android.os.Bundle;
+import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
@@ -10,6 +12,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
 
 import com.payu.android.front.sdk.payment_library_api_client.internal.rest.environment.RestEnvironment;
 import com.payu.android.front.sdk.payment_library_core.translation.Translation;
@@ -36,6 +42,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         translation = TranslationFactory.getInstance();
         setContentView(getLayoutResource());
+        fixEdgeToEdge();
         bindViews();
         setupToolbar();
     }
@@ -52,6 +59,8 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected abstract void bindViews();
 
     protected abstract int getLayoutResource();
+
+    protected abstract int getMainView();
 
     private void loadLogoFromDrawable() {
         if (appToolbar != null) {
@@ -75,5 +84,31 @@ public abstract class BaseActivity extends AppCompatActivity {
     @NonNull
     protected TextViewStyle createStyleFromInfo(TextStyleInfo styleInfo) {
         return new TextViewStyle(styleInfo, new FontProvider(this));
+    }
+
+    private void fixEdgeToEdge() {
+        View view = findViewById(getMainView());
+
+        if (view != null) {
+            ViewCompat.setOnApplyWindowInsetsListener(view, (v, insets) -> {
+                Insets innerPadding = insets.getInsets(
+                        WindowInsetsCompat.Type.systemBars()
+                                | WindowInsetsCompat.Type.displayCutout()
+                );
+                v.setPadding(
+                        innerPadding.left,
+                        innerPadding.top,
+                        innerPadding.right,
+                        innerPadding.bottom
+                );
+
+                int nightModeFlags = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
+
+                WindowCompat.getInsetsController(getWindow(), getWindow().getDecorView())
+                        .setAppearanceLightStatusBars(nightModeFlags == Configuration.UI_MODE_NIGHT_NO);
+
+                return insets;
+            });
+        }
     }
 }

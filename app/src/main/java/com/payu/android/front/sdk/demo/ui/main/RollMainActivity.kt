@@ -2,18 +2,13 @@ package com.payu.android.front.sdk.demo.ui.main
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
 import androidx.annotation.CallSuper
-import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import com.github.nitrico.lastadapter.Holder
 import com.github.nitrico.lastadapter.LastAdapter
 import com.payu.android.front.sdk.demo.model.RollModel
 import com.payu.android.front.sdk.demo.ui.base.ActivityWithMenu
-import com.payu.android.front.sdk.demo.ui.base.ChangeThemeDialog
-import com.payu.android.front.sdk.demo.ui.samples.*
 import com.payu.android.front.sdk.demo.ui.summary.RollSummaryActivity
 import com.payu.android.front.sdk.frontsdk.BR
 import com.payu.android.front.sdk.frontsdk.R
@@ -37,19 +32,19 @@ class RollMainActivity : ActivityWithMenu() {
 
     private fun handleOnItemClick(itemBinding: Holder<ItemRollToBuyBinding>) {
         startActivity(
-                Intent(this, RollSummaryActivity::class.java)
-                        .apply { putExtra(BUNDLE_DATA, itemBinding.binding.item) }
+            Intent(this, RollSummaryActivity::class.java)
+                .apply { putExtra(BUNDLE_DATA, itemBinding.binding.item) }
         )
     }
 
     private fun observeProducts() {
         viewModel.productFetchedEvent.observe(this, Observer {
-            it?.let {items ->
+            it.let { items ->
                 LastAdapter(items, BR.item)
-                        .map<RollModel, ItemRollToBuyBinding>(R.layout.item_roll_to_buy) {
-                            onClick { item -> handleOnItemClick(item) }
-                        }
-                        .into(binding.rollProductsRecyclerView)
+                    .map<RollModel, ItemRollToBuyBinding>(R.layout.item_roll_to_buy) {
+                        onClick { item -> handleOnItemClick(item) }
+                    }
+                    .into(binding.rollProductsRecyclerView)
             }
         })
     }
@@ -60,7 +55,6 @@ class RollMainActivity : ActivityWithMenu() {
         AndroidInjection.inject(this)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main_roll)
-
         setupToolbar()
 
         viewModel.fetchProducts()

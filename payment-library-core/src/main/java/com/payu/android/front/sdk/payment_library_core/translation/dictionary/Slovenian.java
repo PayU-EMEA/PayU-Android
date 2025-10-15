@@ -33,7 +33,6 @@ public class Slovenian extends StringMapTranslation {
         add(TranslationKey.REMOVE_METHOD_DIALOG_TITLE, "Brisanje načina plačila");
         add(TranslationKey.REMOVE_METHOD_DIALOG_CONTENT, "Ali res želite odstraniti izbran način plačila?");
         add(TranslationKey.REMOVE, "Odstrani");
-        add(TranslationKey.INFORMATIONS, "O...");
         add(TranslationKey.PUBLISHER, "Izdajatelj");
         add(TranslationKey.PAYU_COMPANY_NAME, "PayU S.A.");
         add(TranslationKey.APPLICATION_VERSION, "Različica aplikacije");

@@ -33,7 +33,6 @@ public class Hungarian extends StringMapTranslation {
         add(TranslationKey.REMOVE_METHOD_DIALOG_TITLE, "Törlöm ezt a fizetési módot");
         add(TranslationKey.REMOVE_METHOD_DIALOG_CONTENT, "Biztosan törlöd ezt a fizetési módot?");
         add(TranslationKey.REMOVE, "Törlöm");
-        add(TranslationKey.INFORMATIONS, "Rólunk");
         add(TranslationKey.PUBLISHER, "Fejlesztő");
         add(TranslationKey.PAYU_COMPANY_NAME, "PayU S.A.");
         add(TranslationKey.APPLICATION_VERSION, "Alkalmazás verzió");

@@ -1,20 +1,21 @@
 package com.payu.android.front.sdk.payment_library_payment_chooser.payment_method.internal.ui.pay_by_link.view;
 
 import android.app.Activity;
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.Observer;
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.appcompat.widget.Toolbar;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.payu.android.front.sdk.payment_library_core.translation.TranslationKey;
-import com.payu.android.front.sdk.payment_library_core_android.base.BaseMenuActivity;
+import com.payu.android.front.sdk.payment_library_core_android.base.BaseActivity;
 import com.payu.android.front.sdk.payment_library_core_android.styles.model.LibraryStyleInfo;
 import com.payu.android.front.sdk.payment_library_core_android.styles.providers.LibraryStyleProvider;
 import com.payu.android.front.sdk.payment_library_payment_chooser.R;
@@ -26,7 +27,7 @@ import com.payu.android.front.sdk.payment_library_payment_chooser.payment_method
 import java.util.ArrayList;
 import java.util.List;
 
-public class PayByLinkChooserActivity extends BaseMenuActivity implements PayByLinkView {
+public class PayByLinkChooserActivity extends BaseActivity implements PayByLinkView {
     private static final int ROWS_COUNT = 3;
     private Toolbar toolbar;
     private RecyclerView payByLinkRecycler;
@@ -113,5 +114,10 @@ public class PayByLinkChooserActivity extends BaseMenuActivity implements PayByL
     @Override
     protected int getLayoutResource() {
         return R.layout.payu_activity_pay_by_link;
+    }
+
+    @Override
+    protected int getMainView() {
+        return R.id.pay_by_link_activity_container;
     }
 }

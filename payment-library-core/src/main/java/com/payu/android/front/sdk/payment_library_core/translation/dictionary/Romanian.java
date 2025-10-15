@@ -33,7 +33,6 @@ public class Romanian extends StringMapTranslation {
         add(TranslationKey.REMOVE_METHOD_DIALOG_TITLE, "Se şterge metoda de plată");
         add(TranslationKey.REMOVE_METHOD_DIALOG_CONTENT, "Sigur doriţi să ştergeţi metoda de plată?");
         add(TranslationKey.REMOVE, "Ştergere");
-        add(TranslationKey.INFORMATIONS, "Despre");
         add(TranslationKey.PUBLISHER, "Editor");
         add(TranslationKey.PAYU_COMPANY_NAME, "PayU S.A.");
         add(TranslationKey.APPLICATION_VERSION, "Versiunea aplicaţiei");

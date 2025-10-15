@@ -33,7 +33,6 @@ public class Italian extends StringMapTranslation {
         add(TranslationKey.REMOVE_METHOD_DIALOG_TITLE, "Cancellazione del metodo di pagamento");
         add(TranslationKey.REMOVE_METHOD_DIALOG_CONTENT, "Vuoi davvero cancellare il metodo di pagamento selezionato?");
         add(TranslationKey.REMOVE, "Cancella");
-        add(TranslationKey.INFORMATIONS, "Informazioni");
         add(TranslationKey.PUBLISHER, "Emettitore");
         add(TranslationKey.PAYU_COMPANY_NAME, "PayU S.A.");
         add(TranslationKey.APPLICATION_VERSION, "Versione dell’app");

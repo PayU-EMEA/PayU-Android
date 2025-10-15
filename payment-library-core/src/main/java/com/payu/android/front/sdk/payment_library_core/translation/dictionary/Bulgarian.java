@@ -33,7 +33,6 @@ public class Bulgarian extends StringMapTranslation {
         add(TranslationKey.REMOVE_METHOD_DIALOG_TITLE, "Изтриване на метод на плащане");
         add(TranslationKey.REMOVE_METHOD_DIALOG_CONTENT, "Сигурни ли сте, че искате да премахнете избрания метод на плащане?");
         add(TranslationKey.REMOVE, "Премахване");
-        add(TranslationKey.INFORMATIONS, "Относно");
         add(TranslationKey.PUBLISHER, "Издател");
         add(TranslationKey.PAYU_COMPANY_NAME, "PayU S.A.");
         add(TranslationKey.APPLICATION_VERSION, "Версия на приложението");

@@ -33,7 +33,6 @@ public class Czech extends StringMapTranslation {
         add(TranslationKey.REMOVE_METHOD_DIALOG_TITLE, "Odstranění platební metody");
         add(TranslationKey.REMOVE_METHOD_DIALOG_CONTENT, "Skutečně chcete odstranit vybranou platební metodu?");
         add(TranslationKey.REMOVE, "Odstranit");
-        add(TranslationKey.INFORMATIONS, "Informace");
         add(TranslationKey.PUBLISHER, "Vydavatel");
         add(TranslationKey.PAYU_COMPANY_NAME, "PayU S.A.");
         add(TranslationKey.APPLICATION_VERSION, "Verze aplikace");

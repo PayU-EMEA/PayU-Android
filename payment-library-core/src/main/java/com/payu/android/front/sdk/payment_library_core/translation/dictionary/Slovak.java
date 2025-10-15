@@ -33,7 +33,6 @@ public class Slovak extends StringMapTranslation {
         add(TranslationKey.REMOVE_METHOD_DIALOG_TITLE, "Odstránenie platobnej metódy");
         add(TranslationKey.REMOVE_METHOD_DIALOG_CONTENT, "Skutočne chcete odstrániť vybranú platobnú metódu?");
         add(TranslationKey.REMOVE, "Odstraniť");
-        add(TranslationKey.INFORMATIONS, "Informácie");
         add(TranslationKey.PUBLISHER, "Vydavateľ");
         add(TranslationKey.PAYU_COMPANY_NAME, "PayU S.A.");
         add(TranslationKey.APPLICATION_VERSION, "Verzia aplikácie");

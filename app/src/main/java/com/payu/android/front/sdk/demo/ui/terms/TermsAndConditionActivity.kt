@@ -2,8 +2,8 @@ package com.payu.android.front.sdk.demo.ui.terms
 
 import android.os.Bundle
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import com.payu.android.front.sdk.demo.ui.base.MainActivity
 import com.payu.android.front.sdk.frontsdk.R
 import com.payu.android.front.sdk.frontsdk.databinding.ActivityTermsConditionBinding
 import com.payu.android.front.sdk.marketplace_terms_condition.marketplace.TermsAgreementResponseListener
@@ -11,7 +11,7 @@ import com.payu.android.front.sdk.marketplace_terms_condition.marketplace.TermsM
 import dagger.android.AndroidInjection
 import javax.inject.Inject
 
-class TermsAndConditionActivity : AppCompatActivity() {
+class TermsAndConditionActivity : MainActivity() {
     lateinit var instance: TermsMarketPlaceService
 
     @Inject

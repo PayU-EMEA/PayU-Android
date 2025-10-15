@@ -1,11 +1,11 @@
 package com.payu.android.front.sdk.demo.ui.samples
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import com.payu.android.front.sdk.demo.ui.base.MainActivity
 
 import com.payu.android.front.sdk.frontsdk.R
 
-class PaymentChooserDemoActivity : AppCompatActivity() {
+class PaymentChooserDemoActivity : MainActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -22,7 +22,7 @@ import com.payu.android.front.sdk.payment_add_card_module.service.NewCardCallbac
 import com.payu.android.front.sdk.payment_add_card_module.service.NewCardService;
 import com.payu.android.front.sdk.payment_add_card_module.view.NewCardView;
 import com.payu.android.front.sdk.payment_library_core.translation.TranslationKey;
-import com.payu.android.front.sdk.payment_library_core_android.base.BaseMenuActivity;
+import com.payu.android.front.sdk.payment_library_core_android.base.BaseActivity;
 import com.payu.android.front.sdk.payment_library_core_android.styles.ButtonStyle;
 import com.payu.android.front.sdk.payment_library_core_android.styles.model.LibraryStyleInfo;
 import com.payu.android.front.sdk.payment_library_core_android.styles.providers.LibraryStyleProvider;
@@ -32,7 +32,7 @@ import com.payu.android.front.sdk.payment_library_payment_chooser.payment_method
 import com.payu.android.front.sdk.payment_library_payment_methods.model.CardPaymentMethod;
 
 
-public class CreateAndSelectCardActivity extends BaseMenuActivity implements CreateAndSelectCardView {
+public class CreateAndSelectCardActivity extends BaseActivity implements CreateAndSelectCardView {
     private View mainView;
     private Toolbar toolbar;
     private NewCardView view;
@@ -145,6 +145,11 @@ public class CreateAndSelectCardActivity extends BaseMenuActivity implements Cre
     @Override
     protected int getLayoutResource() {
         return R.layout.payu_activity_create_and_select_card;
+    }
+
+    @Override
+    protected int getMainView() {
+        return R.id.main_view;
     }
 
     @Override

@@ -34,7 +34,6 @@ public class French extends StringMapTranslation {
         add(TranslationKey.REMOVE_METHOD_DIALOG_CONTENT, "Êtes-vous sûr de vouloir supprimer le mode de paiement sélectionné ?");
         add(TranslationKey.REMOVE, "Supprimer");
         add(TranslationKey.SELECT_PAYMENT_METHOD, "Choisir le mode de paiement");
-        add(TranslationKey.INFORMATIONS, "Informations");
         add(TranslationKey.PUBLISHER, "Editeur");
         add(TranslationKey.PAYU_COMPANY_NAME, "PayU S.A.");
         add(TranslationKey.APPLICATION_VERSION, "Version de l'application");

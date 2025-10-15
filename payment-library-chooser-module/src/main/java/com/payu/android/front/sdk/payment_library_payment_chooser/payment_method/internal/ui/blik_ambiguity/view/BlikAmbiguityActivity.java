@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.payu.android.front.sdk.payment_library_core.translation.TranslationKey;
-import com.payu.android.front.sdk.payment_library_core_android.base.BaseMenuActivity;
+import com.payu.android.front.sdk.payment_library_core_android.base.BaseActivity;
 import com.payu.android.front.sdk.payment_library_core_android.styles.model.LibraryStyleInfo;
 import com.payu.android.front.sdk.payment_library_core_android.styles.providers.LibraryStyleProvider;
 import com.payu.android.front.sdk.payment_library_payment_chooser.R;
@@ -27,7 +27,7 @@ import com.payu.android.front.sdk.payment_library_payment_chooser.payment_method
 import java.util.ArrayList;
 import java.util.List;
 
-public class BlikAmbiguityActivity extends BaseMenuActivity implements BlikView {
+public class BlikAmbiguityActivity extends BaseActivity implements BlikView {
     private Toolbar toolbar;
     private RecyclerView recyclerView;
     private TextView toolbarTextTitle;
@@ -79,6 +79,11 @@ public class BlikAmbiguityActivity extends BaseMenuActivity implements BlikView 
     @Override
     protected int getLayoutResource() {
         return R.layout.payu_activity_blik_ambiguity;
+    }
+
+    @Override
+    protected int getMainView() {
+        return R.id.ambiguity_blik_activity_container;
     }
 
     @Override

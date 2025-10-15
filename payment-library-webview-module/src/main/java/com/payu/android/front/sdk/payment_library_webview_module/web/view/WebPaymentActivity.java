@@ -1,6 +1,5 @@
 package com.payu.android.front.sdk.payment_library_webview_module.web.view;
 
-import static com.payu.android.front.sdk.payment_library_core.translation.TranslationKey.INFORMATIONS;
 import static com.payu.android.front.sdk.payment_library_webview_module.web.service.WebPaymentService.INTENT_WEB_PAYMENT_EXTRA;
 
 import android.app.Activity;
@@ -21,8 +20,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.Toolbar;
 
 import com.payu.android.front.sdk.payment_library_core.translation.TranslationKey;
-import com.payu.android.front.sdk.payment_library_core_android.about.AboutActivity;
-import com.payu.android.front.sdk.payment_library_core_android.base.BaseMenuActivity;
+import com.payu.android.front.sdk.payment_library_core_android.base.BaseActivity;
 import com.payu.android.front.sdk.payment_library_core_android.events.AuthorizationDetails;
 import com.payu.android.front.sdk.payment_library_core_android.styles.PayUDefaultDialogBuilder;
 import com.payu.android.front.sdk.payment_library_core_android.styles.model.LibraryStyleInfo;
@@ -42,7 +40,7 @@ import com.payu.android.front.sdk.payment_library_webview_module.web.view.presen
 import com.payu.android.front.sdk.payment_library_webview_module.web.view.presenter.WebPaymentPresenter;
 
 
-public class WebPaymentActivity extends BaseMenuActivity {
+public class WebPaymentActivity extends BaseActivity {
     private static final String INTENT_WEB_AUTHORIZATION_EXTRA = "INTENT_WEB_AUTHORIZATION_EXTRA";
     private static final String DISPLAY_CANCEL_IN_MENU = "DISPLAY_CANCEL_IN_MENU";
     private static final String TAG = WebPaymentActivity.class.getSimpleName();
@@ -57,7 +55,6 @@ public class WebPaymentActivity extends BaseMenuActivity {
     private WebPaymentPresenter webPaymentPresenter;
     private AuthorizationDetails authorizationDetails;
     private PaymentDetails paymentDetails;
-    private LibraryStyleInfo applicationStyleInfo;
     private Boolean shouldDisplayCancelInMenu;
 
     @Override
@@ -74,19 +71,14 @@ public class WebPaymentActivity extends BaseMenuActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         // Handle item selection
         if (!shouldDisplayCancelInMenu) {
             return super.onOptionsItemSelected(item);
         }
 
         int i = item.getItemId();
-        if (i == com.payu.android.front.sdk.payment_library_core_android.R.id.about) {
-            Intent intent = new Intent(this, AboutActivity.class);
-            startActivity(intent);
-            return true;
-
-        } else if (i == com.payu.android.front.sdk.payment_library_core_android.R.id.cancel) {
+        if (i == com.payu.android.front.sdk.payment_library_core_android.R.id.cancel) {
             dialog.show();
             return true;
         } else {
@@ -100,10 +92,7 @@ public class WebPaymentActivity extends BaseMenuActivity {
         if (shouldDisplayCancelInMenu) {
             MenuInflater inflater = getMenuInflater();
             inflater.inflate(com.payu.android.front.sdk.payment_library_core_android.R.menu.menu_with_cancel, menu);
-            MenuItem item = menu.findItem(com.payu.android.front.sdk.payment_library_core_android.R.id.about);
-            item.setTitle(translation.translate(INFORMATIONS));
             return true;
-
         } else {
             return super.onCreateOptionsMenu(menu);
         }
@@ -131,6 +120,10 @@ public class WebPaymentActivity extends BaseMenuActivity {
         return R.layout.payu_activity_web_payment;
     }
 
+    @Override
+    protected int getMainView() {
+        return R.id.main_view;
+    }
 
     private boolean getShouldDisplayCancel() {
         return getIntent().getBooleanExtra(DISPLAY_CANCEL_IN_MENU, false);
@@ -171,17 +164,14 @@ public class WebPaymentActivity extends BaseMenuActivity {
         dialog = new PayUDefaultDialogBuilder(this)
                 .setTitle(translation.translate(TranslationKey.DIALOG_CANCEL_PAYMENT_TITLE))
                 .setMessage(translation.translate(TranslationKey.DIALOG_CANCEL_PAYMENT_MESSAGE))
-                .setPositiveButton(translation.translate(TranslationKey.DIALOG_CANCEL_PAYMENT_POSITIVE), new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        if (paymentDetails == null) {
-                            paymentDetails = new PaymentDetails(WebPaymentStatus.CANCEL_PAYMENT,
-                                    authorizationDetails.getOrderId().orNull(),
-                                    authorizationDetails.getExtOrderId().orNull(),
-                                    authorizationDetails.getContinueUrl().orNull());
-                        }
-                        onPaymentResult(paymentDetails);
+                .setPositiveButton(translation.translate(TranslationKey.DIALOG_CANCEL_PAYMENT_POSITIVE), (dialog, which) -> {
+                    if (paymentDetails == null) {
+                        paymentDetails = new PaymentDetails(WebPaymentStatus.CANCEL_PAYMENT,
+                                authorizationDetails.getOrderId().orNull(),
+                                authorizationDetails.getExtOrderId().orNull(),
+                                authorizationDetails.getContinueUrl().orNull());
                     }
+                    onPaymentResult(paymentDetails);
                 })
                 .setNegativeButton(translation.translate(TranslationKey.DIALOG_CANCEL_PAYMENT_NEGATIVE))
                 .create();
@@ -195,7 +185,7 @@ public class WebPaymentActivity extends BaseMenuActivity {
         activity.startActivityForResult(intent, requestCode);
     }
 
-    private OnAuthorizationFinishedListener authorizationFinishedListener = new OnAuthorizationFinishedListener() {
+    private final OnAuthorizationFinishedListener authorizationFinishedListener = new OnAuthorizationFinishedListener() {
 
         @Override
         public void onAuthorizationFinished(@NonNull WebPaymentWrapper authorizationStatus) {
@@ -255,10 +245,9 @@ public class WebPaymentActivity extends BaseMenuActivity {
     }
 
     private void applyStyles() {
-        applicationStyleInfo = LibraryStyleProvider.fromContext(this);
+        LibraryStyleInfo applicationStyleInfo = LibraryStyleProvider.fromContext(this);
         toolbar.setBackgroundColor(applicationStyleInfo.getToolbarColor());
         webPaymentView.setBackgroundColor(applicationStyleInfo.getBackgroundColor());
         createStyleFromInfo(applicationStyleInfo.getTextStyleTitle()).applyTo(textTitle);
-
     }
 }

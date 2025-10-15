@@ -34,7 +34,6 @@ public class Polish extends StringMapTranslation {
         add(TranslationKey.REMOVE_METHOD_DIALOG_CONTENT, "Czy na pewno chcesz usunąć wybraną metodę płatności?");
         add(TranslationKey.REMOVE, "Usuń");
         add(TranslationKey.SELECT_PAYMENT_METHOD, "Wybierz metodę płatności");
-        add(TranslationKey.INFORMATIONS, "Informacje");
         add(TranslationKey.PUBLISHER, "Wydawca");
         add(TranslationKey.PAYU_COMPANY_NAME, "PayU S.A.");
         add(TranslationKey.APPLICATION_VERSION, "Wersja aplikacji");
