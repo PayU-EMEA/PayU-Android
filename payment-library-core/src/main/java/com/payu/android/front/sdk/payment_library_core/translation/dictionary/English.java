@@ -33,7 +33,6 @@ public class English extends StringMapTranslation {
         add(TranslationKey.REMOVE_METHOD_DIALOG_TITLE, "Deleting payment method");
         add(TranslationKey.REMOVE_METHOD_DIALOG_CONTENT, "Are you sure to remove selected payment method?");
         add(TranslationKey.REMOVE, "Remove");
-        add(TranslationKey.INFORMATIONS, "About");
         add(TranslationKey.PUBLISHER, "Publisher");
         add(TranslationKey.PAYU_COMPANY_NAME, "PayU S.A.");
         add(TranslationKey.APPLICATION_VERSION, "Application version");

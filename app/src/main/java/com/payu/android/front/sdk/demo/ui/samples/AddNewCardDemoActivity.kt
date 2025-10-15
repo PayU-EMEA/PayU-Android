@@ -2,8 +2,8 @@ package com.payu.android.front.sdk.demo.ui.samples
 
 import android.os.Bundle
 import android.util.Log
-import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import com.payu.android.front.sdk.demo.ui.base.MainActivity
 import com.payu.android.front.sdk.frontsdk.R
 import com.payu.android.front.sdk.frontsdk.databinding.ActivityAddNewCardBinding
 import com.payu.android.front.sdk.payment_add_card_module.service.Error
@@ -13,7 +13,7 @@ import com.payu.android.front.sdk.payment_library_payment_methods.model.CardPaym
 
 const val POS_ID_KEY = "pos_id"
 
-class AddNewCardDemoActivity : AppCompatActivity() {
+class AddNewCardDemoActivity : MainActivity() {
     private val TAG = AddNewCardDemoActivity::class.java.name
 
     private val callback = object : NewCardCallback {

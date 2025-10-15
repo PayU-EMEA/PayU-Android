@@ -3,8 +3,4 @@
     <item
         android:id="@+id/action_change_theme"
         android:title="Change Theme" />
-    <item
-        android:id="@+id/action_sample_about"
-        android:title="About..." />
-
 </menu>

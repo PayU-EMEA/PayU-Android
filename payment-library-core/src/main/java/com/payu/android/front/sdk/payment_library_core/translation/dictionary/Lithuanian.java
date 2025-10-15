@@ -33,7 +33,6 @@ public class Lithuanian extends StringMapTranslation {
         add(TranslationKey.REMOVE_METHOD_DIALOG_TITLE, "Maksājuma metodes dzēšana");
         add(TranslationKey.REMOVE_METHOD_DIALOG_CONTENT, "Vai tiešām vēlaties noņemt izvēlēto maksājuma metodi?");
         add(TranslationKey.REMOVE, "Noņemt");
-        add(TranslationKey.INFORMATIONS, "Par");
         add(TranslationKey.PUBLISHER, "Izdevējs");
         add(TranslationKey.PAYU_COMPANY_NAME, "PayU S.A.");
         add(TranslationKey.APPLICATION_VERSION, "Lietotnes versija");

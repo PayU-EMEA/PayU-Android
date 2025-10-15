@@ -33,7 +33,6 @@ public class German extends StringMapTranslation {
         add(TranslationKey.REMOVE_METHOD_DIALOG_TITLE, "Löschen der Zahlungsart");
         add(TranslationKey.REMOVE_METHOD_DIALOG_CONTENT, "Möchtest du die ausgewählte Zahlungsart wirklich löschen?");
         add(TranslationKey.REMOVE, "Löschen");
-        add(TranslationKey.INFORMATIONS, "Informationen");
         add(TranslationKey.PUBLISHER, "Herausgeber");
         add(TranslationKey.PAYU_COMPANY_NAME, "PayU S.A.");
         add(TranslationKey.APPLICATION_VERSION, "App-Version");

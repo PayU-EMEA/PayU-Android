@@ -18,7 +18,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.payu.android.front.sdk.payment_library_core.translation.TranslationKey;
-import com.payu.android.front.sdk.payment_library_core_android.base.BaseMenuActivity;
+import com.payu.android.front.sdk.payment_library_core_android.base.BaseActivity;
 import com.payu.android.front.sdk.payment_library_core_android.styles.PayUDefaultDialogBuilder;
 import com.payu.android.front.sdk.payment_library_core_android.styles.model.LibraryStyleInfo;
 import com.payu.android.front.sdk.payment_library_core_android.styles.providers.LibraryStyleProvider;
@@ -34,7 +34,7 @@ import com.payu.android.front.sdk.payment_library_payment_chooser.payment_method
 import java.util.ArrayList;
 import java.util.List;
 
-public class PaymentMethodActivity extends BaseMenuActivity implements PaymentMethodsView {
+public class PaymentMethodActivity extends BaseActivity implements PaymentMethodsView {
     private static final int PAY_BY_LINK_REQUEST_CODE = 1234;
     private static final int ADD_CARD_REQUEST_CODE = 1235;
     private Toolbar toolbar;
@@ -174,5 +174,10 @@ public class PaymentMethodActivity extends BaseMenuActivity implements PaymentMe
     @Override
     protected int getLayoutResource() {
         return R.layout.payu_activity_payment_method;
+    }
+
+    @Override
+    protected int getMainView() {
+        return R.id.payment_method_activity;
     }
 }

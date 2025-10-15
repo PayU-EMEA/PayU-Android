@@ -33,7 +33,6 @@ public class Russian extends StringMapTranslation {
         add(TranslationKey.REMOVE_METHOD_DIALOG_TITLE, "Удаление способа оплаты");
         add(TranslationKey.REMOVE_METHOD_DIALOG_CONTENT, "Действительно удалить выбранный способ оплаты?");
         add(TranslationKey.REMOVE, "Удалить");
-        add(TranslationKey.INFORMATIONS, "Информация");
         add(TranslationKey.PUBLISHER, "Орган, выдавший карту");
         add(TranslationKey.PAYU_COMPANY_NAME, "PayU S.A.");
         add(TranslationKey.APPLICATION_VERSION, "Версия приложения");

@@ -12,11 +12,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <!-- display only PayU About -->
-        <activity
-            android:name="com.payu.android.front.sdk.demo.ui.samples.AboutDemoActivity"
-            android:icon="@mipmap/ic_about"
-            android:label="AboutDemo" />
         <!-- display module: WebPayment -->
         <activity
             android:name="com.payu.android.front.sdk.demo.ui.samples.WebPaymentDemoActivity"

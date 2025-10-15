@@ -33,7 +33,6 @@ public class Croatian extends StringMapTranslation {
         add(TranslationKey.REMOVE_METHOD_DIALOG_TITLE, "Brisanje načina plaćanja");
         add(TranslationKey.REMOVE_METHOD_DIALOG_CONTENT, "Jeste li sigurni da želite ukloniti odabrani način plaćanja?");
         add(TranslationKey.REMOVE, "Ukloniti");
-        add(TranslationKey.INFORMATIONS, "Otprilike");
         add(TranslationKey.PUBLISHER, "Izdavatelj");
         add(TranslationKey.PAYU_COMPANY_NAME, "PayU S.A.");
         add(TranslationKey.APPLICATION_VERSION, "Verzija aplikacije");

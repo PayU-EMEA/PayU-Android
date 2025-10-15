@@ -3,10 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
     <item
-        android:id="@+id/about"
-        app:showAsAction="never"
-        tools:ignore="MenuTitle" />
-    <item
         android:id="@+id/cancel"
         android:icon="@drawable/close_24"
         app:showAsAction="ifRoom"

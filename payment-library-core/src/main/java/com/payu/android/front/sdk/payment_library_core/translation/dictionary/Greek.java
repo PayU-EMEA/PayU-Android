@@ -33,7 +33,6 @@ public class Greek extends StringMapTranslation {
         add(TranslationKey.REMOVE_METHOD_DIALOG_TITLE, "Διαγραφή μεθόδου πληρωμής");
         add(TranslationKey.REMOVE_METHOD_DIALOG_CONTENT, "Είστε σίγουροι ότι θέλετε να διαγράψετε την επιλεγμένη μέθοδο πληρωμής;");
         add(TranslationKey.REMOVE, "Διαγραφή");
-        add(TranslationKey.INFORMATIONS, "Πληροφορίες");
         add(TranslationKey.PUBLISHER, "Εκδότης");
         add(TranslationKey.PAYU_COMPANY_NAME, "PayU S.A.");
         add(TranslationKey.APPLICATION_VERSION, "Έκδοση εφαρμογής");

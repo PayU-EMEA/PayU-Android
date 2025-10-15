@@ -3,14 +3,14 @@ package com.payu.android.front.sdk.demo.ui.samples
 import android.content.Intent
 import android.os.Bundle
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
+import com.payu.android.front.sdk.demo.ui.base.MainActivity
 import com.payu.android.front.sdk.payment_library_core_android.events.AuthorizationDetails
 import com.payu.android.front.sdk.payment_library_webview_module.web.event.PaymentDetails
 import com.payu.android.front.sdk.payment_library_webview_module.web.service.WebPaymentService
 
 private const val REDIRECT_URL = "https://merch-prod.snd.payu.com/np/newpayment.resume.action?paymentId=73398264&hash=38b8abab0314dacc883110610f25499e&js=1"
 
-class WebPaymentDemoActivity : AppCompatActivity() {
+class WebPaymentDemoActivity : MainActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val authorizationDetails = AuthorizationDetails.Builder()
