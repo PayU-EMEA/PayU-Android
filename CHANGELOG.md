@@ -1,3 +1,7 @@
+# 1.0.36
+* Fix EdgeToEdge mode
+* Not generate SSL error for all resources in Webview
+
 # 1.0.35
 * New certificate for ssl pinning
 * New sandbox url
