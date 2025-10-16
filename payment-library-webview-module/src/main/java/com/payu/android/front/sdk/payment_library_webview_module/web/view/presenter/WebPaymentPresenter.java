@@ -3,6 +3,7 @@ package com.payu.android.front.sdk.payment_library_webview_module.web.view.prese
 import android.os.Bundle;
 import android.webkit.CookieManager;
 import android.webkit.WebBackForwardList;
+import android.webkit.WebView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -169,13 +170,6 @@ public class WebPaymentPresenter extends WebPaymentAction {
         public void onPageLoadStarted(String url) {
             checkArgument(webPayment != null, "View should be set");
             webPayment.getAddressBarView().setAddress(url);
-        }
-
-        @Override
-        public void onSslValidationFailed(String url) {
-            checkArgument(webPayment != null, "View should be set");
-            webPayment.getAddressBarView().setAddressVerified(false);
-            invokeAuthorizationFinishedListener(new WebPaymentWrapper(WebPaymentStatus.SSL_VALIDATION_ERROR, url));
         }
     };
 }

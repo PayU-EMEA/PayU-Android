@@ -223,8 +223,7 @@ class RollSummaryActivity : ActivityWithMenu() {
             }
 
             WebPaymentStatus.CANCEL_PAYMENT -> showError(R.string.payment_cancel)
-            WebPaymentStatus.PAYMENT_ERROR,
-            WebPaymentStatus.SSL_VALIDATION_ERROR -> showError(R.string.payment_status_error)
+            WebPaymentStatus.PAYMENT_ERROR -> showError(R.string.payment_status_error)
 
             else -> showError(R.string.payment_status_error)
         }

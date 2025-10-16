@@ -8,14 +8,7 @@ public interface PageLoadingCallback {
         public void onPageLoadStarted(String url) {
             // empty callback
         }
-
-        @Override
-        public void onSslValidationFailed(String url) {
-            // empty callback
-        }
     };
 
     void onPageLoadStarted(String url);
-
-    void onSslValidationFailed(String url);
 }

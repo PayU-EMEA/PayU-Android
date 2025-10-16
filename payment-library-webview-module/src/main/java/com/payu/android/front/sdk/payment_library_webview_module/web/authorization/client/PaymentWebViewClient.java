@@ -70,7 +70,7 @@ public class PaymentWebViewClient extends WebViewClient {
     private final RestEnvironment mRestEnvironment;
     private final String mFallbackUrl;
 
-    private PaymentUrlMatcher mUrlMatcher = PaymentUrlMatcher.EMPTY_MATCHER;
+    private final PaymentUrlMatcher mUrlMatcher;
     private PageLoadingCallback mPageLoadingCallback = HOLLOW_IMPLEMENTATION;
 
     public PaymentWebViewClient(PaymentUrlMatcher urlMatcher, String fallbackUrl, OnPaymentAuthorizedListener onFinishListener,
@@ -111,9 +111,8 @@ public class PaymentWebViewClient extends WebViewClient {
     @Override
     public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
         if (mRestEnvironment.isPinningEnabled()) {
-            Log.v(TAG, "ReceivedSslError");
+            Log.v(TAG, "ReceivedSslError: " + error.getUrl());
             handler.cancel();
-            mPageLoadingCallback.onSslValidationFailed(getUrlFromErrorOrFallback(error));
         } else {
             handler.proceed();
         }
@@ -167,10 +166,6 @@ public class PaymentWebViewClient extends WebViewClient {
 
     private OnPaymentAuthorizedListener getOnPaymentAuthorizedListener() {
         return firstNonNull(mOnFinishListener, OnPaymentAuthorizedListener.EMPTY_LISTENER);
-    }
-
-    private String getUrlFromErrorOrFallback(SslError error) {
-        return error.getUrl();
     }
 
     private HandleAppIntentStatuses openAppIntent(@NonNull WebView view, @NonNull String url, @Nullable String fallbackTransactionUrl, boolean startsWithIntent) throws URISyntaxException {
