@@ -8,6 +8,8 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
 import androidx.core.content.ContextCompat;
+import androidx.webkit.WebSettingsCompat;
+import androidx.webkit.WebViewFeature;
 
 import com.payu.android.front.sdk.payment_library_core_android.styles.model.LibraryStyleInfo;
 import com.payu.android.front.sdk.payment_library_core_android.styles.providers.LibraryStyleProvider;
@@ -37,6 +39,10 @@ public class WebPaymentView extends RelativeLayout implements WebPayment {
         webSettings.setBuiltInZoomControls(true);
         webSettings.setSaveFormData(false);
         webSettings.setMediaPlaybackRequiresUserGesture(false);
+        if (WebViewFeature.isFeatureSupported(
+                WebViewFeature.PAYMENT_REQUEST)) {
+            WebSettingsCompat.setPaymentRequestEnabled(webSettings, true);
+        }
     }
 
     private void init() {

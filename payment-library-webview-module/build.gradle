@@ -42,6 +42,7 @@ dependencies {
     implementation "androidx.fragment:fragment:$project.fragmentVersion"
     implementation "androidx.fragment:fragment-ktx:$project.fragmentVersion"
     implementation "androidx.appcompat:appcompat:$project.appCompatVersion"
+    implementation "androidx.webkit:webkit:$project.webkitVersion"
     implementation "com.google.android.material:material:$project.materialVersion"
     implementation "androidx.recyclerview:recyclerview:$project.recyclerViewVersion"
     implementation "com.google.guava:guava:$project.guavaVersion"
