@@ -3,11 +3,11 @@ project.ext {
     fileExtension = "aar"
 }
 
-apply plugin: 'com.android.library'
+apply plugin: "com.android.library"
 apply from: "../artifactory/release.gradle"
 
 android {
-    compileSdk project.compileSdkVersion
+    compileSdkVersion project.compileSdkVersion
 
     defaultConfig {
         minSdkVersion project.minSdkVersion
@@ -18,7 +18,7 @@ android {
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
             buildConfigField("String", "LIBRARY_VERSION_NAME", "\"${project.versionName}\"")
         }
 
@@ -26,14 +26,14 @@ android {
             buildConfigField("String", "LIBRARY_VERSION_NAME", "\"${project.versionName}-debug\"")
         }
     }
-    namespace 'com.payu.android.front.sdk.payment_library_api_client'
+    namespace = "com.payu.android.front.sdk.payment_library_api_client"
     buildFeatures {
-        buildConfig true
+        buildConfig = true
     }
 }
 
 dependencies {
-    implementation project(path: ':payment-library-core')
+    implementation project(path: ":payment-library-core")
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation "androidx.appcompat:appcompat:$project.appCompatVersion"
     implementation "com.google.guava:guava:$project.guavaVersion"

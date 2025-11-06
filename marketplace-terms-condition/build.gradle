@@ -3,13 +3,13 @@ project.ext {
     fileExtension = "aar"
 }
 
-apply plugin: 'com.android.library'
+apply plugin: "com.android.library"
 apply from: "../artifactory/release.gradle"
-apply plugin: 'kotlin-parcelize'
-apply plugin: 'kotlin-android'
+apply plugin: "kotlin-parcelize"
+apply plugin: "kotlin-android"
 
 android {
-    compileSdk project.compileSdkVersion
+    compileSdkVersion project.compileSdkVersion
 
     defaultConfig {
         minSdkVersion project.minSdkVersion
@@ -30,7 +30,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    namespace 'com.payu.android.front.sdk.marketplace_terms_condition'
+    namespace = "com.payu.android.front.sdk.marketplace_terms_condition"
 }
 
 kotlin {
@@ -38,13 +38,11 @@ kotlin {
 }
 
 dependencies {
-
-    implementation project(path: ':payment-library-core-android')
+    implementation project(path: ":payment-library-core-android")
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation "androidx.appcompat:appcompat:$project.appCompatVersion"
     implementation "com.google.android.material:material:$project.materialVersion"
     implementation "com.squareup.retrofit2:retrofit:$project.retrofit2Version"
     implementation "com.squareup.retrofit2:converter-gson:$project.retrofit2Version"
     implementation "androidx.constraintlayout:constraintlayout:$project.constraintLayoutVersion"
-
 }

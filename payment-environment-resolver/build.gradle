@@ -3,11 +3,11 @@ project.ext {
     fileExtension = "aar"
 }
 
-apply plugin: 'com.android.library'
+apply plugin: "com.android.library"
 apply from: "../artifactory/release.gradle"
 
 android {
-    compileSdk project.compileSdkVersion
+    compileSdkVersion project.compileSdkVersion
 
     defaultConfig {
         minSdkVersion project.minSdkVersion
@@ -22,7 +22,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    namespace 'com.payu.android.front.sdk.payment_environment_resolver'
+    namespace = "com.payu.android.front.sdk.payment_environment_resolver"
 }
 
 dependencies {

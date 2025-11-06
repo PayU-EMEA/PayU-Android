@@ -3,7 +3,7 @@ project.ext {
     fileExtension = "aar"
 }
 
-apply plugin: 'com.android.library'
+apply plugin: "com.android.library"
 apply from: "../artifactory/release.gradle"
 
 android {
@@ -19,19 +19,19 @@ android {
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
     }
-    namespace 'com.payu.android.front.sdk.payment_library_google_pay_adapter'
+    namespace = "com.payu.android.front.sdk.payment_library_google_pay_adapter"
 }
 
 dependencies {
     implementation "com.google.guava:guava:$project.guavaVersion"
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
-    api project(path: ':payment-library-payment-methods')
-    api project(path: ':payment-library-chooser-module')
-    api project(path: ':payment-library-google-pay-module')
+    api project(path: ":payment-library-payment-methods")
+    api project(path: ":payment-library-chooser-module")
+    api project(path: ":payment-library-google-pay-module")
 
     testImplementation "junit:junit:$project.junitVersion"
 }

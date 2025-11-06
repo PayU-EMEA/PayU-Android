@@ -3,11 +3,11 @@ project.ext {
     fileExtension = "aar"
 }
 
-apply plugin: 'com.android.library'
+apply plugin: "com.android.library"
 apply from: "../artifactory/release.gradle"
 
 android {
-    compileSdk project.compileSdkVersion
+    compileSdkVersion project.compileSdkVersion
 
     defaultConfig {
         minSdkVersion project.minSdkVersion
@@ -19,7 +19,7 @@ android {
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
             buildConfigField("String", "APP_VERSION", "\"${project.versionName}\"")
         }
 
@@ -27,9 +27,9 @@ android {
             buildConfigField("String", "APP_VERSION", "\"${project.versionName}-debug\"")
         }
     }
-    namespace 'com.payu.android.front.sdk.payment_library_core_android'
+    namespace = "com.payu.android.front.sdk.payment_library_core_android"
     buildFeatures {
-        buildConfig true
+        buildConfig = true
     }
 }
 
@@ -41,9 +41,9 @@ dependencies {
     annotationProcessor "com.github.bumptech.glide:compiler:$project.glideVersion"
     implementation "com.google.guava:guava:$project.guavaVersion"
 
-    api project(path: ':payment-library-core')
-    implementation project(path: ':payment-environment-resolver')
-    implementation project(path: ':payment-library-api-client')
+    api project(path: ":payment-library-core")
+    implementation project(path: ":payment-environment-resolver")
+    implementation project(path: ":payment-library-api-client")
 
     testImplementation "junit:junit:$project.junitVersion"
     testImplementation "org.robolectric:robolectric:$project.robolectricVersion"

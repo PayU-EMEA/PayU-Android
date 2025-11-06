@@ -1,7 +1,7 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    ext.kotlin_version = '2.1.21'
+    ext.kotlin_version = "2.1.21"
 
     repositories {
         mavenCentral()
@@ -9,7 +9,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.11.1'
+        classpath "com.android.tools.build:gradle:8.13.0"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 
         classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4.33.23"
@@ -19,13 +19,13 @@ buildscript {
 allprojects {
     repositories {
         mavenCentral()
-        maven { url "https://jitpack.io" }
-        maven { url "https://payu.jfrog.io/artifactory/mobile-sdk-gradle-local/" }
+        maven { url = "https://jitpack.io" }
+        maven { url = "https://payu.jfrog.io/artifactory/mobile-sdk-gradle-local/" }
         google()
     }
 }
 
-tasks.register('clean', Delete) {
+tasks.register("clean", Delete) {
     delete rootProject.layout.buildDirectory
 }
 
@@ -51,10 +51,10 @@ project.ext {
     okhttpLogInterceptorVersion = "4.12.0"
     playServicesVersion = "19.4.0"
     cardsPayVersion = "1.0.2"
-    fragmentVersion = '1.8.5'
-    rxJava3 = '3.1.10'
-    rxJava3Android = '3.0.2'
-    daggerVersion = '2.55'
+    fragmentVersion = "1.8.5"
+    rxJava3 = "3.1.10"
+    rxJava3Android = "3.0.2"
+    daggerVersion = "2.55"
 
     // testing
     junitVersion = "4.13.2"
