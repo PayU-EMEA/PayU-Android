@@ -25,6 +25,8 @@
 
         <com.payu.android.front.sdk.payment_add_card_module.view.CardDateView
             android:id="@+id/cardDate_view"
+            android:nextFocusDown="@+id/cardCvv_view"
+            android:nextFocusRight="@+id/cardCvv_view"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5" />

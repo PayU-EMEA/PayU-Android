@@ -3,13 +3,13 @@ project.ext {
     fileExtension = "aar"
 }
 
-apply plugin: 'com.android.library'
+apply plugin: "com.android.library"
 apply from: "../artifactory/release.gradle"
-apply plugin: 'kotlin-parcelize'
-apply plugin: 'kotlin-android'
+apply plugin: "kotlin-parcelize"
+apply plugin: "kotlin-android"
 
 android {
-    compileSdk project.compileSdkVersion
+    compileSdkVersion project.compileSdkVersion
 
     defaultConfig {
         minSdkVersion project.minSdkVersion
@@ -29,7 +29,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    namespace 'com.payu.android.front.sdk.payment_library_webview_module'
+    namespace = "com.payu.android.front.sdk.payment_library_webview_module"
 }
 
 kotlin {
@@ -48,16 +48,16 @@ dependencies {
     implementation "com.google.guava:guava:$project.guavaVersion"
     implementation "com.github.bumptech.glide:glide:$project.glideVersion"
     annotationProcessor "com.github.bumptech.glide:compiler:$project.glideVersion"
-    implementation project(path: ':payment-library-api-client')
-    api project(path: ':payment-library-core-android')
-    implementation project(path: ':payment-library-core')
+    implementation project(path: ":payment-library-api-client")
+    api project(path: ":payment-library-core-android")
+    implementation project(path: ":payment-library-core")
 
     testImplementation "junit:junit:$project.junitVersion"
     testImplementation "org.robolectric:robolectric:$project.robolectricVersion"
 
     testImplementation "org.mockito:mockito-core:$project.mockitoVersion"
     testImplementation "org.assertj:assertj-core:$project.assertJsVersion"
-    testImplementation project(path: ':payment-environment-resolver')
+    testImplementation project(path: ":payment-environment-resolver")
 
     androidTestImplementation "androidx.test.ext:junit:$project.junitAssertionsVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$project.espressoVersion"

@@ -9,6 +9,7 @@
         android:layout_width="@dimen/payu_styles_major_icons_size"
         android:layout_height="@dimen/payu_styles_major_icons_size"
         android:layout_margin="@dimen/payu_styles_padding_medium"
+        android:contentDescription="@string/visa"
         tools:src="@android:drawable/ic_delete" />
 
     <ImageView
@@ -16,6 +17,7 @@
         android:layout_width="@dimen/payu_styles_major_icons_size"
         android:layout_height="@dimen/payu_styles_major_icons_size"
         android:layout_margin="@dimen/payu_styles_padding_medium"
+        android:contentDescription="@string/mastercard"
         android:layout_toEndOf="@id/visaCard_imageView"
         tools:src="@android:drawable/ic_delete" />
 
@@ -24,6 +26,7 @@
         android:layout_width="@dimen/payu_styles_major_icons_size"
         android:layout_height="@dimen/payu_styles_major_icons_size"
         android:layout_margin="@dimen/payu_styles_padding_medium"
+        android:contentDescription="@string/maestro"
         android:layout_toEndOf="@id/masterCard_imageView"
         tools:src="@android:drawable/ic_delete" />
 

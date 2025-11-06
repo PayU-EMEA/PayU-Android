@@ -1,10 +1,10 @@
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-kapt'
-apply plugin: 'kotlin-parcelize'
+apply plugin: "com.android.application"
+apply plugin: "kotlin-android"
+apply plugin: "kotlin-kapt"
+apply plugin: "kotlin-parcelize"
 
 android {
-    compileSdk project.compileSdkVersion
+    compileSdkVersion project.compileSdkVersion
     defaultConfig {
         applicationId "com.payu.android.front.sdk.demo"
         minSdkVersion project.minSdkVersion
@@ -16,14 +16,14 @@ android {
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
     }
 
     buildFeatures {
         dataBinding = true
     }
-    namespace 'com.payu.android.front.sdk.frontsdk'
+    namespace = "com.payu.android.front.sdk.frontsdk"
 
 }
 
@@ -41,7 +41,7 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-livedata:$project.lifecycleComponentVersion"
     implementation "com.google.guava:guava:$project.guavaVersion"
 
-    implementation 'com.github.nitrico:lastadapter:master'
+    implementation "com.github.nitrico:lastadapter:master"
 
     // Glide
     implementation "com.github.bumptech.glide:glide:$project.glideVersion"
@@ -54,8 +54,8 @@ dependencies {
     implementation "com.google.dagger:dagger-android-support:$project.daggerVersion"
 
     // RxJava
-    implementation 'io.reactivex.rxjava2:rxjava:2.2.8'
-    implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
+    implementation "io.reactivex.rxjava2:rxjava:2.2.8"
+    implementation "io.reactivex.rxjava2:rxandroid:2.0.2"
 
     // Retrofit
     implementation "com.squareup.retrofit2:retrofit:$project.retrofit2Version"
@@ -64,14 +64,14 @@ dependencies {
     implementation "com.squareup.okhttp3:logging-interceptor:$project.okhttpLogInterceptorVersion"
 
     // PayU
-    implementation project(path: ':payment-library-core-android')
-    implementation project(path: ':payment-library-chooser-module')
-    implementation project(path: ':payment-add-card-module')
-    implementation project(path: ':payment-library-card-scanner')
-    implementation project(path: ':payment-library-webview-module')
-    implementation project(path: ':payment-library-google-pay-module')
-    implementation project(path: ':payment-library-google-pay-adapter')
-    implementation project(path: ':marketplace-terms-condition')
+    implementation project(path: ":payment-library-core-android")
+    implementation project(path: ":payment-library-chooser-module")
+    implementation project(path: ":payment-add-card-module")
+    implementation project(path: ":payment-library-card-scanner")
+    implementation project(path: ":payment-library-webview-module")
+    implementation project(path: ":payment-library-google-pay-module")
+    implementation project(path: ":payment-library-google-pay-adapter")
+    implementation project(path: ":marketplace-terms-condition")
 
     testImplementation "junit:junit:$project.junitVersion"
     androidTestImplementation "androidx.test.ext:junit:$project.junitAssertionsVersion"
