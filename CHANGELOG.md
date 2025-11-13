@@ -1,3 +1,7 @@
+# 1.0.37
+* Fix "next action" button behavior in card input fields
+* Add support Google Pay in WebView
+
 # 1.0.36
 * Fix EdgeToEdge mode
 * Not generate SSL error for all resources in Webview
