@@ -24,7 +24,7 @@ public class RetrievePblPaymentMethods {
             "bs", "nstb", "plsb", "b", "t", "sgb",
             // Pay Letter
             "dpts", "dpcz", "dpt", "dpkl", "dpp", "ppf", "dppron", "dpklczk", "dpkleur", "dpklhuf",
-            "dpklron",
+            "dpklron", "blikbnpl",
             // Czech
             "cs", "mp", "kb", "rf", "pg", "pf", "cb", "uc", "bt", "pt", "qrcz",
             // Slovak
