@@ -1,3 +1,6 @@
+# 1.0.38
+* Added Blik Pay Later to whitelist PBL
+
 # 1.0.37
 * Fix "next action" button behavior in card input fields
 * Add support Google Pay in WebView
