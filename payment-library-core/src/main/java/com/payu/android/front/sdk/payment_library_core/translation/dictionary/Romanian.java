@@ -12,7 +12,8 @@ public class Romanian extends StringMapTranslation {
         add(TranslationKey.CARD_VALIDATION_EMPTY, "Numărul cardului nu trebuie să fie necompletat");
         add(TranslationKey.CARD_VALIDATION_NUMBER_INCORRECT, "Numărul cardului este incorect");
         add(TranslationKey.INVALID_CVV_ERROR, "Vă rugăm să introduceţi un cod valid");
-        add(TranslationKey.CVV_CODE, "Cod CVV2/CVC2");
+        add(TranslationKey.INVALID_CVV_EMPTY, "Introduceţi codul CVV");
+        add(TranslationKey.CVV_CODE, "Cod CVV");
         add(TranslationKey.EXPIRATION_DATE_HINT_TEXT, "LL/AA");
         add(TranslationKey.CARD_EXPIRATION_DATE_IS_INVALID, "Vă rugăm să introduceţi o dată validă");
         add(TranslationKey.CARD_EXPIRATION_DATE, "Data expirării");
@@ -20,7 +21,7 @@ public class Romanian extends StringMapTranslation {
         add(TranslationKey.CARD_NUMBER, "Număr card");
         add(TranslationKey.SAVE_AND_USE, "Salvare şi folosire");
         add(TranslationKey.USE, "Folosire");
-        add(TranslationKey.ENTER_CVV2, "Indicaţi codul CVV2/CVC2 pentru cardul dvs.");
+        add(TranslationKey.ENTER_CVV2, "Indicaţi codul CVV pentru cardul dvs.");
         add(TranslationKey.NEW_CARD, "Adăugare card");
         add(TranslationKey.CREDIT_CARD, "Card de credit");
         add(TranslationKey.CANCEL, "Anulare");

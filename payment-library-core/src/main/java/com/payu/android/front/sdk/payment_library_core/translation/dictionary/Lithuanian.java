@@ -12,7 +12,8 @@ public class Lithuanian extends StringMapTranslation {
         add(TranslationKey.CARD_VALIDATION_EMPTY, "Kartes numura lauks nedrīkst būt tukšs");
         add(TranslationKey.CARD_VALIDATION_NUMBER_INCORRECT, "Kartes numurs ir nepareizs");
         add(TranslationKey.INVALID_CVV_ERROR, "Lūdzu, ievadiet derīgu kodu");
-        add(TranslationKey.CVV_CODE, "CVV2/CVC2 kods");
+        add(TranslationKey.INVALID_CVV_EMPTY, "Ievadīt CVV kodu");
+        add(TranslationKey.CVV_CODE, "CVV kods");
         add(TranslationKey.EXPIRATION_DATE_HINT_TEXT, "MM/GG");
         add(TranslationKey.CARD_EXPIRATION_DATE_IS_INVALID, "Lūdzu, ievadiet derīgu datumu");
         add(TranslationKey.CARD_EXPIRATION_DATE, "Derīguma termiņš");
@@ -20,7 +21,7 @@ public class Lithuanian extends StringMapTranslation {
         add(TranslationKey.CARD_NUMBER, "Kartes numurs");
         add(TranslationKey.SAVE_AND_USE, "Saglabāt un lietot");
         add(TranslationKey.USE, "Lietot");
-        add(TranslationKey.ENTER_CVV2, "Norādiet savas kartes CVV2/CVC2 kodu");
+        add(TranslationKey.ENTER_CVV2, "Norādiet savas kartes CVV kodu");
         add(TranslationKey.NEW_CARD, "Pievienot karti");
         add(TranslationKey.CREDIT_CARD, "Kredītkarte");
         add(TranslationKey.CANCEL, "Atcelt");

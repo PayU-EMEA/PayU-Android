@@ -1,10 +1,16 @@
 package com.payu.android.front.sdk.payment_add_card_module.cvv_validation.presenter;
 
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+import static org.mockito.MockitoAnnotations.openMocks;
+
 import com.google.common.base.Optional;
 import com.google.gson.Gson;
 import com.payu.android.front.sdk.payment_add_card_module.cvv_validation.view.CvvValidationView;
 import com.payu.android.front.sdk.payment_add_card_module.status.CvvPaymentStatus;
-import com.payu.android.front.sdk.payment_add_card_module.validation.cvv.CvvValidator;
+import com.payu.android.front.sdk.payment_add_card_module.validation.StringValidator;
 import com.payu.android.front.sdk.payment_add_card_module.view.SelectorCvv;
 import com.payu.android.front.sdk.payment_library_api_client.internal.rest.parser.RedirectLinkParser;
 import com.payu.android.front.sdk.payment_library_api_client.internal.rest.request.OpenPayuResult;
@@ -16,19 +22,13 @@ import org.mockito.Mock;
 
 import retrofit2.Call;
 
-import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-import static org.mockito.MockitoAnnotations.openMocks;
-
 public class CvvValidationPresenterTest {
     private CvvValidationPresenter objectUnderTest;
     private Gson gson = new Gson();
     @Mock
     private SelectorCvv selectorCvv;
     @Mock
-    private CvvValidator cvvValidator;
+    private StringValidator editTextValidator;
     @Mock
     private RedirectLinkParser redirectLinkParser;
     @Mock
@@ -42,7 +42,7 @@ public class CvvValidationPresenterTest {
     public void setUp() {
         openMocks(this);
         when(cvvRestService.sendCvv(anyString())).thenReturn(call);
-        objectUnderTest = new CvvValidationPresenter(gson, selectorCvv, cvvValidator, redirectLinkParser, cvvRestService);
+        objectUnderTest = new CvvValidationPresenter(gson, selectorCvv, editTextValidator, redirectLinkParser, cvvRestService);
         objectUnderTest.takeView(validationView);
     }
 
@@ -62,14 +62,14 @@ public class CvvValidationPresenterTest {
         //given
         String cvv = "222";
         when(selectorCvv.getCvvCode()).thenReturn(cvv);
-        when(cvvValidator.getErrorString(cvv)).thenReturn(Optional.<String>absent());
+        when(editTextValidator.getErrorString(cvv)).thenReturn(Optional.<String>absent());
 
         //when
         objectUnderTest.onAccepted();
 
         //then
         verify(selectorCvv).getCvvCode();
-        verify(cvvValidator).getErrorString(cvv);
+        verify(editTextValidator).getErrorString(cvv);
         verify(selectorCvv).setCvvError(null);
     }
 
@@ -79,14 +79,14 @@ public class CvvValidationPresenterTest {
         String cvv = "22";
         when(selectorCvv.getCvvCode()).thenReturn(cvv);
         String error = "ERROR";
-        when(cvvValidator.getErrorString(cvv)).thenReturn(Optional.of(error));
+        when(editTextValidator.getErrorString(cvv)).thenReturn(Optional.of(error));
 
         //when
         objectUnderTest.onAccepted();
 
         //then
         verify(selectorCvv).getCvvCode();
-        verify(cvvValidator).getErrorString(cvv);
+        verify(editTextValidator).getErrorString(cvv);
         verify(selectorCvv).setCvvError(error);
     }
 
@@ -96,7 +96,7 @@ public class CvvValidationPresenterTest {
         //given
         String cvv = "222";
         when(selectorCvv.getCvvCode()).thenReturn(cvv);
-        when(cvvValidator.getErrorString(cvv)).thenReturn(Optional.<String>absent());
+        when(editTextValidator.getErrorString(cvv)).thenReturn(Optional.<String>absent());
 
         //when
         objectUnderTest.onAccepted();
@@ -110,7 +110,7 @@ public class CvvValidationPresenterTest {
         //given
         String cvv = "222";
         when(selectorCvv.getCvvCode()).thenReturn(cvv);
-        when(cvvValidator.getErrorString(cvv)).thenReturn(Optional.<String>absent());
+        when(editTextValidator.getErrorString(cvv)).thenReturn(Optional.<String>absent());
 
         //when
         objectUnderTest.onAccepted();

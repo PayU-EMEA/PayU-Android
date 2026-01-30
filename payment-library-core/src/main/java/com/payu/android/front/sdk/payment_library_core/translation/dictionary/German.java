@@ -12,7 +12,8 @@ public class German extends StringMapTranslation {
         add(TranslationKey.CARD_VALIDATION_EMPTY, "Gib die Kartennummer an");
         add(TranslationKey.CARD_VALIDATION_NUMBER_INCORRECT, "Die Kartennummer ist ungültig");
         add(TranslationKey.INVALID_CVV_ERROR, "Geben Sie der richtige Code");
-        add(TranslationKey.CVV_CODE, "CVV2-/CVC2-Code");
+        add(TranslationKey.INVALID_CVV_EMPTY, "CVV-Code eingeben");
+        add(TranslationKey.CVV_CODE, "CVV-Code");
         add(TranslationKey.EXPIRATION_DATE_HINT_TEXT, "MM/JJ");
         add(TranslationKey.CARD_EXPIRATION_DATE_IS_INVALID, "Geben Sie das richtige Datum");
         add(TranslationKey.CARD_EXPIRATION_DATE, "Gültigkeitsdatum");
@@ -20,7 +21,7 @@ public class German extends StringMapTranslation {
         add(TranslationKey.CARD_NUMBER, "Kartennummer");
         add(TranslationKey.SAVE_AND_USE, "Speichern und verwenden");
         add(TranslationKey.USE, "Verwenden");
-        add(TranslationKey.ENTER_CVV2, "Gib den CVV2-/CVC2-Code für die Karte ein");
+        add(TranslationKey.ENTER_CVV2, "Gib den CVV-Code für die Karte ein");
         add(TranslationKey.NEW_CARD, "Karte hinzufügen");
         add(TranslationKey.CREDIT_CARD, "Zahlungskarte");
         add(TranslationKey.CANCEL, "Abbrechen");
@@ -63,4 +64,3 @@ public class German extends StringMapTranslation {
         return Locale.GERMAN;
     }
 }
-

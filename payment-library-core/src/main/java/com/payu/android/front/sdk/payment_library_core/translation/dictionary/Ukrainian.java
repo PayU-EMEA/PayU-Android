@@ -12,7 +12,8 @@ public class Ukrainian extends StringMapTranslation {
         add(TranslationKey.CARD_VALIDATION_EMPTY, "Номер картки не може бути пустим");
         add(TranslationKey.CARD_VALIDATION_NUMBER_INCORRECT, "Номер картки неправильний");
         add(TranslationKey.INVALID_CVV_ERROR, "Введіть правильний код");
-        add(TranslationKey.CVV_CODE, "CVV2/CVC2 код");
+        add(TranslationKey.INVALID_CVV_EMPTY, "Введіть CVV-код");
+        add(TranslationKey.CVV_CODE, "CVV код");
         add(TranslationKey.EXPIRATION_DATE_HINT_TEXT, "MM/YY");
         add(TranslationKey.CARD_EXPIRATION_DATE_IS_INVALID, "Введіть правильну дату");
         add(TranslationKey.CARD_EXPIRATION_DATE, "Термін дії");
@@ -20,7 +21,7 @@ public class Ukrainian extends StringMapTranslation {
         add(TranslationKey.CARD_NUMBER, "Номер картки");
         add(TranslationKey.SAVE_AND_USE, "Збережіть та використовуйте");
         add(TranslationKey.USE, "Використовуйте");
-        add(TranslationKey.ENTER_CVV2, "Введіть CVV2/CVC2 код картки");
+        add(TranslationKey.ENTER_CVV2, "Введіть CVV код картки");
         add(TranslationKey.NEW_CARD, "Додати картку");
         add(TranslationKey.CREDIT_CARD, "Платіжна картка");
         add(TranslationKey.CANCEL, "Скасувати");

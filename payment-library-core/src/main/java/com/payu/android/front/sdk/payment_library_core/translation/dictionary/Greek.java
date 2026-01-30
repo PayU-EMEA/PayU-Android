@@ -12,7 +12,8 @@ public class Greek extends StringMapTranslation {
         add(TranslationKey.CARD_VALIDATION_EMPTY, "Το πεδίο «αριθμός κάρτας» δεν μπορεί να είναι κενό");
         add(TranslationKey.CARD_VALIDATION_NUMBER_INCORRECT, "Ο αριθμός κάρτας είναι εσφαλμένος");
         add(TranslationKey.INVALID_CVV_ERROR, "Παρακαλώ εισάγετε έναν έγκυρο κωδικό");
-        add(TranslationKey.CVV_CODE, "Κωδικός CVV2/CVC2");
+        add(TranslationKey.INVALID_CVV_EMPTY, "Εισαγωγή κωδικού CVV");
+        add(TranslationKey.CVV_CODE, "Κωδικός CVV");
         add(TranslationKey.EXPIRATION_DATE_HINT_TEXT, "ΜΜ/ΕΕ");
         add(TranslationKey.CARD_EXPIRATION_DATE_IS_INVALID, "Παρακαλώ εισάγετε μία έγκυρη ημερομηνία");
         add(TranslationKey.CARD_EXPIRATION_DATE, "Ημερομηνία λήξης");
@@ -20,7 +21,7 @@ public class Greek extends StringMapTranslation {
         add(TranslationKey.CARD_NUMBER, "Αριθμός κάρτας");
         add(TranslationKey.SAVE_AND_USE, "Αποθήκευση και χρήση");
         add(TranslationKey.USE, "Χρήση");
-        add(TranslationKey.ENTER_CVV2, "Παρακαλώ καταχωρίστε τον κωδικό CVV2/CVC2 της κάρτας σας");
+        add(TranslationKey.ENTER_CVV2, "Παρακαλώ καταχωρίστε τον κωδικό CVV της κάρτας σας");
         add(TranslationKey.NEW_CARD, "Προσθήκη κάρτας");
         add(TranslationKey.CREDIT_CARD, "Πιστωτική κάρτα");
         add(TranslationKey.CANCEL, "Ακύρωση");

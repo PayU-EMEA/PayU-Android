@@ -7,7 +7,7 @@ import com.google.gson.Gson;
 import com.payu.android.front.sdk.payment_add_card_module.cvv_validation.parser.CvvRequestModelSerializer;
 import com.payu.android.front.sdk.payment_add_card_module.cvv_validation.view.CvvValidationView;
 import com.payu.android.front.sdk.payment_add_card_module.status.CvvPaymentStatus;
-import com.payu.android.front.sdk.payment_add_card_module.validation.cvv.CvvValidator;
+import com.payu.android.front.sdk.payment_add_card_module.validation.StringValidator;
 import com.payu.android.front.sdk.payment_add_card_module.view.SelectorCvv;
 import com.payu.android.front.sdk.payment_library_api_client.internal.rest.model.OpenPayuStatusCode;
 import com.payu.android.front.sdk.payment_library_api_client.internal.rest.parser.RedirectLinkParser;
@@ -28,19 +28,19 @@ public class CvvValidationPresenter extends BasePresenter<CvvValidationView> {
     @NonNull
     private final SelectorCvv selectorCvv;
     @NonNull
-    private final CvvValidator cvvValidator;
-    @NonNull
     private final RedirectLinkParser validationLinkParser;
+    @NonNull
+    private final StringValidator editTextValidator;
     @NonNull
     private final CvvRestService cardService;
 
     public CvvValidationPresenter(
-            @NonNull Gson gson, @NonNull SelectorCvv selectorCvv, @NonNull CvvValidator cvvValidator,
+            @NonNull Gson gson, @NonNull SelectorCvv selectorCvv, @NonNull StringValidator editTextValidator,
             @NonNull RedirectLinkParser validationLinkParser,
             @NonNull CvvRestService cardService) {
         this.gson = gson;
         this.selectorCvv = selectorCvv;
-        this.cvvValidator = cvvValidator;
+        this.editTextValidator = editTextValidator;
         this.validationLinkParser = validationLinkParser;
         this.cardService = cardService;
     }
@@ -51,7 +51,7 @@ public class CvvValidationPresenter extends BasePresenter<CvvValidationView> {
 
     public void onAccepted() {
         String cvv = selectorCvv.getCvvCode();
-        Optional<String> errorString = cvvValidator.getErrorString(cvv);
+        Optional<String> errorString = editTextValidator.getErrorString(cvv);
         selectorCvv.setCvvError(errorString.orNull());
         if (!errorString.isPresent()) {
             confirmCvv(cvv);

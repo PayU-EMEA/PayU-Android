@@ -34,4 +34,10 @@
     <string name="theme_light">Jasny</string>
     <string name="theme_dark">Ciemny</string>
     <string name="theme_default">Domyślny systemu</string>
+
+    <string name="choose_language_title">Wybierz język</string>
+    <string name="choose_language_auto">AUTO</string>
+    <string name="choose_language_pl">PL</string>
+    <string name="choose_language_en">EN</string>
+    <string name="choose_language_cs">CS</string>
 </resources>

@@ -11,8 +11,9 @@ public class French extends StringMapTranslation {
         add(TranslationKey.OK, "OK") ;
         add(TranslationKey.CARD_VALIDATION_EMPTY, "Le numéro de la carte ne peut être vide");
         add(TranslationKey.CARD_VALIDATION_NUMBER_INCORRECT, "Le numéro de la carte est incorrect");
-        add(TranslationKey.INVALID_CVV_ERROR, "Renseigner le code correct");//TODO translation
-        add(TranslationKey.CVV_CODE, "Code CVV2/CVC2");
+        add(TranslationKey.INVALID_CVV_ERROR, "Renseigner le code correct");
+        add(TranslationKey.INVALID_CVV_EMPTY, "Saisir le code CVV");
+        add(TranslationKey.CVV_CODE, "Code CVV");
         add(TranslationKey.EXPIRATION_DATE_HINT_TEXT, "MM/AA");
         add(TranslationKey.CARD_EXPIRATION_DATE_IS_INVALID, "Renseigner une date valide");
         add(TranslationKey.CARD_EXPIRATION_DATE, "Date d'expiration");
@@ -20,7 +21,7 @@ public class French extends StringMapTranslation {
         add(TranslationKey.CARD_NUMBER, "Numéro de carte");
         add(TranslationKey.SAVE_AND_USE, "Sauvegarder et utiliser");
         add(TranslationKey.USE, "Utiliser");
-        add(TranslationKey.ENTER_CVV2, "Entrer le code CVV2/CVC2 de la carte");
+        add(TranslationKey.ENTER_CVV2, "Entrer le code CVV de la carte");
         add(TranslationKey.NEW_CARD, "Ajouter une carte");
         add(TranslationKey.CREDIT_CARD, "Carte de paiement");
         add(TranslationKey.CANCEL, "Annuler");

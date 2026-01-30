@@ -12,7 +12,8 @@ public class Czech extends StringMapTranslation {
         add(TranslationKey.CARD_VALIDATION_EMPTY, "Číslo karty musí být uvedeno");
         add(TranslationKey.CARD_VALIDATION_NUMBER_INCORRECT, "Číslo karty není správné");
         add(TranslationKey.INVALID_CVV_ERROR, "Prosím zadejte správný kód");
-        add(TranslationKey.CVV_CODE, "Kód CVV2/CVC2");
+        add(TranslationKey.INVALID_CVV_EMPTY, "Zadejte CVV kód");
+        add(TranslationKey.CVV_CODE, "Kód CVV");
         add(TranslationKey.EXPIRATION_DATE_HINT_TEXT, "MM/RR");
         add(TranslationKey.CARD_EXPIRATION_DATE_IS_INVALID, "Prosím zadejte správné datum");
         add(TranslationKey.CARD_EXPIRATION_DATE, "Datum platnosti");
@@ -20,7 +21,7 @@ public class Czech extends StringMapTranslation {
         add(TranslationKey.CARD_NUMBER, "Číslo karty");
         add(TranslationKey.SAVE_AND_USE, "Uložit a použít");
         add(TranslationKey.USE, "Použít");
-        add(TranslationKey.ENTER_CVV2, "Zadejte CVV2/CVC2 kód");
+        add(TranslationKey.ENTER_CVV2, "Zadejte CVV kód");
         add(TranslationKey.NEW_CARD, "Přidat kartu");
         add(TranslationKey.CREDIT_CARD, "Platební karta");
         add(TranslationKey.CANCEL, "Zrušit");

@@ -12,7 +12,8 @@ public class Bulgarian extends StringMapTranslation {
         add(TranslationKey.CARD_VALIDATION_EMPTY, "Номерът на картата не трябва да е празен");
         add(TranslationKey.CARD_VALIDATION_NUMBER_INCORRECT, "Номерът на картата е грешен");
         add(TranslationKey.INVALID_CVV_ERROR, "Моля, въведете валиден код");
-        add(TranslationKey.CVV_CODE, "CVV2/CVC2 код");
+        add(TranslationKey.INVALID_CVV_EMPTY, "Въведете CVV код");
+        add(TranslationKey.CVV_CODE, "CVV код");
         add(TranslationKey.EXPIRATION_DATE_HINT_TEXT, "ММ/ГГ");
         add(TranslationKey.CARD_EXPIRATION_DATE_IS_INVALID, "Моля, въведете валидна дата");
         add(TranslationKey.CARD_EXPIRATION_DATE, "Дата на изтичане на срока");
@@ -20,7 +21,7 @@ public class Bulgarian extends StringMapTranslation {
         add(TranslationKey.CARD_NUMBER, "Номер на картата");
         add(TranslationKey.SAVE_AND_USE, "Запазване и използване");
         add(TranslationKey.USE, "Използване");
-        add(TranslationKey.ENTER_CVV2, "Посочете CVV2/CVC2 код за Вашата карта");
+        add(TranslationKey.ENTER_CVV2, "Посочете CVV код за Вашата карта");
         add(TranslationKey.NEW_CARD, "Добавяне на карта");
         add(TranslationKey.CREDIT_CARD, "Кредитна карта");
         add(TranslationKey.CANCEL, "Отказ");

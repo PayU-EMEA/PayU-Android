@@ -16,6 +16,10 @@ abstract class ActivityWithMenu : MainActivity() {
             ChangeThemeDialog.showThemeDialog(supportFragmentManager)
             true
         }
+        R.id.action_change_language -> {
+            ChangeLanguageDialog.showLanguageDialog(supportFragmentManager)
+            true
+        }
         else -> super.onOptionsItemSelected(item)
     }
 }
