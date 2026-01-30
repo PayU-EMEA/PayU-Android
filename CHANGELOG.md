@@ -1,3 +1,6 @@
+# 1.0.39
+* Update Card Scanner for support 16 KB page sizes
+
 # 1.0.38
 * Added Blik Pay Later to whitelist PBL
 
