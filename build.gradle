@@ -50,7 +50,7 @@ project.ext {
     retrofit2Version = "2.11.0"
     okhttpLogInterceptorVersion = "4.12.0"
     playServicesVersion = "19.4.0"
-    cardsPayVersion = "1.0.2"
+    cardsPayVersion = "1.0.3"
     fragmentVersion = "1.8.5"
     rxJava3 = "3.1.10"
     rxJava3Android = "3.0.2"
