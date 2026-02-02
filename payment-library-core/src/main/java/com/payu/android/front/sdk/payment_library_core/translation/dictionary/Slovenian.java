@@ -12,7 +12,8 @@ public class Slovenian extends StringMapTranslation {
         add(TranslationKey.CARD_VALIDATION_EMPTY, "Št. kartice ne sme biti prazno polje");
         add(TranslationKey.CARD_VALIDATION_NUMBER_INCORRECT, "Št. kartice ni pravilna");
         add(TranslationKey.INVALID_CVV_ERROR, "Vnesite veljavno kodo");
-        add(TranslationKey.CVV_CODE, "Koda CVV2/CVC2");
+        add(TranslationKey.INVALID_CVV_EMPTY, "Vnesite kodo CVV");
+        add(TranslationKey.CVV_CODE, "Koda CVV");
         add(TranslationKey.EXPIRATION_DATE_HINT_TEXT, "MM/LL");
         add(TranslationKey.CARD_EXPIRATION_DATE_IS_INVALID, "Vnesite veljavni datum");
         add(TranslationKey.CARD_EXPIRATION_DATE, "Datum zapadlosti");
@@ -20,7 +21,7 @@ public class Slovenian extends StringMapTranslation {
         add(TranslationKey.CARD_NUMBER, "Št. kartice");
         add(TranslationKey.SAVE_AND_USE, "Shrani in uporabi");
         add(TranslationKey.USE, "Uporabi");
-        add(TranslationKey.ENTER_CVV2, "Vnesite kodo CVV2/CVC2 za svojo kartico");
+        add(TranslationKey.ENTER_CVV2, "Vnesite kodo CVV za svojo kartico");
         add(TranslationKey.NEW_CARD, "Dodaj kartico");
         add(TranslationKey.CREDIT_CARD, "Kreditna kartica");
         add(TranslationKey.CANCEL, "Prekliči");

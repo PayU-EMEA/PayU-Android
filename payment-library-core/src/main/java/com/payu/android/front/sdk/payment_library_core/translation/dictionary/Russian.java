@@ -12,7 +12,8 @@ public class Russian extends StringMapTranslation {
         add(TranslationKey.CARD_VALIDATION_EMPTY, "Поле с номером карты не должно быть пустым");
         add(TranslationKey.CARD_VALIDATION_NUMBER_INCORRECT, "Неправильный номер карты");
         add(TranslationKey.INVALID_CVV_ERROR, "Введите действительный код");
-        add(TranslationKey.CVV_CODE, "Код CVV2/CVC2");
+        add(TranslationKey.INVALID_CVV_EMPTY, "Введите код CVV");
+        add(TranslationKey.CVV_CODE, "Код CVV");
         add(TranslationKey.EXPIRATION_DATE_HINT_TEXT, "ММ/ГГ");
         add(TranslationKey.CARD_EXPIRATION_DATE_IS_INVALID, "Введите действительную дату");
         add(TranslationKey.CARD_EXPIRATION_DATE, "Срок действия");
@@ -20,7 +21,7 @@ public class Russian extends StringMapTranslation {
         add(TranslationKey.CARD_NUMBER, "Номер карты");
         add(TranslationKey.SAVE_AND_USE, "Сохранить и использовать");
         add(TranslationKey.USE, "Использовать");
-        add(TranslationKey.ENTER_CVV2, "Укажите код CVV2/CVC2 карты");
+        add(TranslationKey.ENTER_CVV2, "Укажите код CVV карты");
         add(TranslationKey.NEW_CARD, "Добавить карту");
         add(TranslationKey.CREDIT_CARD, "Кредитная карта");
         add(TranslationKey.CANCEL, "Отменить");

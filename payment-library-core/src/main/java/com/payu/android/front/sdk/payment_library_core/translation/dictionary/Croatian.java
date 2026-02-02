@@ -12,7 +12,8 @@ public class Croatian extends StringMapTranslation {
         add(TranslationKey.CARD_VALIDATION_EMPTY, "Broj kartice ne smije biti prazan");
         add(TranslationKey.CARD_VALIDATION_NUMBER_INCORRECT, "Broj kartice nije točan");
         add(TranslationKey.INVALID_CVV_ERROR, "Unesite valjani kod");
-        add(TranslationKey.CVV_CODE, "CVV2/CVC2 kod");
+        add(TranslationKey.INVALID_CVV_EMPTY, "Unesite CVV kod");
+        add(TranslationKey.CVV_CODE, "CVV kod");
         add(TranslationKey.EXPIRATION_DATE_HINT_TEXT, "MM/GG");
         add(TranslationKey.CARD_EXPIRATION_DATE_IS_INVALID, "Unesite valjani datum");
         add(TranslationKey.CARD_EXPIRATION_DATE, "Datum isteka roka trajanja");
@@ -20,7 +21,7 @@ public class Croatian extends StringMapTranslation {
         add(TranslationKey.CARD_NUMBER, "Broj kartice");
         add(TranslationKey.SAVE_AND_USE, "Spremi i koristi");
         add(TranslationKey.USE, "Koristiti");
-        add(TranslationKey.ENTER_CVV2, "Navedite CVV2/CVC2 kod za svoju karticu");
+        add(TranslationKey.ENTER_CVV2, "Navedite CVV kod za svoju karticu");
         add(TranslationKey.NEW_CARD, "Dodaj karticu");
         add(TranslationKey.CREDIT_CARD, "Kreditna kartica");
         add(TranslationKey.CANCEL, "Otkazati");

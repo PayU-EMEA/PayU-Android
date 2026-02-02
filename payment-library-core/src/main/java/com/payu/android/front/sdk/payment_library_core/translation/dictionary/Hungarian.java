@@ -12,7 +12,8 @@ public class Hungarian extends StringMapTranslation {
         add(TranslationKey.CARD_VALIDATION_EMPTY, "Írd be a bankkártyád számát!");
         add(TranslationKey.CARD_VALIDATION_NUMBER_INCORRECT, "Érvénytelen bankkártya-szám");
         add(TranslationKey.INVALID_CVV_ERROR, "Hibás kódot írtál be");
-        add(TranslationKey.CVV_CODE, "CVV2/CVC2 kód");
+        add(TranslationKey.INVALID_CVV_EMPTY, "Írd be a bankkártya kódot");
+        add(TranslationKey.CVV_CODE, "CVV kód");
         add(TranslationKey.EXPIRATION_DATE_HINT_TEXT, "HH/ÉÉ");
         add(TranslationKey.CARD_EXPIRATION_DATE_IS_INVALID, "Valami nem stimmel a dátummal");
         add(TranslationKey.CARD_EXPIRATION_DATE, "Lejárati dátum");
@@ -20,7 +21,7 @@ public class Hungarian extends StringMapTranslation {
         add(TranslationKey.CARD_NUMBER, "Kártyaszám");
         add(TranslationKey.SAVE_AND_USE, "Mentem és ezt használom");
         add(TranslationKey.USE, "Ezt használom");
-        add(TranslationKey.ENTER_CVV2, "Írd be a kártyád CVV2/CVC2 kódját");
+        add(TranslationKey.ENTER_CVV2, "Írd be a kártyád CVV kódját");
         add(TranslationKey.NEW_CARD, "Bankkártya hozzáadása");
         add(TranslationKey.CREDIT_CARD, "Hitelkártya");
         add(TranslationKey.CANCEL, "Mégsem");

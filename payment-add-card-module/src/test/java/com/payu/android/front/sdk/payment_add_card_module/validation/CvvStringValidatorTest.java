@@ -1,20 +1,23 @@
-package com.payu.android.front.sdk.payment_add_card_module.validation.cvv;
+package com.payu.android.front.sdk.payment_add_card_module.validation;
 
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import com.google.common.base.Optional;
+import com.payu.android.front.sdk.payment_add_card_module.validation.message.CvvInvalidMessageProvider;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertTrue;
+public class CvvStringValidatorTest {
 
-public class GenericCvvValidatorTest {
-
-    GenericCvvValidator objectUnderTest;
+    CvvStringValidator objectUnderTest;
 
     @Before
     public void setUp() {
-        objectUnderTest = new GenericCvvValidator();
+        objectUnderTest = new CvvStringValidator(new CvvInvalidMessageProvider());
     }
 
     @Test
@@ -26,7 +29,7 @@ public class GenericCvvValidatorTest {
         Optional<String> errorString = objectUnderTest.getErrorString(validCvv);
 
         // then
-        assertTrue(!errorString.isPresent());
+        assertFalse(errorString.isPresent());
     }
 
     @Test
@@ -39,7 +42,7 @@ public class GenericCvvValidatorTest {
 
         // then
         assertTrue(errorString.isPresent());
-        assertTrue(errorString.get().contains(GenericCvvValidator.INVALID_CVV_ERROR));
+        assertEquals("Please enter a valid code", errorString.get());
     }
 
     @Test
@@ -52,7 +55,7 @@ public class GenericCvvValidatorTest {
 
         // then
         assertTrue(errorString.isPresent());
-        assertTrue(errorString.get().contains(GenericCvvValidator.INVALID_CVV_ERROR));
+        assertEquals("Enter CVV code", errorString.get());
     }
 
     @Test
@@ -65,7 +68,7 @@ public class GenericCvvValidatorTest {
 
         // then
         assertTrue(errorString.isPresent());
-        assertTrue(errorString.get().contains(GenericCvvValidator.INVALID_CVV_ERROR));
+        assertEquals("Please enter a valid code", errorString.get());
     }
 
     @Test
@@ -78,6 +81,6 @@ public class GenericCvvValidatorTest {
 
         // then
         assertTrue(errorString.isPresent());
-        assertTrue(errorString.get().contains(GenericCvvValidator.INVALID_CVV_ERROR));
+        assertEquals("Please enter a valid code", errorString.get());
     }
 }

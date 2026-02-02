@@ -11,8 +11,9 @@ public class Polish extends StringMapTranslation {
         add(TranslationKey.OK, "OK");
         add(TranslationKey.CARD_VALIDATION_EMPTY, "Numer karty nie może być pusty");
         add(TranslationKey.CARD_VALIDATION_NUMBER_INCORRECT, "Numer karty jest niepoprawny");
-        add(TranslationKey.INVALID_CVV_ERROR, "Podaj poprawny kod");//TODO translation
-        add(TranslationKey.CVV_CODE, "Kod CVV2/CVC2");
+        add(TranslationKey.INVALID_CVV_ERROR, "Podaj poprawny kod");
+        add(TranslationKey.INVALID_CVV_EMPTY, "Wpisz kod CVV");
+        add(TranslationKey.CVV_CODE, "Kod CVV");
         add(TranslationKey.EXPIRATION_DATE_HINT_TEXT, "MM/RR");
         add(TranslationKey.CARD_EXPIRATION_DATE_IS_INVALID, "Podaj poprawną datę");
         add(TranslationKey.CARD_EXPIRATION_DATE, "Data ważności");
@@ -20,7 +21,7 @@ public class Polish extends StringMapTranslation {
         add(TranslationKey.CARD_NUMBER, "Numer karty");
         add(TranslationKey.SAVE_AND_USE, "Zapisz i użyj");
         add(TranslationKey.USE, "Użyj");
-        add(TranslationKey.ENTER_CVV2, "Wprowadź kod CVV2/CVC2 dla karty");
+        add(TranslationKey.ENTER_CVV2, "Wprowadź kod CVV dla karty");
         add(TranslationKey.NEW_CARD, "Dodaj kartę");
         add(TranslationKey.CREDIT_CARD, "Karta płatnicza");
         add(TranslationKey.CANCEL, "Anuluj");
@@ -40,7 +41,7 @@ public class Polish extends StringMapTranslation {
         add(TranslationKey.SUPPORT_PAYMENT_INFORMATION, "Akceptuję <a href=\"#\">Zasady płatności PayU</a>");
         add(TranslationKey.COMPLIANCE_URL, "https://docs.google.com/viewer?url=https://static.payu.com/sites/terms/files/payu_terms_of_service_single_transaction_pl_pl.pdf");
         add(TranslationKey.PBL_TITLE, "Płatność przelewem");
-        add(TranslationKey.CANNOT_SHOW_COMPLIANCE_TEXT, "Przykro nam, ale na urządzeniu nie znajduje się aplikacja obsługującą tą akcję.");
+        add(TranslationKey.CANNOT_SHOW_COMPLIANCE_TEXT, "Przykro nam, ale na urządzeniu nie znajduje się aplikacja obsługująca tą akcję.");
         add(TranslationKey.PAYMENT_METHOD_CARD_DESCRIPTION, "debetowa lub kredytowa");
         add(TranslationKey.PAYMENT_METHOD_BANK_TRANSFER_DESCRIPTION, "przelew online i tradycyjny");
         add(TranslationKey.BLIK_AMBIGUITY_SELECTION, "Wybierz zapisaną płatność");

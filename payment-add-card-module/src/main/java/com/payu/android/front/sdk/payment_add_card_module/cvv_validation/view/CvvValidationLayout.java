@@ -2,17 +2,19 @@ package com.payu.android.front.sdk.payment_add_card_module.cvv_validation.view;
 
 import android.content.Context;
 import android.net.Uri;
-import androidx.annotation.NonNull;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.FrameLayout;
+
+import androidx.annotation.NonNull;
 
 import com.google.gson.Gson;
 import com.payu.android.front.sdk.payment_add_card_module.R;
 import com.payu.android.front.sdk.payment_add_card_module.creator.CardServiceCreator;
 import com.payu.android.front.sdk.payment_add_card_module.cvv_validation.presenter.CvvValidationPresenter;
 import com.payu.android.front.sdk.payment_add_card_module.status.CvvPaymentStatus;
-import com.payu.android.front.sdk.payment_add_card_module.validation.cvv.GenericCvvValidator;
+import com.payu.android.front.sdk.payment_add_card_module.validation.CvvStringValidator;
+import com.payu.android.front.sdk.payment_add_card_module.validation.message.CvvInvalidMessageProvider;
 import com.payu.android.front.sdk.payment_add_card_module.view.CardCvvView;
 import com.payu.android.front.sdk.payment_library_api_client.internal.rest.parser.RedirectLinkParser;
 import com.payu.android.front.sdk.payment_library_core_android.ConfigurationEnvironmentProvider;
@@ -72,7 +74,7 @@ public class CvvValidationLayout extends FrameLayout implements CvvValidationVie
 
     private void setupPresenter(@NonNull AuthorizationDetails authorizationDetails) {
         RedirectLinkParser validationLinkParser = new RedirectLinkParser(Uri.parse(authorizationDetails.getLink().get()));
-        cvvValidationPresenter = new CvvValidationPresenter(new Gson(), cardCvvView, new GenericCvvValidator(), validationLinkParser,
+        cvvValidationPresenter = new CvvValidationPresenter(new Gson(), cardCvvView, new CvvStringValidator(new CvvInvalidMessageProvider()), validationLinkParser,
                 CardServiceCreator.createCvvRestService(getContext(),
                         ConfigurationEnvironmentProvider.provideEnvironment(getContext()).getCardEndpointUrl()
                 ));

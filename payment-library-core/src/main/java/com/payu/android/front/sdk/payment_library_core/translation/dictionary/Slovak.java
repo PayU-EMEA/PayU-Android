@@ -12,7 +12,8 @@ public class Slovak extends StringMapTranslation {
         add(TranslationKey.CARD_VALIDATION_EMPTY, "Číslo karty musí byť uvedené");
         add(TranslationKey.CARD_VALIDATION_NUMBER_INCORRECT, "Číslo karty nie je správne");
         add(TranslationKey.INVALID_CVV_ERROR, "Prosím zadejte správny kód");
-        add(TranslationKey.CVV_CODE, "Kód CVV2/CVC2");
+        add(TranslationKey.INVALID_CVV_EMPTY, "Zadajte CVV kód");
+        add(TranslationKey.CVV_CODE, "Kód CVV");
         add(TranslationKey.EXPIRATION_DATE_HINT_TEXT, "MM/RR");
         add(TranslationKey.CARD_EXPIRATION_DATE_IS_INVALID, "Prosím zadajte správny dátum");
         add(TranslationKey.CARD_EXPIRATION_DATE, "Dátum platnosti");
@@ -20,7 +21,7 @@ public class Slovak extends StringMapTranslation {
         add(TranslationKey.CARD_NUMBER, "Číslo karty");
         add(TranslationKey.SAVE_AND_USE, "Uložiť a použiť");
         add(TranslationKey.USE, "Použiť");
-        add(TranslationKey.ENTER_CVV2, "Zadejte CVV2/CVC2 kód");
+        add(TranslationKey.ENTER_CVV2, "Zadejte CVV kód");
         add(TranslationKey.NEW_CARD, "Pridať kartu");
         add(TranslationKey.CREDIT_CARD, "Platobná karta");
         add(TranslationKey.CANCEL, "Zrušiť");

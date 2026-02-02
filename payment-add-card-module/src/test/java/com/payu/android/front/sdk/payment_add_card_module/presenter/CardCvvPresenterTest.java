@@ -1,6 +1,10 @@
 package com.payu.android.front.sdk.payment_add_card_module.presenter;
 
-import com.payu.android.front.sdk.payment_add_card_module.issuer.CardIssuer;
+import static junit.framework.Assert.assertFalse;
+import static junit.framework.Assert.assertTrue;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.verify;
+
 import com.payu.android.front.sdk.payment_add_card_module.view.SelectorCvv;
 import com.payu.android.front.sdk.payment_add_card_module.view.ValidableView;
 
@@ -11,11 +15,6 @@ import org.junit.rules.ExpectedException;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
-
-import static junit.framework.Assert.assertFalse;
-import static junit.framework.Assert.assertTrue;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.verify;
 
 
 public class CardCvvPresenterTest {
@@ -79,7 +78,6 @@ public class CardCvvPresenterTest {
         //given
         Mockito.when(selectorCvv.getCvvCode()).thenReturn("123");
         objectUnderTest.takeView(selectorCvv);
-        objectUnderTest.setCardIssuer(CardIssuer.VISA);
 
         //when
         boolean isValidateCorrectly = objectUnderTest.validate();
@@ -95,7 +93,6 @@ public class CardCvvPresenterTest {
 
         Mockito.when(selectorCvv.getCvvCode()).thenReturn("12");
         objectUnderTest.takeView(selectorCvv);
-        objectUnderTest.setCardIssuer(CardIssuer.VISA);
 
         //when
         boolean isValidateCorrectly = objectUnderTest.validate();
