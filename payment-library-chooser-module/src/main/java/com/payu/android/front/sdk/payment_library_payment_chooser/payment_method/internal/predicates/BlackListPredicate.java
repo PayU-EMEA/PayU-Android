@@ -7,16 +7,16 @@ import com.payu.android.front.sdk.payment_library_payment_methods.model.PaymentM
 
 import java.util.List;
 
-public class WhiteListPredicate implements Predicate<PaymentMethod> {
+public class BlackListPredicate implements Predicate<PaymentMethod> {
     @NonNull
-    private List<String> filter;
+    private final List<String> filter;
 
-    public WhiteListPredicate(@NonNull List<String> filter) {
+    public BlackListPredicate(@NonNull List<String> filter) {
         this.filter = filter;
     }
 
     @Override
     public boolean apply(@NonNull PaymentMethod input) {
-        return filter.contains(input.getValue());
+        return !filter.contains(input.getValue());
     }
 }

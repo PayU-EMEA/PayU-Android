@@ -1,10 +1,17 @@
 package com.payu.android.front.sdk.payment_library_payment_chooser.payment_method.internal.use_cases;
 
+import static com.payu.android.front.sdk.payment_library_payment_chooser.utils.PaymentMethodsModelTestDataProvider.createCardPaymentMethod;
+import static com.payu.android.front.sdk.payment_library_payment_chooser.utils.PaymentMethodsModelTestDataProvider.createPblPayment;
+import static com.payu.android.front.sdk.payment_library_payment_chooser.utils.PaymentMethodsModelTestDataProvider.emptyObserver;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+import static org.mockito.MockitoAnnotations.openMocks;
+
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.Observer;
-import androidx.annotation.Nullable;
 
 import com.payu.android.front.sdk.payment_library_payment_chooser.payment_method.internal.repository.PaymentMethodRepository;
 import com.payu.android.front.sdk.payment_library_payment_methods.model.PaymentMethod;
@@ -17,15 +24,6 @@ import org.mockito.Mock;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-import static com.payu.android.front.sdk.payment_library_payment_chooser.utils.PaymentMethodsModelTestDataProvider.createCardPaymentMethod;
-import static com.payu.android.front.sdk.payment_library_payment_chooser.utils.PaymentMethodsModelTestDataProvider.createPblPayment;
-import static com.payu.android.front.sdk.payment_library_payment_chooser.utils.PaymentMethodsModelTestDataProvider.emptyObserver;
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-import static org.mockito.MockitoAnnotations.openMocks;
 
 public class RetrievePblPaymentMethodsTest {
     @Rule
@@ -67,12 +65,7 @@ public class RetrievePblPaymentMethodsTest {
         final List<PaymentMethod> paymentMethodList = new ArrayList<>();
 
         //when
-        paymentMethods.observeForever(new Observer<List<PaymentMethod>>() {
-            @Override
-            public void onChanged(@Nullable List<PaymentMethod> paymentMethods) {
-                paymentMethodList.addAll(paymentMethods);
-            }
-        });
+        paymentMethods.observeForever(paymentMethodList::addAll);
 
         //then
         assertThat(paymentMethodList.size()).isEqualTo(2);
@@ -81,22 +74,17 @@ public class RetrievePblPaymentMethodsTest {
     }
 
     @Test
-    public void shouldFilterOutNotWhitelistedMethods() {
+    public void shouldFilterOutBlacklistedMethods() {
         //given
         MutableLiveData<List<PaymentMethod>> paymentMethodsLiveData = new MutableLiveData<>();
         when(repository.getPayments()).thenReturn(paymentMethodsLiveData);
         LiveData<List<PaymentMethod>> paymentMethods = objectUnderTest.getPaymentMethods();
         paymentMethodsLiveData.setValue(
-                Arrays.asList(createPblPayment("ENABLED", "t"), createPblPayment("ENABLED", "INVALID")));
+                Arrays.asList(createPblPayment("ENABLED", "t"), createPblPayment("ENABLED", "ai")));
         final List<PaymentMethod> paymentMethodList = new ArrayList<>();
 
         //when
-        paymentMethods.observeForever(new Observer<List<PaymentMethod>>() {
-            @Override
-            public void onChanged(@Nullable List<PaymentMethod> paymentMethods) {
-                paymentMethodList.addAll(paymentMethods);
-            }
-        });
+        paymentMethods.observeForever(paymentMethodList::addAll);
 
         //then
         assertThat(paymentMethodList.size()).isEqualTo(1);
