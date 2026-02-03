@@ -13,6 +13,7 @@ import com.payu.android.front.sdk.payment_library_core.translation.dictionary.Ge
 import com.payu.android.front.sdk.payment_library_core.translation.dictionary.Greek;
 import com.payu.android.front.sdk.payment_library_core.translation.dictionary.Hungarian;
 import com.payu.android.front.sdk.payment_library_core.translation.dictionary.Italian;
+import com.payu.android.front.sdk.payment_library_core.translation.dictionary.Latvian;
 import com.payu.android.front.sdk.payment_library_core.translation.dictionary.Lithuanian;
 import com.payu.android.front.sdk.payment_library_core.translation.dictionary.Polish;
 import com.payu.android.front.sdk.payment_library_core.translation.dictionary.Romanian;
@@ -44,6 +45,7 @@ public class StringMapTranslationTest {
         availableTranslations.add(new Spanish());
         availableTranslations.add(new French());
         availableTranslations.add(new Lithuanian());
+        availableTranslations.add(new Latvian());
         availableTranslations.add(new Romanian());
         availableTranslations.add(new Slovenian());
         availableTranslations.add(new Bulgarian());

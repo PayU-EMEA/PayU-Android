@@ -35,9 +35,6 @@ public class Ukrainian extends StringMapTranslation {
         add(TranslationKey.REMOVE_METHOD_DIALOG_CONTENT, "Ви впевнені, що хочете видалити вибраний спосіб оплати?");
         add(TranslationKey.REMOVE, "Видалити");
         add(TranslationKey.SELECT_PAYMENT_METHOD, "Виберіть спосіб оплати");
-        add(TranslationKey.PUBLISHER, "Видавець");
-        add(TranslationKey.PAYU_COMPANY_NAME, "PayU S.A.");
-        add(TranslationKey.APPLICATION_VERSION, "Версія застосунку");
         add(TranslationKey.SUPPORT_PAYMENT_INFORMATION, "Я приймаю <a href=\"#\">умови оплати</a>");
         add(TranslationKey.COMPLIANCE_URL, "https://docs.google.com/viewer?url=https://static.payu.com/sites/terms/files/payu_terms_of_service_single_transaction_pl_en.pdf");
         add(TranslationKey.PBL_TITLE, "Банківський переказ");
@@ -55,7 +52,6 @@ public class Ukrainian extends StringMapTranslation {
         add(TranslationKey.SCAN_CARD, "Сканування картки");
         add(TranslationKey.SCAN_FAILED, "Не вдається відсканувати картку – введіть дані картки");
         add(TranslationKey.SCAN_CANCELED, "Сканування картки скасовано");
-        add(TranslationKey.SECURE_CHECKOUT, "Безпечна оплата");
         add(TranslationKey.SOFT_ACCEPT_DIALOG_TITLE, "Перевіряю оплату...");
     }
 

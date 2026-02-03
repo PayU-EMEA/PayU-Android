@@ -34,9 +34,6 @@ public class Czech extends StringMapTranslation {
         add(TranslationKey.REMOVE_METHOD_DIALOG_TITLE, "Odstranění platební metody");
         add(TranslationKey.REMOVE_METHOD_DIALOG_CONTENT, "Skutečně chcete odstranit vybranou platební metodu?");
         add(TranslationKey.REMOVE, "Odstranit");
-        add(TranslationKey.PUBLISHER, "Vydavatel");
-        add(TranslationKey.PAYU_COMPANY_NAME, "PayU S.A.");
-        add(TranslationKey.APPLICATION_VERSION, "Verze aplikace");
         add(TranslationKey.SELECT_PAYMENT_METHOD, "Vyberte platební metodu");
         add(TranslationKey.SUPPORT_PAYMENT_INFORMATION, "Souhlasím s <a href=\"#\">Platebnimi obchodními podmínkami PayU</a>");
         add(TranslationKey.COMPLIANCE_URL,
@@ -56,7 +53,6 @@ public class Czech extends StringMapTranslation {
         add(TranslationKey.SCAN_CARD, "Skenovat kartu");
         add(TranslationKey.SCAN_FAILED, "Kartu nelze naskenovat - zadat údaje o kartě ručně");
         add(TranslationKey.SCAN_CANCELED, "Skenování karty bylo zrušeno");
-        add(TranslationKey.SECURE_CHECKOUT, "SECURE CHECKOUT");
         add(TranslationKey.SOFT_ACCEPT_DIALOG_TITLE, "Ověření platby ...");
     }
 

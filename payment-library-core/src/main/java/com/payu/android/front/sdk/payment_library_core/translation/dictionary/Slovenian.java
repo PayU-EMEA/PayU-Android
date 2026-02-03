@@ -34,9 +34,6 @@ public class Slovenian extends StringMapTranslation {
         add(TranslationKey.REMOVE_METHOD_DIALOG_TITLE, "Brisanje načina plačila");
         add(TranslationKey.REMOVE_METHOD_DIALOG_CONTENT, "Ali res želite odstraniti izbran način plačila?");
         add(TranslationKey.REMOVE, "Odstrani");
-        add(TranslationKey.PUBLISHER, "Izdajatelj");
-        add(TranslationKey.PAYU_COMPANY_NAME, "PayU S.A.");
-        add(TranslationKey.APPLICATION_VERSION, "Različica aplikacije");
         add(TranslationKey.SELECT_PAYMENT_METHOD, "Izberite način plačila");
         add(TranslationKey.SUPPORT_PAYMENT_INFORMATION, "Sprejmem plačilne pogoje <a href=\"#\">PayU</a>");
         add(TranslationKey.COMPLIANCE_URL, "https://docs.google.com/viewer?url=https://static.payu.com/sites/terms/files/payu_terms_of_service_single_transaction_pl_en.pdf");
@@ -55,7 +52,6 @@ public class Slovenian extends StringMapTranslation {
         add(TranslationKey.SCAN_CARD, "Skeniranje kartice");
         add(TranslationKey.SCAN_FAILED, "Ni mogoče skenirati kartice – ročno vnesite podatke o kartici");
         add(TranslationKey.SCAN_CANCELED, "Skeniranje kartice preklicano");
-        add(TranslationKey.SECURE_CHECKOUT, "VARNO NA BLAGAJNO");
         add(TranslationKey.SOFT_ACCEPT_DIALOG_TITLE, "Preverjanje plačila ...");
     }
 

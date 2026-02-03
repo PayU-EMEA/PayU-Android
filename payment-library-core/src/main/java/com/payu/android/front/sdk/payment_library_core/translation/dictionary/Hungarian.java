@@ -34,9 +34,6 @@ public class Hungarian extends StringMapTranslation {
         add(TranslationKey.REMOVE_METHOD_DIALOG_TITLE, "Törlöm ezt a fizetési módot");
         add(TranslationKey.REMOVE_METHOD_DIALOG_CONTENT, "Biztosan törlöd ezt a fizetési módot?");
         add(TranslationKey.REMOVE, "Törlöm");
-        add(TranslationKey.PUBLISHER, "Fejlesztő");
-        add(TranslationKey.PAYU_COMPANY_NAME, "PayU S.A.");
-        add(TranslationKey.APPLICATION_VERSION, "Alkalmazás verzió");
         add(TranslationKey.SELECT_PAYMENT_METHOD, "Válassz fizetési módot!");
         add(TranslationKey.SUPPORT_PAYMENT_INFORMATION, "Elfogadom a következőt: <a href=\"#\">PayU Payment Terms</a>");
         add(TranslationKey.COMPLIANCE_URL, "https://docs.google.com/viewer?url=https://static.payu.com/sites/terms/files/payu_terms_of_service_single_transaction_pl_en.pdf");
@@ -55,7 +52,6 @@ public class Hungarian extends StringMapTranslation {
         add(TranslationKey.SCAN_CARD, "Kártya-beolvasás");
         add(TranslationKey.SCAN_FAILED, "Nem sikerült beolvasni – írd be a kártyaszámot");
         add(TranslationKey.SCAN_CANCELED, "Kártya-beolvasás megszakítva");
-        add(TranslationKey.SECURE_CHECKOUT, "SECURE CHECKOUT");
         add(TranslationKey.SOFT_ACCEPT_DIALOG_TITLE, "Fizetés ellenőrzése ...");
     }
 
