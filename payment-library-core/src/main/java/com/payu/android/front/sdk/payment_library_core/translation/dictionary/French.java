@@ -35,9 +35,6 @@ public class French extends StringMapTranslation {
         add(TranslationKey.REMOVE_METHOD_DIALOG_CONTENT, "Êtes-vous sûr de vouloir supprimer le mode de paiement sélectionné ?");
         add(TranslationKey.REMOVE, "Supprimer");
         add(TranslationKey.SELECT_PAYMENT_METHOD, "Choisir le mode de paiement");
-        add(TranslationKey.PUBLISHER, "Editeur");
-        add(TranslationKey.PAYU_COMPANY_NAME, "PayU S.A.");
-        add(TranslationKey.APPLICATION_VERSION, "Version de l'application");
         add(TranslationKey.SUPPORT_PAYMENT_INFORMATION, "J'accepte les <a href=\"#\">conditions de paiement de PayU</a>");
         add(TranslationKey.COMPLIANCE_URL, "https://docs.google.com/viewer?url=https://static.payu.com/sites/terms/files/payu_terms_of_service_single_transaction_pl_en.pdf");
         add(TranslationKey.PBL_TITLE, "Virement bancaire");
@@ -55,7 +52,6 @@ public class French extends StringMapTranslation {
         add(TranslationKey.SCAN_CARD, "Numériser la carte");
         add(TranslationKey.SCAN_FAILED, "La numérisation de la carte a échoué - entrer les données via le formulaire");
         add(TranslationKey.SCAN_CANCELED, "La numérisation de la carte a été annulée");
-        add(TranslationKey.SECURE_CHECKOUT, "PAIEMENT SÉCURISÉ");
         add(TranslationKey.SOFT_ACCEPT_DIALOG_TITLE, "Je vérifie le paiement...");
     }
 

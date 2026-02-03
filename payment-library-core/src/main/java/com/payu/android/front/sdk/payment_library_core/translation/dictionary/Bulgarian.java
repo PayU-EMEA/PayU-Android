@@ -34,9 +34,6 @@ public class Bulgarian extends StringMapTranslation {
         add(TranslationKey.REMOVE_METHOD_DIALOG_TITLE, "Изтриване на метод на плащане");
         add(TranslationKey.REMOVE_METHOD_DIALOG_CONTENT, "Сигурни ли сте, че искате да премахнете избрания метод на плащане?");
         add(TranslationKey.REMOVE, "Премахване");
-        add(TranslationKey.PUBLISHER, "Издател");
-        add(TranslationKey.PAYU_COMPANY_NAME, "PayU S.A.");
-        add(TranslationKey.APPLICATION_VERSION, "Версия на приложението");
         add(TranslationKey.SELECT_PAYMENT_METHOD, "Изберете метод на плащане");
         add(TranslationKey.SUPPORT_PAYMENT_INFORMATION, "Приемам <a href=\"#\">условията за плащане на PayU</a>");
         add(TranslationKey.COMPLIANCE_URL, "https://docs.google.com/viewer?url=https://static.payu.com/sites/terms/files/payu_terms_of_service_single_transaction_pl_en.pdf");
@@ -55,7 +52,6 @@ public class Bulgarian extends StringMapTranslation {
         add(TranslationKey.SCAN_CARD, "Сканиране на карта");
         add(TranslationKey.SCAN_FAILED, "Сканирането на картата е неуспешно, въведете данните на картата ръчно");
         add(TranslationKey.SCAN_CANCELED, "Сканирането на картата е отменено");
-        add(TranslationKey.SECURE_CHECKOUT, "СИГУРНО ПЛАЩАНЕ");
         add(TranslationKey.SOFT_ACCEPT_DIALOG_TITLE, "Проверка на плащането...");
     }
 

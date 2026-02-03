@@ -34,9 +34,6 @@ public class Greek extends StringMapTranslation {
         add(TranslationKey.REMOVE_METHOD_DIALOG_TITLE, "Διαγραφή μεθόδου πληρωμής");
         add(TranslationKey.REMOVE_METHOD_DIALOG_CONTENT, "Είστε σίγουροι ότι θέλετε να διαγράψετε την επιλεγμένη μέθοδο πληρωμής;");
         add(TranslationKey.REMOVE, "Διαγραφή");
-        add(TranslationKey.PUBLISHER, "Εκδότης");
-        add(TranslationKey.PAYU_COMPANY_NAME, "PayU S.A.");
-        add(TranslationKey.APPLICATION_VERSION, "Έκδοση εφαρμογής");
         add(TranslationKey.SELECT_PAYMENT_METHOD, "Επιλογή μεθόδου πληρωμής");
         add(TranslationKey.SUPPORT_PAYMENT_INFORMATION, "Αποδέχομαι τους <a href=\"#\">Όρους πληρωμής PayU</a>");
         add(TranslationKey.COMPLIANCE_URL, "https://docs.google.com/viewer?url=https://static.payu.com/sites/terms/files/payu_terms_of_service_single_transaction_pl_en.pdf");
@@ -55,7 +52,6 @@ public class Greek extends StringMapTranslation {
         add(TranslationKey.SCAN_CARD, "Σάρωση κάρτας");
         add(TranslationKey.SCAN_FAILED, "Δεν είναι δυνατή η σάρωση της κάρτας, παρακαλώ εισάγετε τα στοιχεία της κάρτας");
         add(TranslationKey.SCAN_CANCELED, "Η σάρωση της κάρτας ακυρώθηκε");
-        add(TranslationKey.SECURE_CHECKOUT, "ΑΣΦΑΛΗΣ ΟΛΟΚΛΗΡΩΣΗ");
         add(TranslationKey.SOFT_ACCEPT_DIALOG_TITLE, "Επαλήθευση πληρωμής…");
     }
 

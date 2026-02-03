@@ -34,9 +34,6 @@ public class Italian extends StringMapTranslation {
         add(TranslationKey.REMOVE_METHOD_DIALOG_TITLE, "Cancellazione del metodo di pagamento");
         add(TranslationKey.REMOVE_METHOD_DIALOG_CONTENT, "Vuoi davvero cancellare il metodo di pagamento selezionato?");
         add(TranslationKey.REMOVE, "Cancella");
-        add(TranslationKey.PUBLISHER, "Emettitore");
-        add(TranslationKey.PAYU_COMPANY_NAME, "PayU S.A.");
-        add(TranslationKey.APPLICATION_VERSION, "Versione dell’app");
         add(TranslationKey.SELECT_PAYMENT_METHOD, "Seleziona un metodo di pagamento");
         add(TranslationKey.SUPPORT_PAYMENT_INFORMATION, "Accetto i <a href=\"#\">Termini di pagamento PayU</a>");
         add(TranslationKey.COMPLIANCE_URL, "https://docs.google.com/viewer?url=https://static.payu.com/sites/terms/files/payu_terms_of_service_single_transaction_pl_en.pdf");
@@ -55,7 +52,6 @@ public class Italian extends StringMapTranslation {
         add(TranslationKey.SCAN_CARD, "Scansione carta");
         add(TranslationKey.SCAN_FAILED, "Impossibile scansionare la carta, inserisci i dati manualmente");
         add(TranslationKey.SCAN_CANCELED, "Scansione carta cancellata");
-        add(TranslationKey.SECURE_CHECKOUT, "CHECKOUT SICURO");
         add(TranslationKey.SOFT_ACCEPT_DIALOG_TITLE, "Verifica pagamento…");
     }
 

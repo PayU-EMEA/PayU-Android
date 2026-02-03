@@ -34,9 +34,6 @@ public class Romanian extends StringMapTranslation {
         add(TranslationKey.REMOVE_METHOD_DIALOG_TITLE, "Se şterge metoda de plată");
         add(TranslationKey.REMOVE_METHOD_DIALOG_CONTENT, "Sigur doriţi să ştergeţi metoda de plată?");
         add(TranslationKey.REMOVE, "Ştergere");
-        add(TranslationKey.PUBLISHER, "Editor");
-        add(TranslationKey.PAYU_COMPANY_NAME, "PayU S.A.");
-        add(TranslationKey.APPLICATION_VERSION, "Versiunea aplicaţiei");
         add(TranslationKey.SELECT_PAYMENT_METHOD, "Selectaţi metoda de plată");
         add(TranslationKey.SUPPORT_PAYMENT_INFORMATION, "Sunt de acord cu <a href=\"#\">Termenii de plată PayU</a>");
         add(TranslationKey.COMPLIANCE_URL, "https://docs.google.com/viewer?url=https://static.payu.com/sites/terms/files/payu_terms_of_service_single_transaction_pl_en.pdf");
@@ -55,7 +52,6 @@ public class Romanian extends StringMapTranslation {
         add(TranslationKey.SCAN_CARD, "Scanare card");
         add(TranslationKey.SCAN_FAILED, "Cardul nu poate fi scanat - introduceţi manual detaliile cardului");
         add(TranslationKey.SCAN_CANCELED, "Scanare card anulată");
-        add(TranslationKey.SECURE_CHECKOUT, "VERIFICARE ÎN SIGURANŢĂ");
         add(TranslationKey.SOFT_ACCEPT_DIALOG_TITLE, "Se verifică plata ...");
     }
 

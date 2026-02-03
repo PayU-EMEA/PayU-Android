@@ -34,9 +34,6 @@ public class Russian extends StringMapTranslation {
         add(TranslationKey.REMOVE_METHOD_DIALOG_TITLE, "Удаление способа оплаты");
         add(TranslationKey.REMOVE_METHOD_DIALOG_CONTENT, "Действительно удалить выбранный способ оплаты?");
         add(TranslationKey.REMOVE, "Удалить");
-        add(TranslationKey.PUBLISHER, "Орган, выдавший карту");
-        add(TranslationKey.PAYU_COMPANY_NAME, "PayU S.A.");
-        add(TranslationKey.APPLICATION_VERSION, "Версия приложения");
         add(TranslationKey.SELECT_PAYMENT_METHOD, "Выбрать способ оплаты");
         add(TranslationKey.SUPPORT_PAYMENT_INFORMATION, "Я принимаю <a href=\"#\">условия оплаты PayU</a>");
         add(TranslationKey.COMPLIANCE_URL, "https://docs.google.com/viewer?url=https://static.payu.com/sites/terms/files/payu_terms_of_service_single_transaction_pl_en.pdf");
@@ -55,7 +52,6 @@ public class Russian extends StringMapTranslation {
         add(TranslationKey.SCAN_CARD, "Сканирование карты");
         add(TranslationKey.SCAN_FAILED, "Невозможно отсканировать карту‚Äì введите данные карты вручную");
         add(TranslationKey.SCAN_CANCELED, "Сканирование карты отменено");
-        add(TranslationKey.SECURE_CHECKOUT, "БЕЗОПАСНАЯ ОПЛАТА");
         add(TranslationKey.SOFT_ACCEPT_DIALOG_TITLE, "Проверка платежа...");
     }
 

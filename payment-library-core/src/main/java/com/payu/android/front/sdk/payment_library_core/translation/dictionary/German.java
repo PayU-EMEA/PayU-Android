@@ -34,9 +34,6 @@ public class German extends StringMapTranslation {
         add(TranslationKey.REMOVE_METHOD_DIALOG_TITLE, "Löschen der Zahlungsart");
         add(TranslationKey.REMOVE_METHOD_DIALOG_CONTENT, "Möchtest du die ausgewählte Zahlungsart wirklich löschen?");
         add(TranslationKey.REMOVE, "Löschen");
-        add(TranslationKey.PUBLISHER, "Herausgeber");
-        add(TranslationKey.PAYU_COMPANY_NAME, "PayU S.A.");
-        add(TranslationKey.APPLICATION_VERSION, "App-Version");
         add(TranslationKey.SELECT_PAYMENT_METHOD, "Zahlungsart auswählen");
         add(TranslationKey.SUPPORT_PAYMENT_INFORMATION, "Ich stimme <a href=\"#\">den Geschäftsbedingungen PayU zu</a>");
         add(TranslationKey.COMPLIANCE_URL, "https://docs.google.com/viewer?url=https://static.payu.com/sites/terms/files/payu_terms_of_service_single_transaction_pl_en.pdf");
@@ -55,7 +52,6 @@ public class German extends StringMapTranslation {
         add(TranslationKey.SCAN_CARD, "Karte scannen");
         add(TranslationKey.SCAN_FAILED, "Karte kann nicht gescannt werden - geben Sie die Kartendetails manuell ein");
         add(TranslationKey.SCAN_CANCELED, "Scannen der Karte abgebrochen");
-        add(TranslationKey.SECURE_CHECKOUT, "SECURE CHECKOUT");
         add(TranslationKey.SOFT_ACCEPT_DIALOG_TITLE, "Zahlung überprüfen ...");
     }
 

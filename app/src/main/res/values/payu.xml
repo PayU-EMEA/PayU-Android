@@ -4,8 +4,8 @@
     <string name="payu_environment">sandbox</string>
     <!--
         Supported values are:
-            auto, bulgarian, croatian, czech, english, french, german, greek, hungarian, lithuanian,
-            polish, romanian, russian, slovak, slovenian, spanish, ukrainian
+            auto, bulgarian, croatian, czech, english, french, german, greek, hungarian, latvian,
+            lithuanian, polish, romanian, russian, slovak, slovenian, spanish, ukrainian
     -->
     <string name="payu_language">auto</string>
     <bool name="payu_save_and_use_card">true</bool>

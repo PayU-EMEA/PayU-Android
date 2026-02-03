@@ -34,9 +34,6 @@ public class Croatian extends StringMapTranslation {
         add(TranslationKey.REMOVE_METHOD_DIALOG_TITLE, "Brisanje načina plaćanja");
         add(TranslationKey.REMOVE_METHOD_DIALOG_CONTENT, "Jeste li sigurni da želite ukloniti odabrani način plaćanja?");
         add(TranslationKey.REMOVE, "Ukloniti");
-        add(TranslationKey.PUBLISHER, "Izdavatelj");
-        add(TranslationKey.PAYU_COMPANY_NAME, "PayU S.A.");
-        add(TranslationKey.APPLICATION_VERSION, "Verzija aplikacije");
         add(TranslationKey.SELECT_PAYMENT_METHOD, "Odaberi način plaćanja");
         add(TranslationKey.SUPPORT_PAYMENT_INFORMATION, "Prihvaćam <a href=\"#\">PayU uvjete plaćanja</a>");
         add(TranslationKey.COMPLIANCE_URL, "https://docs.google.com/viewer?url=https://static.payu.com/sites/terms/files/payu_terms_of_service_single_transaction_pl_en.pdf");
@@ -55,7 +52,6 @@ public class Croatian extends StringMapTranslation {
         add(TranslationKey.SCAN_CARD, "Skeniranje kartice");
         add(TranslationKey.SCAN_FAILED, "Ne mogu skenirati karticu,Äì unesite podatke o kartici ručno");
         add(TranslationKey.SCAN_CANCELED, "Skeniranje kartice otkazano");
-        add(TranslationKey.SECURE_CHECKOUT, "SIGURNA NAPLATA");
         add(TranslationKey.SOFT_ACCEPT_DIALOG_TITLE, "Provjera plaćanja...");
     }
 
