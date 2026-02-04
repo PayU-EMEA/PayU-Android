@@ -1,3 +1,8 @@
+# 1.0.40
+* Fix CVV invalid message after language change
+* Add Lithuanian language, fix Latvian translates
+* Using paymethods blacklist instead whitelist
+
 # 1.0.39
 * Update Card Scanner for support 16 KB page sizes
 
