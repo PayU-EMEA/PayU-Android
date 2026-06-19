@@ -5,33 +5,26 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.google.gson.Gson;
 import com.payu.android.front.sdk.payment_add_card_module.creator.CardServiceCreator;
 import com.payu.android.front.sdk.payment_add_card_module.issuer.CardIssuer;
 import com.payu.android.front.sdk.payment_add_card_module.presenter.NewCardPresenter;
 import com.payu.android.front.sdk.payment_add_card_module.view.NewCardView;
 import com.payu.android.front.sdk.payment_library_api_client.internal.rest.content.StaticContentUrlProvider;
 import com.payu.android.front.sdk.payment_library_api_client.internal.rest.model.Card;
-import com.payu.android.front.sdk.payment_library_api_client.internal.rest.model.CardInformation;
+import com.payu.android.front.sdk.payment_library_api_client.internal.rest.request.AddCardType;
 import com.payu.android.front.sdk.payment_library_api_client.internal.rest.request.TokenCreateRequest;
 import com.payu.android.front.sdk.payment_library_api_client.internal.rest.service.CardService;
 import com.payu.android.front.sdk.payment_library_core_android.ConfigurationEnvironmentProvider;
 
 public class NewCardService implements InternalCardServiceTokenizer {
-
-    private static final String CARD_TYPE = "STANDARD";
-    private static final String REQUEST_TYPE = "TokenCreateRequest";
     private static final String CARD_STATUS = "ACTIVE";
-    @NonNull
-    private final NewCardView view;
+
     @NonNull
     private final NewCardPresenter presenter;
     @NonNull
     private final Context context;
     @NonNull
     private final CardService cardService;
-    @NonNull
-    private final Gson gson;
     @NonNull
     private final RetrofitNewCardCallback retrofitNewCardCallback;
 
@@ -46,15 +39,13 @@ public class NewCardService implements InternalCardServiceTokenizer {
 
 
     private NewCardService(@NonNull NewCardView view, @NonNull Context context, @NonNull NewCardCallback callback) {
-        this(view, context, new NewCardPresenter(), CardServiceCreator.createCardService(context.getApplicationContext()), new Gson(), new RetrofitNewCardCallback(callback));
+        this(view, context, new NewCardPresenter(), CardServiceCreator.createCardService(context.getApplicationContext()), new RetrofitNewCardCallback(callback));
     }
 
-    NewCardService(@NonNull NewCardView view, @NonNull Context context, @NonNull NewCardPresenter presenter, @NonNull CardService cardService, @NonNull Gson gson, @NonNull RetrofitNewCardCallback retrofitNewCardCallback) {
-        this.view = view;
+    NewCardService(@NonNull NewCardView view, @NonNull Context context, @NonNull NewCardPresenter presenter, @NonNull CardService cardService, @NonNull RetrofitNewCardCallback retrofitNewCardCallback) {
         this.context = context.getApplicationContext();
         this.presenter = presenter;
         this.cardService = cardService;
-        this.gson = gson;
         this.presenter.takeView(view);
         this.retrofitNewCardCallback = retrofitNewCardCallback;
         this.retrofitNewCardCallback.setCardDataProviderListener(cardDataProvider);
@@ -66,17 +57,25 @@ public class NewCardService implements InternalCardServiceTokenizer {
     }
 
     @Override
-    public void addCardWithAgreement(@NonNull String senderId) {
+    public void addCard(@NonNull String senderId, @NonNull AddCardType type) {
         if (presenter.isCardValid()) {
-            makeRequest(true, senderId);
+            makeRequest(type, senderId);
         }
     }
 
+    @Deprecated
+    @Override
+    public void addCardWithAgreement(@NonNull String senderId) {
+        if (presenter.isCardValid()) {
+            makeRequest(AddCardType.MULTI, senderId);
+        }
+    }
 
+    @Deprecated
     @Override
     public void addCardWithoutAgreement(@NonNull String senderId) {
         if (presenter.isCardValid()) {
-            makeRequest(false, senderId);
+            makeRequest(AddCardType.SINGLE, senderId);
         }
     }
 
@@ -99,26 +98,11 @@ public class NewCardService implements InternalCardServiceTokenizer {
     }
 
 
-    private void makeRequest(boolean isAgreement, @NonNull String senderId) {
+    private void makeRequest(@NonNull AddCardType type, @NonNull String senderId) {
         Card card = presenter.getCardData();
-        TokenCreateRequest request = prepareRequest(card, isAgreement, senderId, CARD_TYPE, REQUEST_TYPE);
-        String jsonRequest = requestToJson(gson, request);
-        cardService.addCard(jsonRequest).enqueue(retrofitNewCardCallback);
+        TokenCreateRequest request = new TokenCreateRequest(senderId, type, card);
+        cardService.addCard(request).enqueue(retrofitNewCardCallback);
     }
-
-    @NonNull
-    private String requestToJson(@NonNull Gson gson, @NonNull TokenCreateRequest request) {
-        return gson.toJson(request);
-    }
-
-    @NonNull
-    private TokenCreateRequest prepareRequest(@NonNull Card card, boolean isAgreement, @NonNull String senderId, @NonNull String cardType, @NonNull String requestType) {
-        CardInformation cardInformation = new CardInformation(card, cardType, isAgreement);
-        TokenCreateRequest tokenCreateRequest = new TokenCreateRequest(senderId, requestType, cardInformation);
-
-        return tokenCreateRequest;
-    }
-
 
     @NonNull
     private CardDataProvider cardDataProvider = new CardDataProvider() {

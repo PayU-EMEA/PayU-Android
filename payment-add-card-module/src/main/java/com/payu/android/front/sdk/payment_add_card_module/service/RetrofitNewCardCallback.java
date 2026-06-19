@@ -4,9 +4,6 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 
-import com.payu.android.front.sdk.payment_library_api_client.internal.rest.model.OpenPayuStatusCode;
-import com.payu.android.front.sdk.payment_library_api_client.internal.rest.model.RequestStatus;
-import com.payu.android.front.sdk.payment_library_api_client.internal.rest.model.TokenizedCardData;
 import com.payu.android.front.sdk.payment_library_api_client.internal.rest.request.TokenCreateResponse;
 import com.payu.android.front.sdk.payment_library_payment_methods.model.CardPaymentMethodBuilder;
 
@@ -48,43 +45,25 @@ public class RetrofitNewCardCallback implements Callback<TokenCreateResponse> {
     }
 
     private void success(TokenCreateResponse tokenCreateResponse) {
-        RequestStatus requestStatus = tokenCreateResponse.getRequestStatus();
-        if (isRequestStatusEmpty(requestStatus) || isRequestStatusCodeEmpty(requestStatus) || !requestStatus.getOpenPayuStatusCode().isSuccess()) {
-            int statusCode = isRequestStatusEmpty(requestStatus) ? GENERAL_ERROR : requestStatus.getStatusCodeNumber();
-            String statusLiteral = isRequestStatusCodeEmpty(requestStatus) || isRequestStatusCodeEmpty(requestStatus) ?
-                    OpenPayuStatusCode.GENERAL_ERROR.toString() : requestStatus.getStatusLiteral();
-            Log.v(TAG, "request failed: " + statusLiteral + " with status code: " + statusCode);
-            callback.onError(new Error(statusCode, statusLiteral));
-            return;
-        }
-        TokenizedCardData cardData = tokenCreateResponse.getTokenizedCardData();
         String cardPath = cardDataProvider.getCardLogoPath();
 
-        if (cardPath == null || cardData == null) {
+        if (cardPath == null) {
             callback.onError(new CardNotSelectedError());
             return;
         }
 
         CardPaymentMethodBuilder builder = new CardPaymentMethodBuilder()
-                .withValue(cardData.getCardToken())
+                .withValue(tokenCreateResponse.getValue())
                 .withBrandImageUrl(cardPath)
                 .withCardExpirationMonth(cardDataProvider.getCardValidMonth())
                 .withCardExpirationYear(cardDataProvider.getCardValidYear())
-                .withCardNumberMasked(cardData.getCardMask())
+                .withCardNumberMasked(tokenCreateResponse.getMaskedCard())
                 .withStatus(cardDataProvider.getCardStatus())
                 .withCardScheme(cardDataProvider.getCardProviderName())
                 .withPreferred(true);
 
         callback.onSuccess(builder.build());
 
-    }
-
-    private boolean isRequestStatusEmpty(RequestStatus requestStatus) {
-        return requestStatus == null;
-    }
-
-    private boolean isRequestStatusCodeEmpty(RequestStatus requestStatus) {
-        return requestStatus.getOpenPayuStatusCode() == null;
     }
 
     private void failure() {

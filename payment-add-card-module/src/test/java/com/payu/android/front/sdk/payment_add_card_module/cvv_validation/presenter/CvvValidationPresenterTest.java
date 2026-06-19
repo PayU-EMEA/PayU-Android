@@ -13,7 +13,6 @@ import com.payu.android.front.sdk.payment_add_card_module.status.CvvPaymentStatu
 import com.payu.android.front.sdk.payment_add_card_module.validation.StringValidator;
 import com.payu.android.front.sdk.payment_add_card_module.view.SelectorCvv;
 import com.payu.android.front.sdk.payment_library_api_client.internal.rest.parser.RedirectLinkParser;
-import com.payu.android.front.sdk.payment_library_api_client.internal.rest.request.OpenPayuResult;
 import com.payu.android.front.sdk.payment_library_api_client.internal.rest.service.CvvRestService;
 
 import org.junit.Before;
@@ -24,7 +23,6 @@ import retrofit2.Call;
 
 public class CvvValidationPresenterTest {
     private CvvValidationPresenter objectUnderTest;
-    private Gson gson = new Gson();
     @Mock
     private SelectorCvv selectorCvv;
     @Mock
@@ -36,13 +34,14 @@ public class CvvValidationPresenterTest {
     @Mock
     private CvvValidationView validationView;
     @Mock
-    private Call<OpenPayuResult> call;
+    private Call<Void> call;
 
     @Before
     public void setUp() {
         openMocks(this);
-        when(cvvRestService.sendCvv(anyString())).thenReturn(call);
-        objectUnderTest = new CvvValidationPresenter(gson, selectorCvv, editTextValidator, redirectLinkParser, cvvRestService);
+        when(cvvRestService.sendCvv(anyString(), anyString())).thenReturn(call);
+        when(redirectLinkParser.getRefReqId()).thenReturn("refReqId");
+        objectUnderTest = new CvvValidationPresenter(selectorCvv, editTextValidator, redirectLinkParser, cvvRestService);
         objectUnderTest.takeView(validationView);
     }
 
@@ -102,7 +101,7 @@ public class CvvValidationPresenterTest {
         objectUnderTest.onAccepted();
 
         //then
-        verify(cvvRestService).sendCvv(eq("{\"request\":\"auth.cvv\",\"data\":{\"cvv\":\"222\"}}"));
+        verify(cvvRestService).sendCvv(eq("refReqId"), eq("222"));
     }
 
     @Test

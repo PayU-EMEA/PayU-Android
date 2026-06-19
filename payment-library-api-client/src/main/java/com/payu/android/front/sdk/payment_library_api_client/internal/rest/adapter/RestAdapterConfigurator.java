@@ -19,6 +19,7 @@ import javax.net.ssl.X509TrustManager;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
+import retrofit2.converter.scalars.ScalarsConverterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RestAdapterConfigurator {
@@ -38,6 +39,7 @@ public class RestAdapterConfigurator {
         return new Retrofit.Builder()
                 .client(okHttpClient)
                 .baseUrl(restEnvironment.getCardEndpointUrl())
+                .addConverterFactory(ScalarsConverterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
     }
@@ -46,6 +48,7 @@ public class RestAdapterConfigurator {
         return new Retrofit.Builder()
                 .client(getPreConfiguredClient(environment))
                 .baseUrl(endpoint)
+                .addConverterFactory(ScalarsConverterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
     }

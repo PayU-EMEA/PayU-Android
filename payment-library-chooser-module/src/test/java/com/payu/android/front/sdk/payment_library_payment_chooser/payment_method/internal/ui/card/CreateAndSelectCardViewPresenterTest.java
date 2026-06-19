@@ -1,11 +1,13 @@
 package com.payu.android.front.sdk.payment_library_payment_chooser.payment_method.internal.ui.card;
 
 import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.openMocks;
 
+import com.payu.android.front.sdk.payment_library_api_client.internal.rest.request.AddCardType;
 import com.payu.android.front.sdk.payment_library_core_android.configuration.dynamicaddcard.DynamicCardActionDelegate;
 import com.payu.android.front.sdk.payment_library_payment_chooser.payment_method.external.listener.CardScannerAPI;
 import com.payu.android.front.sdk.payment_library_payment_chooser.payment_method.internal.providers.PaymentMethodActions;
@@ -49,8 +51,7 @@ public class CreateAndSelectCardViewPresenterTest {
         objectUnderTest.onAddCard(true, true);
 
         //then
-        verify(view, times(1)).addCardWithAgreement(anyString());
-        verify(view, times(0)).addCardWithoutAgreement(anyString());
+        verify(view, times(1)).addCard(anyString(), eq(AddCardType.MULTI));
     }
 
     @Test
@@ -61,8 +62,7 @@ public class CreateAndSelectCardViewPresenterTest {
         objectUnderTest.onAddCard(false, true);
 
         //then
-        verify(view, times(1)).addCardWithoutAgreement(anyString());
-        verify(view, times(0)).addCardWithAgreement(anyString());
+        verify(view, times(1)).addCard(anyString(), eq(AddCardType.SINGLE_LONGTERM));
     }
 
     @Test

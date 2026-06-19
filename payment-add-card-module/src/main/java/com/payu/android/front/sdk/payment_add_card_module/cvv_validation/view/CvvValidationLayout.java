@@ -74,7 +74,7 @@ public class CvvValidationLayout extends FrameLayout implements CvvValidationVie
 
     private void setupPresenter(@NonNull AuthorizationDetails authorizationDetails) {
         RedirectLinkParser validationLinkParser = new RedirectLinkParser(Uri.parse(authorizationDetails.getLink().get()));
-        cvvValidationPresenter = new CvvValidationPresenter(new Gson(), cardCvvView, new CvvStringValidator(new CvvInvalidMessageProvider()), validationLinkParser,
+        cvvValidationPresenter = new CvvValidationPresenter(cardCvvView, new CvvStringValidator(new CvvInvalidMessageProvider()), validationLinkParser,
                 CardServiceCreator.createCvvRestService(getContext(),
                         ConfigurationEnvironmentProvider.provideEnvironment(getContext()).getCardEndpointUrl()
                 ));

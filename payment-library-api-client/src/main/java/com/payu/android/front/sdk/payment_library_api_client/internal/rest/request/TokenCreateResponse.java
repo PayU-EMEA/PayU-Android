@@ -1,32 +1,29 @@
 package com.payu.android.front.sdk.payment_library_api_client.internal.rest.request;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 import com.google.gson.annotations.SerializedName;
-import com.payu.android.front.sdk.payment_library_api_client.internal.rest.model.RequestStatus;
-import com.payu.android.front.sdk.payment_library_api_client.internal.rest.model.TokenizedCardData;
 
 public class TokenCreateResponse {
-    @SerializedName("data")
-    @Nullable
-    private final TokenizedCardData tokenizedCardData;
-    @SerializedName("status")
+    @SerializedName("value")
     @NonNull
-    private final RequestStatus requestStatus;
+    private final String value;
+    @SerializedName("maskedCard")
+    @NonNull
+    private final String maskedCard;
 
-    public TokenCreateResponse(@Nullable TokenizedCardData tokenizedCardData, @NonNull RequestStatus requestStatus) {
-        this.tokenizedCardData = tokenizedCardData;
-        this.requestStatus = requestStatus;
-    }
-
-    @Nullable
-    public TokenizedCardData getTokenizedCardData() {
-        return tokenizedCardData;
+    public TokenCreateResponse(@NonNull String value, @NonNull String maskedCard) {
+        this.value = value;
+        this.maskedCard = maskedCard;
     }
 
     @NonNull
-    public RequestStatus getRequestStatus() {
-        return requestStatus;
+    public String getValue() {
+        return value;
+    }
+
+    @NonNull
+    public String getMaskedCard() {
+        return maskedCard;
     }
 }

@@ -2,12 +2,12 @@ package com.payu.android.front.sdk.payment_library_payment_chooser.payment_metho
 
 import androidx.annotation.NonNull;
 
+import com.payu.android.front.sdk.payment_library_api_client.internal.rest.request.AddCardType;
+
 public interface CreateAndSelectCardView {
     void closeWithSuccess();
 
-    void addCardWithAgreement(@NonNull String senderId);
-
-    void addCardWithoutAgreement(@NonNull String senderId);
+    void addCard(@NonNull String senderId, @NonNull AddCardType type);
 
     void showError(@NonNull String error);
 
