@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.payu.android.front.sdk.payment_add_card_module.service.Error;
-import com.payu.android.front.sdk.payment_library_api_client.internal.rest.request.AddCardType;
+import com.payu.android.front.sdk.payment_library_api_client.internal.rest.request.TokenType;
 import com.payu.android.front.sdk.payment_library_core_android.base.BasePresenter;
 import com.payu.android.front.sdk.payment_library_core_android.configuration.dynamicaddcard.DynamicCardActionDelegate;
 import com.payu.android.front.sdk.payment_library_payment_chooser.payment_method.external.listener.CardScannerAPI;
@@ -86,7 +86,7 @@ public class CreateAndSelectCardViewPresenter extends BasePresenter<CreateAndSel
             return;
         }
         merchantPosId.providePosId(posId -> {
-            view.addCard(posId, withAgreement ? AddCardType.MULTI : AddCardType.SINGLE_LONGTERM);
+            view.addCard(posId, withAgreement ? TokenType.MULTI : TokenType.SINGLE_LONGTERM);
         });
         view.showLoading();
     }

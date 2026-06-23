@@ -11,7 +11,7 @@ import com.payu.android.front.sdk.payment_add_card_module.presenter.NewCardPrese
 import com.payu.android.front.sdk.payment_add_card_module.view.NewCardView;
 import com.payu.android.front.sdk.payment_library_api_client.internal.rest.content.StaticContentUrlProvider;
 import com.payu.android.front.sdk.payment_library_api_client.internal.rest.model.Card;
-import com.payu.android.front.sdk.payment_library_api_client.internal.rest.request.AddCardType;
+import com.payu.android.front.sdk.payment_library_api_client.internal.rest.request.TokenType;
 import com.payu.android.front.sdk.payment_library_api_client.internal.rest.request.TokenCreateRequest;
 import com.payu.android.front.sdk.payment_library_api_client.internal.rest.service.CardService;
 import com.payu.android.front.sdk.payment_library_core_android.ConfigurationEnvironmentProvider;
@@ -57,7 +57,7 @@ public class NewCardService implements InternalCardServiceTokenizer {
     }
 
     @Override
-    public void addCard(@NonNull String senderId, @NonNull AddCardType type) {
+    public void addCard(@NonNull String senderId, @NonNull TokenType type) {
         if (presenter.isCardValid()) {
             makeRequest(type, senderId);
         }
@@ -67,7 +67,7 @@ public class NewCardService implements InternalCardServiceTokenizer {
     @Override
     public void addCardWithAgreement(@NonNull String senderId) {
         if (presenter.isCardValid()) {
-            makeRequest(AddCardType.MULTI, senderId);
+            makeRequest(TokenType.MULTI, senderId);
         }
     }
 
@@ -75,7 +75,7 @@ public class NewCardService implements InternalCardServiceTokenizer {
     @Override
     public void addCardWithoutAgreement(@NonNull String senderId) {
         if (presenter.isCardValid()) {
-            makeRequest(AddCardType.SINGLE, senderId);
+            makeRequest(TokenType.SINGLE, senderId);
         }
     }
 
@@ -98,7 +98,7 @@ public class NewCardService implements InternalCardServiceTokenizer {
     }
 
 
-    private void makeRequest(@NonNull AddCardType type, @NonNull String senderId) {
+    private void makeRequest(@NonNull TokenType type, @NonNull String senderId) {
         Card card = presenter.getCardData();
         TokenCreateRequest request = new TokenCreateRequest(senderId, type, card);
         cardService.addCard(request).enqueue(retrofitNewCardCallback);

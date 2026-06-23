@@ -9,7 +9,7 @@ import com.payu.android.front.sdk.frontsdk.databinding.ActivityAddNewCardBinding
 import com.payu.android.front.sdk.payment_add_card_module.service.Error
 import com.payu.android.front.sdk.payment_add_card_module.service.NewCardCallback
 import com.payu.android.front.sdk.payment_add_card_module.service.NewCardService
-import com.payu.android.front.sdk.payment_library_api_client.internal.rest.request.AddCardType
+import com.payu.android.front.sdk.payment_library_api_client.internal.rest.request.TokenType
 import com.payu.android.front.sdk.payment_library_payment_methods.model.CardPaymentMethod
 
 const val POS_ID_KEY = "pos_id"
@@ -34,7 +34,7 @@ class AddNewCardDemoActivity : MainActivity() {
         val instance = NewCardService.newInstance(binding.newCardWidget, this, callback)
 
         binding.saveAndUseButton.setOnClickListener {
-            intent.getStringExtra(POS_ID_KEY)?.let { pos -> instance.addCard(pos, AddCardType.MULTI) }
+            intent.getStringExtra(POS_ID_KEY)?.let { pos -> instance.addCard(pos, TokenType.MULTI) }
         }
     }
 }

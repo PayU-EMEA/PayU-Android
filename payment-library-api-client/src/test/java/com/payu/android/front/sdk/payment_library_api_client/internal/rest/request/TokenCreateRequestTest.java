@@ -16,7 +16,7 @@ public class TokenCreateRequestTest {
     public void shouldSerializeAddCardRequestAsExpectedJson() {
         TokenCreateRequest request = new TokenCreateRequest(
                 "200003",
-                AddCardType.SINGLE,
+                TokenType.SINGLE,
                 new Card("4444333322221111", "124", "02", "2029")
         );
 

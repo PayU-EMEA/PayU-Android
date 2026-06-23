@@ -10,11 +10,11 @@ public class TokenCreateRequest {
     @SerializedName("posId")
     private final String posId;
     @SerializedName("type")
-    private final AddCardType type;
+    private final TokenType type;
     @SerializedName("card")
     private final Card card;
 
-    public TokenCreateRequest(@NonNull String posId, @NonNull AddCardType type, @NonNull Card card) {
+    public TokenCreateRequest(@NonNull String posId, @NonNull TokenType type, @NonNull Card card) {
         this.posId = posId;
         this.type = type;
         this.card = card;
@@ -26,7 +26,7 @@ public class TokenCreateRequest {
     }
 
     @NonNull
-    public AddCardType getType() {
+    public TokenType getType() {
         return type;
     }
 

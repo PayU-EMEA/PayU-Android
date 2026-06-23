@@ -5,7 +5,7 @@ import android.content.Context;
 import com.payu.android.front.sdk.payment_add_card_module.presenter.NewCardPresenter;
 import com.payu.android.front.sdk.payment_add_card_module.view.NewCardView;
 import com.payu.android.front.sdk.payment_library_api_client.internal.rest.model.Card;
-import com.payu.android.front.sdk.payment_library_api_client.internal.rest.request.AddCardType;
+import com.payu.android.front.sdk.payment_library_api_client.internal.rest.request.TokenType;
 import com.payu.android.front.sdk.payment_library_api_client.internal.rest.request.TokenCreateRequest;
 import com.payu.android.front.sdk.payment_library_api_client.internal.rest.request.TokenCreateResponse;
 import com.payu.android.front.sdk.payment_library_api_client.internal.rest.service.CardService;
@@ -85,7 +85,7 @@ public class NewCardServiceTest {
         when(presenter.isCardValid()).thenReturn(false);
 
         //when
-        objectUnderTest.addCard("testId", AddCardType.SINGLE);
+        objectUnderTest.addCard("testId", TokenType.SINGLE);
 
         //then
         verify(presenter, times(1)).isCardValid();
@@ -101,7 +101,7 @@ public class NewCardServiceTest {
         when(presenter.getCardData()).thenReturn(card);
 
         //when
-        objectUnderTest.addCard("testId", AddCardType.MULTI);
+        objectUnderTest.addCard("testId", TokenType.MULTI);
 
         //then
         verify(presenter, times(1)).isCardValid();
@@ -109,7 +109,7 @@ public class NewCardServiceTest {
 
         org.mockito.ArgumentCaptor<TokenCreateRequest> requestCaptor = forClass(TokenCreateRequest.class);
         verify(cardService, times(1)).addCard(requestCaptor.capture());
-        assertThat(requestCaptor.getValue().getType()).isEqualTo(AddCardType.MULTI);
+        assertThat(requestCaptor.getValue().getType()).isEqualTo(TokenType.MULTI);
     }
 
 
@@ -119,7 +119,7 @@ public class NewCardServiceTest {
         when(presenter.isCardValid()).thenReturn(false);
 
         //when
-        objectUnderTest.addCard("testId", AddCardType.SINGLE);
+        objectUnderTest.addCard("testId", TokenType.SINGLE);
 
         //then
         verify(presenter, times(1)).isCardValid();

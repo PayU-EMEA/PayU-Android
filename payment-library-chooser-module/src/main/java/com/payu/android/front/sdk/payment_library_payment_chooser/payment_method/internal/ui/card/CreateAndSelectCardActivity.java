@@ -21,7 +21,7 @@ import com.payu.android.front.sdk.payment_add_card_module.service.InternalCardSe
 import com.payu.android.front.sdk.payment_add_card_module.service.NewCardCallback;
 import com.payu.android.front.sdk.payment_add_card_module.service.NewCardService;
 import com.payu.android.front.sdk.payment_add_card_module.view.NewCardView;
-import com.payu.android.front.sdk.payment_library_api_client.internal.rest.request.AddCardType;
+import com.payu.android.front.sdk.payment_library_api_client.internal.rest.request.TokenType;
 import com.payu.android.front.sdk.payment_library_core.translation.TranslationKey;
 import com.payu.android.front.sdk.payment_library_core_android.base.BaseActivity;
 import com.payu.android.front.sdk.payment_library_core_android.styles.ButtonStyle;
@@ -93,7 +93,7 @@ public class CreateAndSelectCardActivity extends BaseActivity implements CreateA
     }
 
     @Override
-    public void addCard(@NonNull String senderId, @NonNull AddCardType type) {
+    public void addCard(@NonNull String senderId, @NonNull TokenType type) {
         instance.addCard(senderId, type);
     }
 
