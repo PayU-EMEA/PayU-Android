@@ -3,15 +3,11 @@ package com.payu.android.front.sdk.payment_add_card_module.cvv_validation.presen
 import androidx.annotation.NonNull;
 
 import com.google.common.base.Optional;
-import com.google.gson.Gson;
-import com.payu.android.front.sdk.payment_add_card_module.cvv_validation.parser.CvvRequestModelSerializer;
 import com.payu.android.front.sdk.payment_add_card_module.cvv_validation.view.CvvValidationView;
 import com.payu.android.front.sdk.payment_add_card_module.status.CvvPaymentStatus;
 import com.payu.android.front.sdk.payment_add_card_module.validation.StringValidator;
 import com.payu.android.front.sdk.payment_add_card_module.view.SelectorCvv;
-import com.payu.android.front.sdk.payment_library_api_client.internal.rest.model.OpenPayuStatusCode;
 import com.payu.android.front.sdk.payment_library_api_client.internal.rest.parser.RedirectLinkParser;
-import com.payu.android.front.sdk.payment_library_api_client.internal.rest.request.OpenPayuResult;
 import com.payu.android.front.sdk.payment_library_api_client.internal.rest.service.CvvRestService;
 import com.payu.android.front.sdk.payment_library_core_android.base.BasePresenter;
 
@@ -24,8 +20,6 @@ import retrofit2.Response;
 
 public class CvvValidationPresenter extends BasePresenter<CvvValidationView> {
     @NonNull
-    private final Gson gson;
-    @NonNull
     private final SelectorCvv selectorCvv;
     @NonNull
     private final RedirectLinkParser validationLinkParser;
@@ -35,10 +29,9 @@ public class CvvValidationPresenter extends BasePresenter<CvvValidationView> {
     private final CvvRestService cardService;
 
     public CvvValidationPresenter(
-            @NonNull Gson gson, @NonNull SelectorCvv selectorCvv, @NonNull StringValidator editTextValidator,
+            @NonNull SelectorCvv selectorCvv, @NonNull StringValidator editTextValidator,
             @NonNull RedirectLinkParser validationLinkParser,
             @NonNull CvvRestService cardService) {
-        this.gson = gson;
         this.selectorCvv = selectorCvv;
         this.editTextValidator = editTextValidator;
         this.validationLinkParser = validationLinkParser;
@@ -59,12 +52,11 @@ public class CvvValidationPresenter extends BasePresenter<CvvValidationView> {
     }
 
     private void confirmCvv(String cvv) {
-        CvvRequestModelSerializer cvvRequestModelSerializer = new CvvRequestModelSerializer(gson, validationLinkParser, cvv);
         view.setViewLoading(true);
-        cardService.sendCvv(cvvRequestModelSerializer.getFormattedJson()).enqueue(new Callback<OpenPayuResult>() {
+        cardService.sendCvv(validationLinkParser.getRefReqId(), cvv).enqueue(new Callback<Void>() {
             @Override
-            public void onResponse(@NotNull Call<OpenPayuResult> call, @NotNull Response<OpenPayuResult> response) {
-                if (response.isSuccessful() && response.body() != null && response.body().getOpenPayuStatusCode() == OpenPayuStatusCode.SUCCESS) {
+            public void onResponse(@NotNull Call<Void> call, @NotNull Response<Void> response) {
+                if (response.code() == 202) {
                     notifyView(CvvPaymentStatus.SUCCESS);
                 } else {
                     notifyView(CvvPaymentStatus.PAYMENT_ERROR);
@@ -72,7 +64,7 @@ public class CvvValidationPresenter extends BasePresenter<CvvValidationView> {
             }
 
             @Override
-            public void onFailure(@NotNull Call<OpenPayuResult> call, @NotNull Throwable t) {
+            public void onFailure(@NotNull Call<Void> call, @NotNull Throwable t) {
                 notifyView(CvvPaymentStatus.PAYMENT_ERROR);
             }
         });

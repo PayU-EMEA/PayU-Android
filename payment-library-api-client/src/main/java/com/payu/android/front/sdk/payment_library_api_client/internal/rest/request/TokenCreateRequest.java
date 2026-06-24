@@ -3,35 +3,35 @@ package com.payu.android.front.sdk.payment_library_api_client.internal.rest.requ
 import androidx.annotation.NonNull;
 
 import com.google.gson.annotations.SerializedName;
-import com.payu.android.front.sdk.payment_library_api_client.internal.rest.model.CardInformation;
+import com.payu.android.front.sdk.payment_library_api_client.internal.rest.model.Card;
 
 public class TokenCreateRequest {
 
-    @SerializedName("sender")
-    private final String senderId;
-    @SerializedName("request")
-    private final String requestType;
-    @SerializedName("data")
-    private final CardInformation requestData;
+    @SerializedName("posId")
+    private final String posId;
+    @SerializedName("type")
+    private final TokenType type;
+    @SerializedName("card")
+    private final Card card;
 
-    public TokenCreateRequest(@NonNull String senderId, @NonNull String requestType, @NonNull CardInformation requestData) {
-        this.senderId = senderId;
-        this.requestType = requestType;
-        this.requestData = requestData;
+    public TokenCreateRequest(@NonNull String posId, @NonNull TokenType type, @NonNull Card card) {
+        this.posId = posId;
+        this.type = type;
+        this.card = card;
     }
 
     @NonNull
-    public String getSenderId() {
-        return senderId;
+    public String getPosId() {
+        return posId;
     }
 
     @NonNull
-    public String getRequestType() {
-        return requestType;
+    public TokenType getType() {
+        return type;
     }
 
     @NonNull
-    public CardInformation getRequestData() {
-        return requestData;
+    public Card getCard() {
+        return card;
     }
 }

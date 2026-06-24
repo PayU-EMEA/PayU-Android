@@ -40,6 +40,7 @@ dependencies {
     api "com.google.code.gson:gson:$project.gsonVersion"
 
     api "com.squareup.retrofit2:retrofit:$project.retrofit2Version"
+    implementation "com.squareup.retrofit2:converter-scalars:$project.retrofit2Version"
     implementation "com.squareup.retrofit2:converter-gson:$project.retrofit2Version"
     api "com.squareup.okhttp3:logging-interceptor:$project.okhttpLogInterceptorVersion"
 
