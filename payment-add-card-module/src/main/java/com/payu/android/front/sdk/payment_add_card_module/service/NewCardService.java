@@ -9,6 +9,7 @@ import com.payu.android.front.sdk.payment_add_card_module.creator.CardServiceCre
 import com.payu.android.front.sdk.payment_add_card_module.issuer.CardIssuer;
 import com.payu.android.front.sdk.payment_add_card_module.presenter.NewCardPresenter;
 import com.payu.android.front.sdk.payment_add_card_module.view.NewCardView;
+import com.payu.android.front.sdk.payment_library_api_client.BuildConfig;
 import com.payu.android.front.sdk.payment_library_api_client.internal.rest.content.StaticContentUrlProvider;
 import com.payu.android.front.sdk.payment_library_api_client.internal.rest.model.Card;
 import com.payu.android.front.sdk.payment_library_api_client.internal.rest.request.TokenType;
@@ -17,6 +18,8 @@ import com.payu.android.front.sdk.payment_library_api_client.internal.rest.servi
 import com.payu.android.front.sdk.payment_library_core_android.ConfigurationEnvironmentProvider;
 
 public class NewCardService implements InternalCardServiceTokenizer {
+    private static final String QUERY_FROM_VALUE = "mobilesdk";
+    private static final String QUERY_SENDER_VALUE = "android";
     private static final String CARD_STATUS = "ACTIVE";
 
     @NonNull
@@ -101,7 +104,12 @@ public class NewCardService implements InternalCardServiceTokenizer {
     private void makeRequest(@NonNull TokenType type, @NonNull String senderId) {
         Card card = presenter.getCardData();
         TokenCreateRequest request = new TokenCreateRequest(senderId, type, card);
-        cardService.addCard(request).enqueue(retrofitNewCardCallback);
+        cardService.addCard(
+                QUERY_FROM_VALUE,
+                QUERY_SENDER_VALUE,
+                BuildConfig.LIBRARY_VERSION_NAME,
+                request
+        ).enqueue(retrofitNewCardCallback);
     }
 
     @NonNull

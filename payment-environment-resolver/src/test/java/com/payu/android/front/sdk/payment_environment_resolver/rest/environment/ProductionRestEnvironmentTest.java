@@ -23,7 +23,7 @@ public class ProductionRestEnvironmentTest {
 
     @Test
     public void shouldProductionEnvReturnProperEndpoints() {
-        assertEquals("https://mobilesdk.secure.payu.com", productionRestEnv.getCardEndpointUrl());
+        assertEquals("https://mobilesdk.platnosci.pl", productionRestEnv.getCardEndpointUrl());
         assertEquals("https://static.payu.com", productionRestEnv.getStaticContentUrl());
     }
 

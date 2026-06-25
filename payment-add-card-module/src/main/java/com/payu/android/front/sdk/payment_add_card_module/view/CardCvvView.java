@@ -1,6 +1,7 @@
 package com.payu.android.front.sdk.payment_add_card_module.view;
 
 import android.content.Context;
+import android.os.Build;
 import android.text.InputType;
 import android.text.method.PasswordTransformationMethod;
 import android.util.AttributeSet;
@@ -56,6 +57,9 @@ public class CardCvvView extends TextInputLayout implements SelectorCvv {
     private void configureCvvEditText() {
         if (cvvEditText != null) {
             cvvEditText.setInputType(InputType.TYPE_CLASS_NUMBER);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                cvvEditText.setAutofillHints(View.AUTOFILL_HINT_CREDIT_CARD_NUMBER);
+            }
             cvvEditText.setTransformationMethod(PasswordTransformationMethod.getInstance());
             cvvEditText.addTextChangedListener(new ValidationErrorCleanerTextWatcher(this));
             MaxLengthSetter.setMaxLength(cvvEditText, CVV_MAX_LENGTH);
@@ -70,12 +74,9 @@ public class CardCvvView extends TextInputLayout implements SelectorCvv {
     @Override
     public void addValidateOnFocusChangeListener(@Nullable final ValidateOnFocusChangeListener onFocusChangeListener) {
         if (cvvEditText != null) {
-            cvvEditText.setOnFocusChangeListener(new OnFocusChangeListener() {
-                @Override
-                public void onFocusChange(View v, boolean hasFocus) {
-                    if (onFocusChangeListener != null) {
-                        onFocusChangeListener.validateOnFocusChange(hasFocus);
-                    }
+            cvvEditText.setOnFocusChangeListener((v, hasFocus) -> {
+                if (onFocusChangeListener != null) {
+                    onFocusChangeListener.validateOnFocusChange(hasFocus);
                 }
             });
         }
