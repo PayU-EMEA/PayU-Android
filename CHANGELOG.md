@@ -1,3 +1,9 @@
+# 1.0.41
+* Added autofill to card form fields
+* Added new certificate for ssl pinning
+* Switched tokenize and save cvv to new domain and endpoints
+* Added SDK version to tokenize query
+
 # 1.0.40
 * Fix CVV invalid message after language change
 * Add Lithuanian language, fix Latvian translates
