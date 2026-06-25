@@ -22,6 +22,7 @@ import static junit.framework.Assert.assertTrue;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentCaptor.forClass;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -48,7 +49,7 @@ public class NewCardServiceTest {
     public void setUp() {
         MockitoAnnotations.openMocks(this);
         when(context.getApplicationContext()).thenReturn(context);
-        when(cardService.addCard(any(TokenCreateRequest.class))).thenReturn(call);
+        when(cardService.addCard(anyString(), anyString(), anyString(), any(TokenCreateRequest.class))).thenReturn(call);
         objectUnderTest = new NewCardService(view, context, presenter, cardService, retrofitNewCardCallback);
 
     }
@@ -90,7 +91,7 @@ public class NewCardServiceTest {
         //then
         verify(presenter, times(1)).isCardValid();
         verify(presenter, times(0)).getCardData();
-        verify(cardService, times(0)).addCard(any(TokenCreateRequest.class));
+        verify(cardService, times(0)).addCard(anyString(), anyString(), anyString(), any(TokenCreateRequest.class));
     }
 
     @Test
@@ -108,7 +109,7 @@ public class NewCardServiceTest {
         verify(presenter, times(1)).getCardData();
 
         org.mockito.ArgumentCaptor<TokenCreateRequest> requestCaptor = forClass(TokenCreateRequest.class);
-        verify(cardService, times(1)).addCard(requestCaptor.capture());
+        verify(cardService, times(1)).addCard(anyString(), anyString(), anyString(), requestCaptor.capture());
         assertThat(requestCaptor.getValue().getType()).isEqualTo(TokenType.MULTI);
     }
 
@@ -124,6 +125,6 @@ public class NewCardServiceTest {
         //then
         verify(presenter, times(1)).isCardValid();
         verify(presenter, times(0)).getCardData();
-        verify(cardService, times(0)).addCard(any(TokenCreateRequest.class));
+        verify(cardService, times(0)).addCard(anyString(), anyString(), anyString(), any(TokenCreateRequest.class));
     }
 }

@@ -22,7 +22,7 @@ public class ProductionRestEnvironment extends NetworkEnvironment implements Res
 
     @Override
     public String getCardEndpointUrl() {
-        return "https://mobilesdk.secure.payu.com";
+        return "https://mobilesdk.platnosci.pl";
     }
 
     @Override

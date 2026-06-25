@@ -1,6 +1,7 @@
 package com.payu.android.front.sdk.payment_add_card_module.view;
 
 import android.content.Context;
+import android.os.Build;
 import android.text.InputFilter;
 import android.text.InputType;
 import android.text.method.DigitsKeyListener;
@@ -60,6 +61,9 @@ public class CardNumberView extends TextInputLayout implements SelectNumber {
     }
 
     private void formatEditTextValues() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            cardNumberEditText.setAutofillHints(View.AUTOFILL_HINT_CREDIT_CARD_NUMBER);
+        }
         cardNumberEditText.setFilters(new InputFilter[]{DigitsKeyListener.getInstance(ACCEPTED_CARD_NUMBER_CHARACTERS)});
         cardNumberEditText.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
         MaxLengthSetter.setMaxLength(cardNumberEditText, MAX_FORMATTED_CARD_LENGTH);
@@ -81,12 +85,9 @@ public class CardNumberView extends TextInputLayout implements SelectNumber {
 
     @Override
     public void addValidateOnFocusChangeListener(@Nullable final ValidateOnFocusChangeListener onFocusChangeListener) {
-        cardNumberEditText.setOnFocusChangeListener(new OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (onFocusChangeListener != null) {
-                    onFocusChangeListener.validateOnFocusChange(hasFocus);
-                }
+        cardNumberEditText.setOnFocusChangeListener((v, hasFocus) -> {
+            if (onFocusChangeListener != null) {
+                onFocusChangeListener.validateOnFocusChange(hasFocus);
             }
         });
     }

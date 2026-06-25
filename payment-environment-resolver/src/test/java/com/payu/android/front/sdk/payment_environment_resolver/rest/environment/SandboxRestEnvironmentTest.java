@@ -23,7 +23,7 @@ public class SandboxRestEnvironmentTest {
 
     @Test
     public void shouldSandboxEnvReturnProperEndpoints() {
-        assertEquals("https://mobilesdk.snd.payu.com", objectUnderTests.getCardEndpointUrl());
+        assertEquals("https://mobilesdk.snd.platnosci.pl", objectUnderTests.getCardEndpointUrl());
         assertEquals("https://static.payu.com", objectUnderTests.getStaticContentUrl());
     }
 

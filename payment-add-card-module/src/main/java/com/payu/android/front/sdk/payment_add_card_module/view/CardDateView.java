@@ -1,6 +1,7 @@
 package com.payu.android.front.sdk.payment_add_card_module.view;
 
 import android.content.Context;
+import android.os.Build;
 import android.text.InputType;
 import android.util.AttributeSet;
 import android.view.View;
@@ -72,6 +73,9 @@ public class CardDateView extends LinearLayout implements CardDate {
         EditText editText = dateExpirationTextInputLayout.getEditText();
         if (editText != null) {
             editText.setInputType(InputType.TYPE_CLASS_NUMBER);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                editText.setAutofillHints(View.AUTOFILL_HINT_CREDIT_CARD_EXPIRATION_DATE);
+            }
             editText.addTextChangedListener(new ValidationErrorCleanerTextWatcher(dateExpirationTextInputLayout));
             editText.addTextChangedListener(new EditTextFormattingTextWatcher(editText, new DateFormattingStrategy()));
             MaxLengthSetter.setMaxLength(editText, DATE_MAX_LENGTH);
@@ -101,12 +105,9 @@ public class CardDateView extends LinearLayout implements CardDate {
     public void addValidateOnFocusChangeListener(@Nullable final ValidateOnFocusChangeListener onFocusChangeListener) {
         EditText editText = dateExpirationTextInputLayout.getEditText();
         if (editText != null) {
-            editText.setOnFocusChangeListener(new OnFocusChangeListener() {
-                @Override
-                public void onFocusChange(View v, boolean hasFocus) {
-                    if (onFocusChangeListener != null) {
-                        onFocusChangeListener.validateOnFocusChange(hasFocus);
-                    }
+            editText.setOnFocusChangeListener((v, hasFocus) -> {
+                if (onFocusChangeListener != null) {
+                    onFocusChangeListener.validateOnFocusChange(hasFocus);
                 }
             });
         }
