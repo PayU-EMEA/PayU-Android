@@ -9,7 +9,7 @@ package com.payu.android.front.sdk.payment_library_core.payment.configuration;
 public enum Locale {
     AUTO("auto"), POLISH("pl"), ENGLISH("en"),
     CZECH("cs"), GERMAN("de"), HUNGARIAN("hu"),
-    UKRAINIAN("ua") , SLOVAK("sk"), SPANISH ("es"),
+    UKRAINIAN("uk") , SLOVAK("sk"), SPANISH ("es"),
     FRENCH("fr"), LITHUANIAN("lt"), LATVIAN("lv"),
     ROMANIAN("ro"), SLOVENIAN("sl"), BULGARIAN("bg"),
     GREEK("el"), CROATIAN("hr"), ITALIAN("it"),
