@@ -1,5 +1,6 @@
 # 1.0.41
 * Added autofill to card form fields
+* Fixed Ukrainian language ISO code
 * Added new certificate for ssl pinning
 * Switched tokenize and save cvv to new domain and endpoints
 * Added SDK version to tokenize query
