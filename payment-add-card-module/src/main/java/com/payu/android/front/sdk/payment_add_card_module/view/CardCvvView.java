@@ -58,7 +58,7 @@ public class CardCvvView extends TextInputLayout implements SelectorCvv {
         if (cvvEditText != null) {
             cvvEditText.setInputType(InputType.TYPE_CLASS_NUMBER);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                cvvEditText.setAutofillHints(View.AUTOFILL_HINT_CREDIT_CARD_NUMBER);
+                cvvEditText.setAutofillHints(View.AUTOFILL_HINT_CREDIT_CARD_SECURITY_CODE);
             }
             cvvEditText.setTransformationMethod(PasswordTransformationMethod.getInstance());
             cvvEditText.addTextChangedListener(new ValidationErrorCleanerTextWatcher(this));
