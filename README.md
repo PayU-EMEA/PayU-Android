@@ -32,3 +32,4 @@ bulgarian, croatian, czech, english, french, german, greek, hungarian, lithuania
 * Update [CHANGELOG.md](CHANGELOG.md)
 * Create PR with a name matching the following pattern `Release: ${project.ext.versionName}`
 * Squash and merge - SDK release is triggered by a commit to `main` with a message `Release: ***`
+
