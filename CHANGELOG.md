@@ -1,3 +1,6 @@
+# 1.0.42
+* Fixed CVV autofill
+
 # 1.0.41
 * Added autofill to card form fields
 * Fixed Ukrainian language ISO code
