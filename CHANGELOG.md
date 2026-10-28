@@ -1,3 +1,6 @@
+# 1.0.43
+* Added open external application via Universal Link in Webview Module
+
 # 1.0.42
 * Fixed CVV autofill
 
