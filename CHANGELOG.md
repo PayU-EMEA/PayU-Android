@@ -1,5 +1,9 @@
-# 1.0.43
+# 1.0.44
 * Added open external application via Universal Link in Webview Module
+* Added new certificate for ssl pinning
+
+# 1.0.43
+* Same version as 1.0.42
 
 # 1.0.42
 * Fixed CVV autofill
