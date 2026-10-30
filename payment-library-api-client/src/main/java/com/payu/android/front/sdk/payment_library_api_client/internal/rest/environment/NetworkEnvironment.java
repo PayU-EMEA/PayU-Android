@@ -22,6 +22,9 @@ public abstract class NetworkEnvironment implements RestEnvironment {
             "certs/SectigoR46.cer",
             "certs/digicert-global-root-g2.pem",
             "certs/digicert-global-root-g3.pem",
+            "certs/DigiCertGlobalRootCA.crt.pem",
+            "certs/DigiCertTLSECCP384RootG5.crt.pem",
+            "certs/DigiCertTLSRSA4096RootG5.crt.pem",
             "certs/payu-root-ca-01.pem"
     );
 
