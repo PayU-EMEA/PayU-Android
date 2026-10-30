@@ -1,5 +1,6 @@
 package com.payu.android.front.sdk.payment_library_webview_module.web.authorization.client;
 
+import android.content.Context;
 import android.webkit.WebView;
 
 import com.payu.android.front.sdk.payment_library_api_client.internal.rest.environment.RestEnvironment;
@@ -32,6 +33,10 @@ public class PaymentWebViewClientTest {
     PaymentUrlMatcher mockUrlMatcher;
     @Mock
     RestEnvironment mockRestEnvironment;
+    @Mock
+    ExternalAppLinkOpener mockExternalAppLinkOpener;
+    @Mock
+    Context mockContext;
 
     @Before
     public void setUp() {
@@ -175,5 +180,37 @@ public class PaymentWebViewClientTest {
 
         // then
         verify(mockPaymentListener, times(1)).onCvvRequired(urlWithTransactionId);
+    }
+
+    @Test
+    public void shouldOpenExternalAppWhenUrlIsRegisteredAsDeepLink() {
+        // given
+        String appLinkUrl = "https://bank.example.com/pay";
+        when(webViewMock.getContext()).thenReturn(mockContext);
+        when(mockExternalAppLinkOpener.tryOpen(mockContext, appLinkUrl)).thenReturn(true);
+        objectUnderText = new PaymentWebViewClient(mockUrlMatcher, "", mockPaymentListener, mockRestEnvironment, mockExternalAppLinkOpener);
+
+        // when
+        boolean shouldOverride = objectUnderText.shouldOverrideUrlLoading(webViewMock, appLinkUrl);
+
+        // then
+        assertThat(shouldOverride).isTrue();
+        verify(mockPaymentListener).onRedirectToMobileAppCalled();
+    }
+
+    @Test
+    public void shouldLoadUrlInWebViewWhenNoAppIsRegisteredForIt() {
+        // given
+        String url = "https://example.com/page";
+        when(webViewMock.getContext()).thenReturn(mockContext);
+        when(mockExternalAppLinkOpener.tryOpen(mockContext, url)).thenReturn(false);
+        objectUnderText = new PaymentWebViewClient(mockUrlMatcher, "", mockPaymentListener, mockRestEnvironment, mockExternalAppLinkOpener);
+
+        // when
+        boolean shouldOverride = objectUnderText.shouldOverrideUrlLoading(webViewMock, url);
+
+        // then
+        assertThat(shouldOverride).isFalse();
+        verifyNoInteractions(mockPaymentListener);
     }
 }

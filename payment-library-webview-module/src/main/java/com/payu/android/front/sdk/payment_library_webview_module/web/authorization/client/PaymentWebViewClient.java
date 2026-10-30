@@ -71,11 +71,18 @@ public class PaymentWebViewClient extends WebViewClient {
     private final String mFallbackUrl;
 
     private final PaymentUrlMatcher mUrlMatcher;
+    private final ExternalAppLinkOpener mExternalAppLinkOpener;
     private PageLoadingCallback mPageLoadingCallback = HOLLOW_IMPLEMENTATION;
 
     public PaymentWebViewClient(PaymentUrlMatcher urlMatcher, String fallbackUrl, OnPaymentAuthorizedListener onFinishListener,
                                 RestEnvironment restEnvironment) {
+        this(urlMatcher, fallbackUrl, onFinishListener, restEnvironment, new ExternalAppLinkOpener());
+    }
+
+    PaymentWebViewClient(PaymentUrlMatcher urlMatcher, String fallbackUrl, OnPaymentAuthorizedListener onFinishListener,
+                         RestEnvironment restEnvironment, ExternalAppLinkOpener externalAppLinkOpener) {
         mUrlMatcher = urlMatcher;
+        mExternalAppLinkOpener = externalAppLinkOpener;
         mFallbackUrl = fallbackUrl;
         mOnFinishListener = onFinishListener;
         mRestEnvironment = restEnvironment;
@@ -145,6 +152,10 @@ public class PaymentWebViewClient extends WebViewClient {
             view.clearCache(true);
             HandleAppIntentStatuses status = handleAppIntent(view, url, mFallbackUrl, startsWithIntent(url));
 
+            return true;
+        } else if (mExternalAppLinkOpener.tryOpen(view.getContext(), url)) {
+            Log.v(TAG, "Url registered as deep link opened in external application");
+            getOnPaymentAuthorizedListener().onRedirectToMobileAppCalled();
             return true;
         } else if (urlIsPdfFile(url)) {
             Log.v(TAG, "Redirection opening url files");
