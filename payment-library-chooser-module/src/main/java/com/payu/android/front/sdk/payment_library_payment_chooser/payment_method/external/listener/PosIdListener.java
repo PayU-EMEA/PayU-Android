@@ -6,7 +6,7 @@ import com.payu.android.front.sdk.payment_library_payment_chooser.payment_method
 
 /**
  * Interface used for dynamic POS ID creation used for eg. adding new card. To learn more about POS please check
- * <a href="http://developers.payu.com/en/overview.html">official documentation</a>.
+ * <a href="https://developers.payu.com/europe/docs/get-started/set-up-account/management-panel/#management-panel-point-of-sale">official documentation</a>.
  * This class would be provided in {@linkplain PaymentMethodActions#providePosId(PosIdListener)} method argument.
  */
 public interface PosIdListener {
