@@ -17,7 +17,7 @@ public class PriceFormatter {
 
     /**
      * With order creation, price is sent as integer. For more details see
-     * <a href=http://developers.payu.com/en/restapi.html#creating_new_order>documentation</a>
+     * <a href="https://developers.payu.com/europe/docs/payment-flows/auth-and-order/#creating-new-order">documentation</a>
      *
      * @return Formatted price as String with two decimal places
      */
