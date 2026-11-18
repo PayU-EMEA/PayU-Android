@@ -18,7 +18,7 @@ public class Error {
      * For nonstandard error codes please check official documentation
      *
      * @param errorCode
-     * @see <a href="http://developers.payu.com/en/restapi.html">
+     * @see <a href="https://developers.payu.com/europe/docs/payment-flows/auth-and-order/#status-codes">
      * documentation</a>
      */
     public Error(int errorCode) {
@@ -29,7 +29,7 @@ public class Error {
      * For nonstandard error codes
      *
      * @return {@linkplain Error#COMMUNICATION_GENERAL} in case of network issue, in other case it will return PayU literal error
-     * @see <a href="http://developers.payu.com/en/restapi.html">
+     * @see <a href="https://developers.payu.com/europe/docs/payment-flows/auth-and-order/#status-codes">
      * documentation</a>
      */
     public String getErrorLiteral() {

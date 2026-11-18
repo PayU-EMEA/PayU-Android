@@ -19,7 +19,7 @@ public interface CardServiceTokenizer {
      * Call for creating card token
      *
      * @param senderId Merchant POS
-     *                 more information @see <a href="http://developers.payu.com/en/restapi.html">
+     *                 more information @see <a href="https://developers.payu.com/europe/docs/get-started/set-up-account/management-panel/#management-panel-point-of-sale">
      *                 documentation</a>
      * @param type Token type
      *             <ul>
@@ -36,7 +36,7 @@ public interface CardServiceTokenizer {
      *
      * @deprecated Use {@link #addCard(String, TokenType)} instead.
      * @param senderId - Merchant POS
-     *                 more information @see <a href="http://developers.payu.com/en/restapi.html">
+     *                 more information @see <a href="https://developers.payu.com/europe/docs/get-started/set-up-account/management-panel/#management-panel-point-of-sale">
      *                 documentation</a>
      */
     @Deprecated
@@ -47,7 +47,7 @@ public interface CardServiceTokenizer {
      *
      * @deprecated Use {@link #addCard(String, TokenType)} instead.
      * @param senderId - Merchant POS
-     *                 more information @see <a href="http://developers.payu.com/en/restapi.html">
+     *                 more information @see <a href="https://developers.payu.com/europe/docs/get-started/set-up-account/management-panel/#management-panel-point-of-sale">
      *                 documentation</a>
      */
     @Deprecated

@@ -71,7 +71,7 @@ public class GooglePayService {
      * @param cart  - Cart object with the information about Currency and payment amount
      * @param merchantName                - Merchant name should match name provided in PayU and payment organizations
      * @param posId - PosId used for this payment. To learn more about POS please check
-     *              <a href="http://developers.payu.com/en/overview.html">official documentation</a>.
+     *              <a href="https://developers.payu.com/europe/docs/get-started/set-up-account/management-panel/#management-panel-point-of-sale">official documentation</a>.
      */
     public void requestGooglePayCard(@NonNull Cart cart, @NonNull String posId, @NonNull String merchantName) throws PaymentDataRequestException {
         googlePayHandler.requestGooglePayCard(cart, posId, merchantName, REQUEST_CODE_GOOGLE_PAY_PAYMENT);

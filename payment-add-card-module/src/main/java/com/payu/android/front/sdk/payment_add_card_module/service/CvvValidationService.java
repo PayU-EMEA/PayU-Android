@@ -23,7 +23,7 @@ public class CvvValidationService {
      * @param fragmentManager       - needed for binding view
      * @param authorizationDetails  - AuthorizationDetails with {@linkplain PaymentAuthorization#CVV} authorizationType
      *                              and link obtained from orderCreateRequest(redirectUri field}.
-     *                              Visit <a href=http://developers.payu.com/en/restapi.html#creating_new_order}>Rest Api docs</a> for more
+     *                              Visit <a href="https://developers.payu.com/europe/docs/payment-flows/auth-and-order/#creating-new-order">Rest Api docs</a> for more
      *                              information
      * @param cvvValidationListener - The Listener, which methods would be called with Cvv Payment status {@linkplain CvvPaymentStatus}
      */
