@@ -88,7 +88,7 @@ public class AllOfListedUriMatcherTest {
     @Test(expected = Test.None.class)/*No exception expected*/
     public void shouldNotCrashWhenProvidedMatcherIsNull() {
         // given
-        objectUnderTest = new AllOfListedUriMatcher(null);
+        objectUnderTest = new AllOfListedUriMatcher((UriMatcher[]) null);
 
         // when
         objectUnderTest.matches(sampleUri);

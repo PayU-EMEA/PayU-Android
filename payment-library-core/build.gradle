@@ -12,6 +12,7 @@ project.ext {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation "com.google.guava:guava:$project.guavaVersion"
+    implementation "androidx.annotation:annotation:$project.annotationVersion"
 
     testImplementation "junit:junit:$project.junitVersion"
     testImplementation "org.assertj:assertj-core:$project.assertJsVersion"
