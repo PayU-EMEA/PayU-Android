@@ -1,3 +1,6 @@
+# 1.0.45
+* Updated dependencies
+
 # 1.0.44
 * Added open external application via Universal Link in Webview Module
 * Added new certificate for ssl pinning
