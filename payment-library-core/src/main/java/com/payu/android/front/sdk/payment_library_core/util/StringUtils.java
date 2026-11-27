@@ -1,6 +1,6 @@
 package com.payu.android.front.sdk.payment_library_core.util;
 
-import javax.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 public class StringUtils {
     public static String createCardExpirationString(String month, String year) {

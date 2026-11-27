@@ -7,8 +7,6 @@ import androidx.annotation.NonNull;
 import com.payu.android.front.sdk.payment_library_api_client.internal.rest.request.TokenCreateResponse;
 import com.payu.android.front.sdk.payment_library_payment_methods.model.CardPaymentMethodBuilder;
 
-import org.jetbrains.annotations.NotNull;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -31,7 +29,7 @@ public class RetrofitNewCardCallback implements Callback<TokenCreateResponse> {
     }
 
     @Override
-    public void onResponse(@NotNull Call<TokenCreateResponse> call, Response<TokenCreateResponse> response) {
+    public void onResponse(@NonNull Call<TokenCreateResponse> call, Response<TokenCreateResponse> response) {
         if (response.isSuccessful() && response.body() != null) {
             success(response.body());
         } else {
@@ -40,7 +38,7 @@ public class RetrofitNewCardCallback implements Callback<TokenCreateResponse> {
     }
 
     @Override
-    public void onFailure(@NotNull Call<TokenCreateResponse> call, @NotNull Throwable t) {
+    public void onFailure(@NonNull Call<TokenCreateResponse> call, @NonNull Throwable t) {
         failure();
     }
 

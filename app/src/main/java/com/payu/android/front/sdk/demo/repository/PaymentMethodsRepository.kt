@@ -180,9 +180,9 @@ class PaymentMethodsRepository(private val authRepository: AuthenticationReposit
             payUApi.retrievePaymentMethods(authRepository.accessToken)
                 .map { response ->
                     val list = arrayListOf<PaymentMethod>().apply {
-                        response.payByLinks.forEach { add(it.toPaymentMethod()) }
-                        response.cardTokens?.forEach { add(it.toPaymentMethod()) }
-                        response.pexTokens?.forEach { add(it.toPaymentMethod()) }
+                        addAll(response.payByLinks.map { it.toPaymentMethod() })
+                        addAll(response.cardTokens.orEmpty().map { it.toPaymentMethod() })
+                        addAll(response.pexTokens.orEmpty().map { it.toPaymentMethod() })
                         if (response.blikTokens?.size == 1) {
                             add(response.blikTokens[0].toPaymentMethod())
                         } else {
@@ -201,7 +201,7 @@ class PaymentMethodsRepository(private val authRepository: AuthenticationReposit
             payUApi.retrievePaymentMethods(authRepository.accessToken)
                 .map { response ->
                     val list = arrayListOf<PaymentMethod>().apply {
-                        response.blikTokens?.forEach { add(it.toPaymentMethod()) }
+                        addAll(response.blikTokens.orEmpty().map { it.toPaymentMethod() })
                     }
                     list
                 }

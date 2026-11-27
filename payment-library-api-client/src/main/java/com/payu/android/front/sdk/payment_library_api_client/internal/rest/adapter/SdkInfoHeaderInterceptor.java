@@ -8,8 +8,6 @@ import androidx.annotation.NonNull;
 
 import com.payu.android.front.sdk.payment_library_api_client.BuildConfig;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.io.IOException;
 
 import okhttp3.Interceptor;
@@ -39,7 +37,7 @@ public class SdkInfoHeaderInterceptor implements Interceptor {
         mobileSdkVersionName = BuildConfig.LIBRARY_VERSION_NAME;
     }
 
-    @NotNull
+    @NonNull
     @Override
     public Response intercept(Chain chain) throws IOException {
         Request request = chain.request().newBuilder()

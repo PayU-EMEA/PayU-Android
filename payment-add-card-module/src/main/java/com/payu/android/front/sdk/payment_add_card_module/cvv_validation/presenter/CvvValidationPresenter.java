@@ -11,8 +11,6 @@ import com.payu.android.front.sdk.payment_library_api_client.internal.rest.parse
 import com.payu.android.front.sdk.payment_library_api_client.internal.rest.service.CvvRestService;
 import com.payu.android.front.sdk.payment_library_core_android.base.BasePresenter;
 
-import org.jetbrains.annotations.NotNull;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -55,7 +53,7 @@ public class CvvValidationPresenter extends BasePresenter<CvvValidationView> {
         view.setViewLoading(true);
         cardService.sendCvv(validationLinkParser.getRefReqId(), cvv).enqueue(new Callback<Void>() {
             @Override
-            public void onResponse(@NotNull Call<Void> call, @NotNull Response<Void> response) {
+            public void onResponse(@NonNull Call<Void> call, @NonNull Response<Void> response) {
                 if (response.code() == 202) {
                     notifyView(CvvPaymentStatus.SUCCESS);
                 } else {
@@ -64,7 +62,7 @@ public class CvvValidationPresenter extends BasePresenter<CvvValidationView> {
             }
 
             @Override
-            public void onFailure(@NotNull Call<Void> call, @NotNull Throwable t) {
+            public void onFailure(@NonNull Call<Void> call, @NonNull Throwable t) {
                 notifyView(CvvPaymentStatus.PAYMENT_ERROR);
             }
         });

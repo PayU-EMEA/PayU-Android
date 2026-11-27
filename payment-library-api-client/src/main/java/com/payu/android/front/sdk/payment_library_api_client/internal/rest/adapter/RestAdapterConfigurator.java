@@ -10,8 +10,6 @@ import com.payu.android.front.sdk.payment_library_api_client.internal.rest.clien
 import com.payu.android.front.sdk.payment_library_api_client.internal.rest.client.ssl.SslConfiguration;
 import com.payu.android.front.sdk.payment_library_api_client.internal.rest.environment.RestEnvironment;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.security.KeyStore;
 
 import javax.net.ssl.X509TrustManager;
@@ -71,7 +69,7 @@ public class RestAdapterConfigurator {
         return new AndroidTrustManagerProvider().create(keyStore).orNull();
     }
 
-    @NotNull
+    @NonNull
     private HttpLoggingInterceptor getLoggingInterceptor(@NonNull RestEnvironment environment) {
         HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
         httpLoggingInterceptor.setLevel(environment.getLogLevel());

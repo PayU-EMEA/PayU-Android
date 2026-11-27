@@ -52,7 +52,7 @@ public class AnyOfListedUriMatcherTest {
     @Test(expected = Test.None.class)/*No exception expected*/
     public void shouldNotCrashWhenProvidedMatcherIsNull() {
         // given
-        objectUnderTest = new AnyOfListedUriMatcher(null);
+        objectUnderTest = new AnyOfListedUriMatcher((UriMatcher[]) null);
 
         // when
         objectUnderTest.matches(sampleUri);

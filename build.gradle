@@ -1,7 +1,7 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    ext.kotlin_version = "2.1.21"
+    ext.kotlin_version = "2.4.21"
 
     repositories {
         mavenCentral()
@@ -35,18 +35,17 @@ tasks.register("version") {
 
 project.ext {
     //libraries
-    guavaVersion = "33.4.0-android"
+    guavaVersion = "33.8.0-android"
     appCompatVersion = "1.5.1"
     recyclerViewVersion = "1.3.2"
     annotationVersion = "1.9.1"
     materialVersion = "1.1.0"
     webkitVersion = "1.14.0"
-    espressoVersion = "3.6.1"
     constraintLayoutVersion = "2.2.0"
     glideVersion = "4.16.0"
     architectureComponentsCoreVersion = "2.0.0"
     lifecycleComponentVersion = "2.4.1"
-    gsonVersion = "2.11.0"
+    gsonVersion = "2.15.0"
     retrofit2Version = "2.11.0"
     okhttpLogInterceptorVersion = "4.12.0"
     playServicesVersion = "19.4.0"
@@ -54,15 +53,16 @@ project.ext {
     fragmentVersion = "1.8.5"
     rxJava3 = "3.1.10"
     rxJava3Android = "3.0.2"
-    daggerVersion = "2.55"
+    daggerVersion = "2.60.1"
 
     // testing
-    junitVersion = "4.13.2"
+    assertJsVersion = "3.27.7"
+    espressoVersion = "3.7.0"
+    junitAssertionsVersion = "1.3.0"
     junitDataproviderVersion = "2.10"
-    junitAssertionsVersion = "1.2.1"
-    assertJsVersion = "3.27.3"
-    mockitoVersion = "5.18.0"
-    robolectricVersion = "4.15.1"
+    junitVersion = "4.13.2"
+    mockitoVersion = "5.25.0"
+    robolectricVersion = "4.18.1"
 }
 
 project.ext {
