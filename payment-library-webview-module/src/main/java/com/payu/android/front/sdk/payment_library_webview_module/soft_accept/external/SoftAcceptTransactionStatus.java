@@ -6,7 +6,7 @@ import android.os.Parcelable;
 public enum SoftAcceptTransactionStatus implements Parcelable {
 
 
-    // For details check {@link https://developers.payu.com/pl/3ds_2.html}
+    // For details, see https://developers.payu.com/europe/docs/card-payments/threeds/auth-page/#iframe-handling
     DISPLAY_FRAME,
     AUTHENTICATION_SUCCESSFUL,
     AUTHENTICATION_NOT_REQUIRED,
