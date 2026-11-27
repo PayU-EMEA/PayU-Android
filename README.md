@@ -1,6 +1,6 @@
 # PayU Mobile SDK for Android
 
-Mobile SDK for Android lets buyers pay in your app with pay-by-link, cards, BLIK and Google Pay. The SDK displays the payment methods, tokenizes cards and handles redirects, 3DS and the CVV code. Card data goes directly to PayU and never passes through your server.
+Mobile SDK for Android lets you accept payments in your app with pay-by-link, cards, BLIK and Google Pay. The SDK displays the payment methods, tokenizes cards and handles redirects, 3DS and the CVV code. Card data goes directly to PayU and never passes through your server.
 
 The SDK does not create orders. Your server authenticates with PayU, retrieves payment methods and creates orders, and your app passes the results to the SDK. The server side is the same for Android, iOS and Flutter and is described in the PayU Developer Guide:
 
@@ -59,10 +59,10 @@ allprojects {
 
 | Module | Description |
 |---|---|
-| [`payment-library-chooser-module`](payment-library-chooser-module/README.md) | Displays a widget in which the buyer selects a payment method: pay-by-link, card, Google Pay or BLIK. It includes the add card form. |
+| [`payment-library-chooser-module`](payment-library-chooser-module/README.md) | Displays a widget in which the payer selects a payment method: pay-by-link, card, Google Pay or BLIK. It includes the add card form. |
 | [`payment-add-card-module`](payment-add-card-module/README.md) | Provides the card form and tokenizes the card in PayU. It also displays the CVV view when the order response requires the CVV code. |
-| [`payment-library-webview-module`](payment-library-webview-module/README.md) | Handles pay-by-link, PEX (Pay By External) and 3DS payments in a WebView, so the buyer does not leave your app. Includes 3DS Soft Accept. |
-| [`payment-library-card-scanner`](payment-library-card-scanner/README.md) | Lets the buyer scan the card with the device camera. |
+| [`payment-library-webview-module`](payment-library-webview-module/README.md) | Handles pay-by-link, PEX (Pay By External) and 3DS payments in a WebView, so the payer does not leave your app. Includes 3DS Soft Accept. |
+| [`payment-library-card-scanner`](payment-library-card-scanner/README.md) | Lets the payer scan the card with the device camera. |
 | [`payment-library-google-pay-module`](payment-library-google-pay-module/README.md) | Creates the Google Pay token that you pass to PayU in the order. |
 | [`payment-library-google-pay-adapter`](payment-library-google-pay-adapter/README.md) | Adds Google Pay to the payment methods displayed by `payment-library-chooser-module`. |
 

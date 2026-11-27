@@ -2,18 +2,18 @@
 
 This module is part of [PayU Mobile SDK for Android](../README.md). For the requirements, installation and the server side of the integration, see the [main README](../README.md).
 
-`payment-add-card-module` lets the buyer enter card details and tokenizes the card in PayU. It also handles the `WARNING_CONTINUE_CVV` status after you create the order. If you use `payment-library-chooser-module`, this module is already included.
+`payment-add-card-module` lets the payer enter card details and tokenizes the card in PayU. It also handles the `WARNING_CONTINUE_CVV` status after you create the order. If you use `payment-library-chooser-module`, this module is already included.
 
-Before you start, make sure card tokenization is enabled on your POS. To display the buyer's saved cards, your server also needs `grant_type=trusted_merchant`.
+Before you start, make sure card tokenization is enabled on your POS. To display the payer's saved cards, your server also needs `grant_type=trusted_merchant`.
 
 ![Add card flow](../docs/images/add_card_flow.PNG)
 
-1. **Add Product to cart** – the buyer adds a product to the cart.
-2. **Add Card** – the buyer selects "add card" on the checkout screen.
+1. **Add Product to cart** – the payer adds a product to the cart.
+2. **Add Card** – the payer selects "add card" on the checkout screen.
 3. **Add Card** – your app opens the view with the add card module.
 4. **Request add new Card** – the SDK sends the card to PayU for tokenization.
 5. **Return Card token** – the SDK returns the card token to your app.
-6. **Checkout/Payment Process** – the buyer finishes the checkout in your app.
+6. **Checkout/Payment Process** – the payer finishes the checkout in your app.
 7. **Checkout/Payment Process** – your server creates the order.
 
 ![Add card screen](../docs/images/mobile_addcard_screen.png)
@@ -52,7 +52,7 @@ Add a button that calls `CardServiceTokenizer#addCard(String posId, TokenType ty
 
 - `SINGLE` – the card is not saved. The token is valid for 11 minutes.
 - `SINGLE_LONGTERM` – the card is not saved.
-- `MULTI` – the card is saved. After the first payment, the card appears in the buyer's [payment methods](https://developers.payu.com/europe/docs/checkout/payment-methods-retrieve/).
+- `MULTI` – the card is saved. After the first payment, the card appears in the payer's [payment methods](https://developers.payu.com/europe/docs/checkout/payment-methods-retrieve/).
 
 Provide a callback when you create the instance:
 
@@ -120,7 +120,7 @@ With this key set, the static card options in `payu.xml` (adding, saving and sca
 
 ## Handling CVV
 
-The `WARNING_CONTINUE_CVV` status in the order response means that the buyer must enter the CVV code. If the buyer does not enter it, the payment is canceled.
+The `WARNING_CONTINUE_CVV` status in the order response means that the payer must enter the CVV code. If the payer does not enter it, the payment is canceled.
 
 ```json
 {
@@ -133,7 +133,7 @@ The `WARNING_CONTINUE_CVV` status in the order response means that the buyer mus
 }
 ```
 
-To ask the buyer for the CVV code, call `CvvValidationService.validateCvv()` with the `redirectUri` from the order response:
+To ask the payer for the CVV code, call `CvvValidationService.validateCvv()` with the `redirectUri` from the order response:
 
 ```java
 CvvValidationService.validateCvv(activity,
@@ -153,6 +153,6 @@ Possible statuses (`CvvPaymentStatus`):
 
 - `SUCCESS` – the CVV code was accepted. Wait for the final payment status in the [notification](https://developers.payu.com/europe/docs/payment-flows/lifecycle/#notifications) sent to your server.
 - `PAYMENT_ERROR` – the transaction failed (for example, a timeout).
-- `CANCEL_PAYMENT` – the buyer canceled the transaction.
+- `CANCEL_PAYMENT` – the payer canceled the transaction.
 
 ![CVV dialog](../docs/images/add_card_cvv.png)

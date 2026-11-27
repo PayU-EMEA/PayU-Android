@@ -2,13 +2,13 @@
 
 This module is part of [PayU Mobile SDK for Android](../README.md). For the requirements, installation and the server side of the integration, see the [main README](../README.md).
 
-`payment-library-chooser-module` displays the payment methods available to the buyer and returns the method the buyer selects. It includes `payment-add-card-module`, so the buyer can also add a new card. To let the buyer scan the card with the camera, add [`payment-library-card-scanner`](../payment-library-card-scanner/README.md).
+`payment-library-chooser-module` displays the payment methods available to the payer and returns the method the payer selects. It includes `payment-add-card-module`, so the payer can also add a new card. To let the payer scan the card with the camera, add [`payment-library-card-scanner`](../payment-library-card-scanner/README.md).
 
 Before you start, make sure your server can [retrieve payment methods](https://developers.payu.com/europe/docs/checkout/payment-methods-retrieve/) from PayU.
 
 ![Payment method chooser flow](../docs/images/payment-library-chooser-module-flow.png)
 
-1. **Add Product to cart** – the buyer adds a product to the cart.
+1. **Add Product to cart** – the payer adds a product to the cart.
 2. **Request Pay Methods** – the app requests the payment methods from your server.
 3. **OAuth Request** – your server requests an OAuth token from PayU.
 4. **OAuth Response** – PayU returns the token.
@@ -17,7 +17,7 @@ Before you start, make sure your server can [retrieve payment methods](https://d
 7. **Payment Method** – the SDK displays the payment methods in your app.
 8. **Request add new Card** – the SDK sends the new card to PayU for tokenization.
 9. **Response add new Card** – PayU returns the card token.
-10. **Select Payment Method** – the buyer selects a payment method in the SDK.
+10. **Select Payment Method** – the payer selects a payment method in the SDK.
 11. **Selected Payment Method** – the SDK returns the selected method to your app.
 12. **Checkout/Payment Process** – your server creates the order.
 
@@ -59,7 +59,7 @@ public class PaymentMethodsActionsImpl extends PaymentMethodActions {
 The SDK displays the payment methods that your server retrieved from PayU. To pass them to the SDK, extend the `PaymentMethodActions` class and set its name in the `payu_payment_methods_fully_qualified_name` key. The class has two main methods:
 
 - `providePaymentMethods(PaymentMethodsCallback callback)` – the SDK calls it whenever it needs payment methods. Retrieve them from your server and call `callback.onFetched(List<PaymentMethod> paymentMethods)`. Pass the PayU response as-is, without filtering it.
-- `onPaymentMethodRemoved(PaymentMethod paymentMethod)` – the SDK calls it when the buyer removes a payment method. See [Removing a Payment Method](#removing-a-payment-method).
+- `onPaymentMethodRemoved(PaymentMethod paymentMethod)` – the SDK calls it when the payer removes a payment method. See [Removing a Payment Method](#removing-a-payment-method).
 
 Create the payment methods with the builders of the `PaymentMethodCreator` class: `pblBuilder()` for pay-by-link methods and `cardBuilder()` for cards.
 
@@ -105,7 +105,7 @@ public class DemoMethodsActions extends PaymentMethodActions {
 
 ## Removing a Payment Method
 
-The buyer can remove a payment method by long-pressing it or swiping it. The SDK then calls `onPaymentMethodRemoved(PaymentMethod paymentMethod)`. The method is called only for cards (`CardPaymentMethod`) – delete the card token on your server with the [delete token](https://developers.payu.com/europe/docs/payment-solutions/cards/tokenization/retrieve-and-delete-token/#token-delete) request. Other payment methods are removed only locally (if possible) and are restored when the app restarts.
+The payer can remove a payment method by long-pressing it or swiping it. The SDK then calls `onPaymentMethodRemoved(PaymentMethod paymentMethod)`. The method is called only for cards (`CardPaymentMethod`) – delete the card token on your server with the [delete token](https://developers.payu.com/europe/docs/payment-solutions/cards/tokenization/retrieve-and-delete-token/#token-delete) request. Other payment methods are removed only locally (if possible) and are restored when the app restarts.
 
 ## Getting the Selected Method
 
@@ -121,14 +121,14 @@ To display BLIK, set the `payu_blik_payment` key to `true` in `payu.xml` (the de
 
 With this key set to `true`, the SDK does not filter out BLIK payment methods. BLIK is displayed on the payment method selection screen (`PaymentMethodActivity`).
 
-If the retrieved payment methods do not include any BLIK token, the SDK adds a generic BLIK item above the cards. After selecting it, the buyer enters the 6-digit code from the bank app. If the retrieved payment methods include a BLIK token, the buyer does not have to enter the code.
+If the retrieved payment methods do not include any BLIK token, the SDK adds a generic BLIK item above the cards. After selecting it, the payer enters the 6-digit code from the bank app. If the retrieved payment methods include a BLIK token, the payer does not have to enter the code.
 
 ```java
 // Builder for a BLIK payment method
 PaymentMethodCreator.blikPaymentBuilder();
 ```
 
-To handle the BLIK method selected by the buyer, check the payment type:
+To handle the BLIK method selected by the payer, check the payment type:
 
 ```java
 PaymentMethod paymentMethod = paymentChooserWidget.getPaymentMethod().getValue();
@@ -156,20 +156,20 @@ if (paymentMethod != null) {
 }
 ```
 
-- `BLIK_GENERIC` – the buyer has no saved BLIK token, so the buyer must enter the 6-digit code.
-- `BLIK_TOKENS` – the buyer has a saved BLIK token (returned in the retrieved payment methods). The buyer can pay with the token or enter a new code.
+- `BLIK_GENERIC` – the payer has no saved BLIK token, so the payer must enter the 6-digit code.
+- `BLIK_TOKENS` – the payer has a saved BLIK token (returned in the retrieved payment methods). The payer can pay with the token or enter a new code.
 
 `PaymentChooserWidget` provides the following methods for BLIK:
 
-- `boolean isBlikAuthorizationCodeNeeded()` – whether the buyer must enter the BLIK code.
-- `String getBlikAuthorizationCode()` – the code entered by the buyer, or `null`.
-- `boolean isBlikAuthorizationCodeProvided()` – whether the buyer entered the full 6-digit code.
+- `boolean isBlikAuthorizationCodeNeeded()` – whether the payer must enter the BLIK code.
+- `String getBlikAuthorizationCode()` – the code entered by the payer, or `null`.
+- `boolean isBlikAuthorizationCodeProvided()` – whether the payer entered the full 6-digit code.
 
 Pass the BLIK code or token to your server, which includes it in the [order](https://developers.payu.com/europe/docs/payment-solutions/blik/integration/).
 
 ### Selecting a Bank App for a BLIK Token
 
-If the buyer has more than one bank app linked to the BLIK token, the order response contains the `AUTH_TOKEN_NONUNIQUE` status with the list of bank apps. To let the buyer select one:
+If the payer has more than one bank app linked to the BLIK token, the order response contains the `AUTH_TOKEN_NONUNIQUE` status with the list of bank apps. To let the payer select one:
 
 1. Implement `provideBlikPaymentMethods()` from the `PaymentMethodActions` class and pass it the bank apps from the order response:
 
@@ -210,7 +210,7 @@ If the buyer has more than one bank app linked to the BLIK token, the order resp
 
 ## Widget
 
-To place the payment method widget in your layout, add `PaymentChooserWidget`. The widget changes its state depending on whether the buyer has selected a payment method.
+To place the payment method widget in your layout, add `PaymentChooserWidget`. The widget changes its state depending on whether the payer has selected a payment method.
 
 ```xml
 <com.payu.android.front.sdk.payment_library_payment_chooser.payment_method.external.widget.PaymentChooserWidget

@@ -42,8 +42,8 @@ Possible statuses (`GooglePayVerificationStatus`):
 
 - `SUCCESS` – Google Pay is available.
 - `ERROR_API_VERSION` – the Android version is too low.
-- `ERROR_GOOGLE_PLAY_SERVICES_VERSION` – the Google Play services version is too low; the buyer must update it.
-- `ERROR_GOOGLE_PLAY_SERVICES_UNAVAILABLE` – Google Play services are not available; the buyer must install them.
+- `ERROR_GOOGLE_PLAY_SERVICES_VERSION` – the Google Play services version is too low; the user must update it.
+- `ERROR_GOOGLE_PLAY_SERVICES_UNAVAILABLE` – Google Play services are not available; the user must install them.
 - `ERROR_UNKNOWN` – an unknown error prevents the Google Pay payment.
 
 For the device requirements, see the [Google Pay documentation](https://developers.google.com/pay/api/android/overview).
@@ -75,8 +75,8 @@ The result is passed to `Activity#onActivityResult()` with the `GooglePayService
 
 | resultCode | Description |
 |---|---|
-| `Activity.RESULT_OK` | The buyer selected a card. Pass the intent to `GooglePayService#handleGooglePayResultData`. |
-| `Activity.RESULT_CANCELED` | The buyer canceled the Google Pay payment. |
+| `Activity.RESULT_OK` | The payer selected a card. Pass the intent to `GooglePayService#handleGooglePayResultData`. |
+| `Activity.RESULT_CANCELED` | The payer canceled the Google Pay payment. |
 | `GooglePayService.RESULT_ERROR` | An error occurred. Get the details with `GooglePayService#handleGooglePayErrorStatus`. |
 
 ```java
@@ -84,7 +84,7 @@ if (requestCode == GooglePayService.REQUEST_CODE_GOOGLE_PAY_PAYMENT) {
     if (resultCode == Activity.RESULT_OK) {
         GooglePayTokenResponse googlePayTokenResponse = googlePayService.handleGooglePayResultData(data);
     } else if (resultCode == Activity.RESULT_CANCELED) {
-        // The buyer canceled the payment.
+        // The payer canceled the payment.
     } else if (resultCode == GooglePayService.RESULT_ERROR) {
         ErrorStatus status = googlePayService.handleGooglePayErrorStatus(data);
     }
